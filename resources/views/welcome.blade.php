@@ -83,10 +83,9 @@
                 <div class="title m-b-md">
                     click and collect
                 </div>
-
                 <div class="links">
                 <button type="button" class="btn btn-info">
-                <a href="/package/create" style="color:white; font-weight: bold;">obtenir une quotation</a>
+                <a href="/check" style="color:white; font-weight: bold;">obtenir une quotation</a>
                 </button>
                     <button class="btn btn-info">
                       <a href="/home" style="color:white; font-weight: bold;">demander un pick up</a>

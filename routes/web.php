@@ -47,9 +47,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //route qui permet d'afficher la route qui méne vers le formulaire de package or envelop
-Route::post('/package', 'PackageorenvelopController@store')->name('package.store');
+Route::post('/package', 'PackageController@store')->name('package.store');
 
-//cette route c pr la creation d'un package or envelop cette route nous donne le formulaire
-Route::get('/package/create', 'PackageorenvelopController@create')->name('package.create');
+//cette route c pr la creation d'un package apres demande de quotation.
+Route::get('/package/create', 'PackageController@create')->name('package.create');
 
 

@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 use App\Packageorenvelop;
 use Illuminate\Http\Request;
 
-class PackageorenvelopController extends Controller
+class PackageController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function create(){
 
         return view('/package/create');
@@ -28,7 +34,8 @@ class PackageorenvelopController extends Controller
       
     $pack::create($request->all());
        
-       return  redirect('/');
+       return  "votre requete a ete bien prise en compte";
+       redirect('/');
 
  
 

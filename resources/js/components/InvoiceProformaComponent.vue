@@ -21,7 +21,7 @@
                 <a href="/package/create" style="color:white; font-weight: bold;">DEMANDER UN PICK UP</a>
             </button>
             <button type="submit" style="background-color:rgb(233, 154, 60); border:none; width:300px; height:35px;">
-                <a href="/fileemail" style="color:white; font-weight: bold;">RECEVOIR PAR EMAIL</a>
+                <a href="/fillemail" style="color:white; font-weight: bold;">RECEVOIR PAR EMAIL</a>
                 
             </button>
         </div>

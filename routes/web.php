@@ -37,8 +37,8 @@ Route::get('/invoiceproforma', function () {
 });
 
 //route d'affichage des donnees de la proforma et des deux bouttons recevoir par email et pick up
-Route::get('/fileemail', function () {
-    return view('fileemail');
+Route::get('/fillemail', function () {
+    return view('fillemail');
 });
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Packageorenvelop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PackageController extends Controller
 {
@@ -12,8 +13,9 @@ class PackageController extends Controller
         $this->middleware('auth');
     }
     
-    public function create(){
-
+    public function create() 
+    {
+        //dd(Auth::user());
         return view('/package/create');
 
     }

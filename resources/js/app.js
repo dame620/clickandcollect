@@ -34,7 +34,10 @@ Vue.component('invoice-component', require('./components/InvoiceProformaComponen
 
 //ce component est destiné au foemulaire qui demande de renseigner son email lorsqu'on demande
 //demande qu'on nous envoi notre cotation par email
-Vue.component('fileemail-component', require('./components/FileemailComponent.vue').default);
+Vue.component('fillemail-component', require('./components/FillemailComponent.vue').default);
+
+//formulaire de demande de pickup after quotation
+Vue.component('pickpackafterquote-component', require('./components/pick_package_after_quote.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

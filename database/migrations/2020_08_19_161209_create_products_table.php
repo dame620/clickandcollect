@@ -21,7 +21,6 @@ class CreateProductsTable extends Migration
             $table->string('description')->nullable();
             $table->string('product_type')->nullable();
             $table->timestamps();
-
             $table->index('packageorenvelop_id');
         });
     }

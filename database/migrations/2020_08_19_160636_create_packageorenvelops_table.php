@@ -17,6 +17,7 @@ class CreatePackageorenvelopsTable extends Migration
             $table->id();
             $table->string('type')->nullable();
             $table->string('length')->nullable();
+            $table->string('height')->nullable();
             $table->string('width')->nullable();
             $table->string('weight')->nullable();
             $table->string('taxable_weight')->nullable();

@@ -2327,9 +2327,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
+    var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    this.token_value = token;
   },
   data: function data() {
     return {
@@ -2342,7 +2347,8 @@ __webpack_require__.r(__webpack_exports__);
       weightval: localStorage.getItem("weightsvalue"),
       widthtval: localStorage.getItem("widthsvalue"),
       lengthval: localStorage.getItem("lengthsvalue"),
-      heightval: localStorage.getItem("heightsvalue")
+      heightval: localStorage.getItem("heightsvalue"),
+      token_value: ''
     };
   },
   methods: {
@@ -39768,216 +39774,226 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      { staticClass: "card" },
-      [
-        _c(
-          "h4",
-          {
-            staticClass: "card_header",
-            staticStyle: { "margin-bottom": "30px" }
-          },
-          [_vm._v("PAQUETS")]
-        ),
-        _vm._v(" "),
-        _vm._l(_vm.containts, function(contain, index) {
-          return _c("div", { key: index, staticClass: "card_body" }, [
-            _c(
-              "div",
-              {
-                staticClass: "card_body_head",
-                staticStyle: { display: "flex" }
-              },
-              [
-                _c("h6", { staticClass: "card_body_head_title" }, [
-                  _vm._v("PAQUET:" + _vm._s(index + 1))
+    _c("form", { attrs: { action: "/package", method: "Post" } }, [
+      _c("input", {
+        attrs: { name: "_token", type: "hidden" },
+        domProps: { value: _vm.token_value }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card" },
+        [
+          _c(
+            "h4",
+            {
+              staticClass: "card_header",
+              staticStyle: { "margin-bottom": "30px" }
+            },
+            [_vm._v("PAQUETS")]
+          ),
+          _vm._v(" "),
+          _vm._l(_vm.containts, function(contain, index) {
+            return _c("div", { key: index, staticClass: "card_body" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card_body_head",
+                  staticStyle: { display: "flex" }
+                },
+                [
+                  _c("h6", { staticClass: "card_body_head_title" }, [
+                    _vm._v("PAQUET:" + _vm._s(index + 1))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card_body_head_containt",
+                      staticStyle: { "margin-left": "250px" }
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn",
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteContaintForm(index)
+                            }
+                          }
+                        },
+                        [_vm._v("-")]
+                      ),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("PAQUET")]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn",
+                          on: { click: _vm.addNewContaintForm }
+                        },
+                        [_vm._v("+")]
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "employee-form" }, [
+                _c("div", { staticClass: "form-row" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-group col-md-6",
+                      staticStyle: { "margin-bottom": "20px" }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.lengthval,
+                            expression: "lengthval"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        staticStyle: { "margin-bottom": "10px" },
+                        attrs: {
+                          type: "text",
+                          id: "in_length",
+                          placeholder: "longueur cm",
+                          name: "length"
+                        },
+                        domProps: { value: _vm.lengthval },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.lengthval = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.heightval,
+                            expression: "heightval"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        staticStyle: { "margin-bottom": "10px" },
+                        attrs: {
+                          type: "text",
+                          id: "in_height",
+                          placeholder: "hauteur cm",
+                          name: "height"
+                        },
+                        domProps: { value: _vm.heightval },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.heightval = $event.target.value
+                          }
+                        }
+                      })
+                    ]
+                  )
                 ]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "card_body_head_containt",
-                    staticStyle: { "margin-left": "250px" }
-                  },
-                  [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn",
+                _c("div", { staticClass: "form-row" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-group col-md-6",
+                      staticStyle: { "margin-bottom": "20px" }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.widthtval,
+                            expression: "widthtval"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        staticStyle: { "margin-bottom": "10px" },
+                        attrs: {
+                          type: "text",
+                          id: "in_width",
+                          placeholder: "largeur cm",
+                          name: "width"
+                        },
+                        domProps: { value: _vm.widthtval },
                         on: {
-                          click: function($event) {
-                            return _vm.deleteContaintForm(index)
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.widthtval = $event.target.value
                           }
                         }
-                      },
-                      [_vm._v("-")]
-                    ),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("PAQUET")]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn",
-                        on: { click: _vm.addNewContaintForm }
-                      },
-                      [_vm._v("+")]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "employee-form" }, [
-              _c("div", { staticClass: "form-row" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "form-group col-md-6",
-                    staticStyle: { "margin-bottom": "20px" }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.lengthval,
-                          expression: "lengthval"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      staticStyle: { "margin-bottom": "10px" },
-                      attrs: {
-                        type: "text",
-                        id: "in_length",
-                        placeholder: "longueur cm"
-                      },
-                      domProps: { value: _vm.lengthval },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.weightval,
+                            expression: "weightval"
                           }
-                          _vm.lengthval = $event.target.value
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.heightval,
-                          expression: "heightval"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      staticStyle: { "margin-bottom": "10px" },
-                      attrs: {
-                        type: "text",
-                        id: "in_height",
-                        placeholder: "hauteur cm"
-                      },
-                      domProps: { value: _vm.heightval },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        ],
+                        staticClass: "form-control",
+                        staticStyle: { "margin-bottom": "10px" },
+                        attrs: {
+                          type: "text",
+                          id: "in_weight",
+                          placeholder: "poids kg",
+                          name: "weight"
+                        },
+                        domProps: { value: _vm.weightval },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.weightval = $event.target.value
                           }
-                          _vm.heightval = $event.target.value
                         }
-                      }
-                    })
-                  ]
-                )
+                      })
+                    ]
+                  )
+                ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-row" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "form-group col-md-6",
-                    staticStyle: { "margin-bottom": "20px" }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.widthtval,
-                          expression: "widthtval"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      staticStyle: { "margin-bottom": "10px" },
-                      attrs: {
-                        type: "text",
-                        id: "in_width",
-                        placeholder: "largeur cm"
-                      },
-                      domProps: { value: _vm.widthtval },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.widthtval = $event.target.value
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.weightval,
-                          expression: "weightval"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      staticStyle: { "margin-bottom": "10px" },
-                      attrs: {
-                        type: "text",
-                        id: "in_weight",
-                        placeholder: "poids kg"
-                      },
-                      domProps: { value: _vm.weightval },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.weightval = $event.target.value
-                        }
-                      }
-                    })
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("hr", { staticStyle: { "font-weight": "bold" } })
-          ])
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-success",
-            staticStyle: { width: "200px" },
-            attrs: { type: "submit" },
-            on: { click: _vm.onpassvalues }
-          },
-          [_vm._v("suivant→")]
-        )
-      ],
-      2
-    )
+              _c("hr", { staticStyle: { "font-weight": "bold" } })
+            ])
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success",
+              staticStyle: { width: "200px" },
+              attrs: { type: "submit" }
+            },
+            [_vm._v("suivant→")]
+          )
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = []

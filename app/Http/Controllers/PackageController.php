@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Product;
 use App\Packageorenvelop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class PackageController extends Controller
         return view('/package/create');
 
     }
-    public function store(Request $request,  Packageorenvelop $pack){
+    public function store(Request $request,  Packageorenvelop $pack, Product $product){
        
         /*
         $data = request()->validate([
@@ -31,10 +32,11 @@ class PackageController extends Controller
         \App\Packageorenvelop::create($data);
     */
     
-    // dd($request->all());
+    //dd($request->get('height'));
+   // $product->create()
    
-      
-    $pack::create($request->all());
+   $producs = $pack->products();
+    $pack->create($request->all(), compact('products'));
        
        return  "votre requete a ete bien prise en compte";
        redirect('/');

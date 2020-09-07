@@ -1,5 +1,7 @@
 <template>
     <div class="container">
+        <form action="/package" method="Post">
+        <input  name="_token" type="hidden" :value="token_value">
         <div class="card">
             <h4 class="card_header" style="margin-bottom:30px;">PAQUETS</h4>
                 <div class="card_body" v-for="(contain,index) in containts" :key="index">
@@ -14,21 +16,22 @@
                     <div class="employee-form">
                         <div class="form-row">
                             <div class="form-group col-md-6" style="margin-bottom:20px;">
-                                <input type="text" id="in_length" class="form-control" placeholder="longueur cm" style="margin-bottom:10px;" v-model="lengthval">
-                                <input type="text" id="in_height"  class="form-control" placeholder="hauteur cm" style="margin-bottom:10px;" v-model="heightval">
+                                <input type="text" id="in_length" class="form-control" placeholder="longueur cm" name="length" style="margin-bottom:10px;" v-model="lengthval">
+                                <input type="text" id="in_height"  class="form-control" placeholder="hauteur cm" name="height" style="margin-bottom:10px;" v-model="heightval">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6" style="margin-bottom:20px;">
-                                <input type="text" id="in_width" class="form-control" placeholder="largeur cm" style="margin-bottom:10px;" v-model="widthtval">
-                                <input type="text" id="in_weight" class="form-control" placeholder="poids kg" style="margin-bottom:10px;" v-model="weightval">
+                                <input type="text" id="in_width" class="form-control" placeholder="largeur cm" name="width" style="margin-bottom:10px;" v-model="widthtval">
+                                <input type="text" id="in_weight" class="form-control" placeholder="poids kg" name="weight" style="margin-bottom:10px;" v-model="weightval">
                             </div>
                         </div>
                     </div>
                     <hr style="font-weight: bold;">
                 </div>
-                <button type="submit" class="btn btn-success" style="width:200px;" @click="onpassvalues">suivant&rarr;</button>
+                <button type="submit" class="btn btn-success" style="width:200px;">suivant&rarr;</button>
         </div>
+        </form>
     </div>
 </template>
 
@@ -36,7 +39,11 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+
+            const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            this.token_value = token;
         },
+
 
         data() {
             return{
@@ -50,12 +57,13 @@
 
                 ],
 
-                 weightval : localStorage.getItem("weightsvalue"),
-                 widthtval : localStorage.getItem("widthsvalue"),
-                 lengthval : localStorage.getItem("lengthsvalue"),
-                 heightval : localStorage.getItem("heightsvalue"),
+                weightval : localStorage.getItem("weightsvalue"),
+                widthtval : localStorage.getItem("widthsvalue"),
+                lengthval : localStorage.getItem("lengthsvalue"),
+                heightval : localStorage.getItem("heightsvalue"),
+                token_value: ''
                  
-        }
+            }
         },
 
          methods:{

@@ -37,7 +37,7 @@ Vue.component('invoice-component', require('./components/InvoiceProformaComponen
 Vue.component('fillemail-component', require('./components/FillemailComponent.vue').default);
 
 //formulaire de demande de pickup after quotation
-Vue.component('pickpackafterquote-component', require('./components/pick_package_after_quote.vue').default);
+Vue.component('package-form', require('./components/pick_package_after_quote.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

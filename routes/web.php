@@ -52,4 +52,6 @@ Route::post('/package', 'PackageController@store')->name('package.store');
 //cette route c pr la creation d'un package apres demande de quotation.
 Route::get('/package/create', 'PackageController@create')->name('package.create');
 
+//route qui nous permet d'afficher le profil de chaque utilisateur
+Route::get('/mon-compte', 'ProfilController@show')->name('profil.show');
 

@@ -36,7 +36,7 @@ class RegisterController extends Controller
         if (session('url.intended')) {
             return session('url.intended');
         }
-        return '/home';
+        return '/mon-compte';
     }
 
     /**

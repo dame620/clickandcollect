@@ -2,9 +2,10 @@
 
 namespace App;
 
+use App\Packageorenvelop;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -27,6 +28,32 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function profil(){
+
+        return $this->hasOne(Profil::class);
+        
+    }
+
+    public function packageorenvelops(){
+
+        return $this->hasMany(Packageorenvelop::class);
+        
+    }
+
+    protected static function boot(){
+ 
+        parent::boot();
+    
+        //ce created is an event
+        static::created(function ($user){
+            $user->profil()->create([
+                'title'=>$user->name,
+            ]); 
+    
+        });
+    
+    }
 
     /**
      * The attributes that should be cast to native types.

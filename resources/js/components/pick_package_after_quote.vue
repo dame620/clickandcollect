@@ -1,105 +1,221 @@
 <template>
-    <div class="container">
-        <form action="/package" method="Post">
-        <input  name="_token" type="hidden" :value="token_value">
-        <div class="card">
-            <h4 class="card_header" style="margin-bottom:30px;">PAQUETS</h4>
-                <div class="card_body" v-for="(contain,index) in containts" :key="index">
-                    <div class="card_body_head" style="display:flex;">
-                        <h6 class="card_body_head_title">PAQUET:{{ index+1 }}</h6>
-                        <div class="card_body_head_containt" style="margin-left:250px;">
-                            <button class="btn" @click="deleteContaintForm(index)">-</button>
-                            <span>PAQUET</span>
-                            <button class="btn" @click="addNewContaintForm">+</button>
-                        </div>
-                    </div>
-                    <div class="employee-form">
-                        <div class="form-row">
-                            <div class="form-group col-md-6" style="margin-bottom:20px;">
-                                <input type="text" id="in_length" class="form-control" placeholder="longueur cm" name="length" style="margin-bottom:10px;" v-model="lengthval">
-                                <input type="text" id="in_height"  class="form-control" placeholder="hauteur cm" name="height" style="margin-bottom:10px;" v-model="heightval">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6" style="margin-bottom:20px;">
-                                <input type="text" id="in_width" class="form-control" placeholder="largeur cm" name="width" style="margin-bottom:10px;" v-model="widthtval">
-                                <input type="text" id="in_weight" class="form-control" placeholder="poids kg" name="weight" style="margin-bottom:10px;" v-model="weightval">
-                            </div>
-                        </div>
-                    </div>
-                    <hr style="font-weight: bold;">
-                </div>
-                <button type="submit" class="btn btn-success" style="width:200px;">suivant&rarr;</button>
+    <form @submit.prevent="onSubmitPackageForm" ref="packageForm">
+
+        <div class="products-counter">
+            <span>{{ wrappers_count }} paquet{{ wrappers_count > 1 ? 's' : '' }}</span>
+            <div>
+                <button type="button" @click.prevent="decrementWrapper" class="btn btn-primary">-</button>
+                <button type="button" @click.prevent="incrementWrapper" class="btn btn-primary">+</button>
+            </div>
         </div>
-        </form>
-    </div>
+
+        <div class="packages-section" v-for="(wrapper, wrapper_index) in wrappers" :key="wrapper_index">
+            <button class="packages-section-closer" type="button" @click.prevent="onClosePackage(wrapper_index)">
+                <i class="fa fa-times"></i>
+            </button>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="width">Largeur (cm)</label>
+                        <input type="number" name="width" id="width" class="form-control" v-model="wrapper.width" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="length">Longueur (cm)</label>
+                        <input type="number" name="length" id="length" class="form-control" v-model="wrapper.length" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="height">Hauteur (cm)</label>
+                        <input type="number" name="height" id="height" class="form-control" v-model="wrapper.height" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Poids (kg)</label>
+                        <input type="number" name="weight" id="weight" class="form-control" v-model="wrapper.weight" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-counter">
+                <span>{{ wrapper.products.length }}  produit{{ wrapper.products.length > 1 ? 's' : '' }}</span>
+                <div>
+                    <button type="button" @click.prevent="decrementProduct(wrapper_index)" class="btn btn-primary">-</button>
+                    <button type="button" @click.prevent="incrementProduct(wrapper_index)" class="btn btn-primary">+</button>
+                </div>
+            </div>
+
+            <div class="form-group" v-for="(product, product_index) in wrapper.products" :key="product_index">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">NATURE DU PRODUIT</label>
+                            <input type="text" name="product_type" v-model="product.product_type" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Quantité</label>
+                            <input type="number" name="quantity" v-model="product.quantity" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">PRIX UNITAIRE</label>
+                            <input type="number" name="unitprice" v-model="product.unit_price" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">DESCRIPTION</label>
+                            <input type="number" name="description" v-model="product.description" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">
+                Enregistrer
+            </button>
+        </div>
+    </form>
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
-
-            const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            this.token_value = token;
-        },
-
-
+        props: ['path'],
         data() {
-            return{
-                containts:[
-                    {
-                        height:'',
-                        width:'',
-                        length:'',
-                        weight:'',
-                    }
-
-                ],
-
-                weightval : localStorage.getItem("weightsvalue"),
-                widthtval : localStorage.getItem("widthsvalue"),
-                lengthval : localStorage.getItem("lengthsvalue"),
-                heightval : localStorage.getItem("heightsvalue"),
-                token_value: ''
-                 
+            return {
+                wrappers: [{
+                    width: null,
+                    height: null,
+                    length: null,
+                    weight: null,
+                    products: []
+                }],
+                loading: false,
             }
         },
-
-         methods:{
-             addNewContaintForm(){
-                 this.containts.push({
-                        height:'',
-                        width:'',
-                        length:'',
-                        weight:'',
-
-                 })
-             },
-             deleteContaintForm(index){
-                this.containts.splice(index, 1)
-             },
-
-              onpassvalues(){
-                  
-                  /*
-                  var weights = document.getElementById("in_weight").value;
-                  var lengths = document.getElementById("in_length").value;
-                  var widths = document.getElementById("in_width").value;
-                  var heights= document.getElementById("in_height").value;
-
-                  localStorage.setItem("weightsvalue", weights);
-                  localStorage.setItem("widthsvalue", widths);
-                  localStorage.setItem("lengthsvalue", lengths);
-                  localStorage.setItem("heightsvalue", heights);
-                  */
-
-                  return window.location.href="/invoiceproforma";
-                  
-             },
-            
+        computed: {
+            wrappers_count() {
+                return this.wrappers.length;
+            },
         },
+        methods: {
+            onClosePackage(wrapper_index) {
+                this.wrappers.splice(wrapper_index, 1);
+            },
+            resetForm() {
+                this.wrappers = this.wrappers
+            },
+            incrementWrapper() {
+                this.wrappers.push({
+                    width: null,
+                    height: null,
+                    length: null,
+                    weight: null,
+                    products: []
+                })
+            },
+            decrementWrapper() {
+                if (this.wrappers.length > 1) {
+                    this.wrappers.pop();
+                }
+            },
+            incrementProduct(wrapper_index) {
+                this.wrappers[wrapper_index].products.push({
+                    product_type: null,
+                    quantity: null,
+                    description: null,
+                    unit_price: null,
+                });
+            },
+            decrementProduct(wrapper_index) {
+                if (this.wrappers[wrapper_index].products.length > 1) {
+                    this.wrappers[wrapper_index].products.pop();
+                }
+            },
+            onSubmitPackageForm() {
+                this.loading = true;
 
+                axios.post(this.path, {
+                    data: this.wrappers
+                }).then(({data}) => {
+                    if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
+                        this.resetForm();
+                    }
+                }).catch(response => {
+                    console.error(response);
+                }).finally(_ => {
+                   this.loading = false; 
+                });
+            },
+        },
+        mounted() {
+            console.log(this.path);
+        },
     }
 </script>
 
+
+<style scoped>
+.products-section {
+    border:1px solid #ccc;
+    padding:10px;
+    margin-bottom:10px;
+    position:relative;
+}
+.packages-section {
+    border:1px solid #ccc;
+    padding:10px;
+    margin-bottom:10px;
+    position:relative;
+}
+.products-counter {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:10px;
+    padding:10px;
+    background-color:#f5f5f5;
+}
+.counter-label {
+    position:absolute;
+    top:0;
+    right:0;
+    display:inline-block;
+    width:25px;
+    height:25px;
+    line-height:25px;
+    background-color:#f5f5f5;
+    border-left:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    color:#000;
+    font-weight:bold;
+    text-align:center;
+}
+.packages-section-closer {
+    position:absolute;
+    top:0;
+    right:0;
+    width:20px;
+    height:20px;
+    background-color:red;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    border:none;
+    outline:none;
+    cursor:pointer;
+}
+.packages-section-closer i {
+    pointer-events:none;
+}
+</style>

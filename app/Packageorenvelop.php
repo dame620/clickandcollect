@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\User;
 use App\Product;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,18 +16,12 @@ class Packageorenvelop extends Model
         
     }
 
-    protected static function boot(){
- 
-        parent::boot();
-    
-        //ce created is an event
-       /* static::created(function ($packageorenvelop){
-            $packageorenvelop->products()->create([
-                //'quantity'=>'',
-            ]); 
-    
-        });
-    */
+    public function user(){
+
+        return $this->belongsTo(User::class);
+        
     }
+
+    
     
 }

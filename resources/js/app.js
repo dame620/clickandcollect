@@ -22,9 +22,9 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 //la vue qui contiendra le formulaire de ckeck du packet ou envelop
 Vue.component('check-component', require('./components/CheckComponent.vue').default);
-//la vue qui contiendra le formulaire du packet
+//la vue qui contiendra le formulaire du packet lors de la demande du quotation
 Vue.component('package-component', require('./components/PackageComponent.vue').default);
-//la vue qui contiendra le formulaire de envelop
+//la vue qui contiendra le formulaire de envelop pour un proforma
 Vue.component('envelop-component', require('./components/EnvelopComponent.vue').default);
 //ce home component va contenir notre page d'acceuil
 Vue.component('home-component', require('./components/HomeComponent.vue').default);
@@ -38,6 +38,13 @@ Vue.component('fillemail-component', require('./components/FillemailComponent.vu
 
 //formulaire de demande de pickup after quotation
 Vue.component('package-form', require('./components/pick_package_after_quote.vue').default);
+
+//ceci est la page ou s'affiche les deux bouttons recevoir le proforma par email ou pick up
+Vue.component('invoice-envelop', require('./components/InvoiceenvelopeProforma.vue').default);
+
+//ceci est la page de renseignement du email et de la compagnie pour recevoir le proforma par email
+Vue.component('fillemail-envelop', require('./components/Fillemailforenvelope.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

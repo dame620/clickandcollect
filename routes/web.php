@@ -27,7 +27,7 @@ Route::get('/packageform', function () {
 });
 //route qui affiche formulaire des envelop suite a la demande d'un proforma
 Route::get('/envelopeform', function () {
-    return view('envelop');
+    return view('envelope.envelope');
 });
 
 
@@ -36,9 +36,19 @@ Route::get('/invoiceproforma', function () {
     return view('invoiceproforma');
 });
 
+//ceci affiche la proforma et des deux bouttons recevoir par email et pick up pour l'envelope
+Route::get('/invoiceenvelope', function () {
+    return view('invoiceenvelope');
+});
+
 //route d'affichage des donnees de la proforma et des deux bouttons recevoir par email et pick up
 Route::get('/fillemail', function () {
     return view('fillemail');
+});
+
+//route d'affichage des donnees de la proforma et des deux bouttons recevoir par email et pick up
+Route::get('/fillemailforenvelope', function () {
+    return view('fillemailforenvelope');
 });
 
 
@@ -55,3 +65,10 @@ Route::get('/package/create', 'PackageController@create')->name('package.create'
 //route qui nous permet d'afficher le profil de chaque utilisateur
 Route::get('/mon-compte', 'ProfilController@show')->name('profil.show');
 
+
+//route qui permettent d'afficher le formulaire d'enregistrement des envelopes 
+
+Route::get('/envelope/create', 'EnvelopeController@create')->name('envelope.create');
+
+//route qui permet de faire passer les données à travers une route post
+Route::post('/envelope', 'EnvelopeController@create')->name('envelope.store');

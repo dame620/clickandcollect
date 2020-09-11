@@ -26,7 +26,6 @@ class PackageController extends Controller
 		$created_products = [];
 		$packages = $request->get('data');
 
-
 		foreach ($packages as $package) {
 			$wrapper = Packageorenvelop::create([
 				'width'  => $package['width'],
@@ -36,6 +35,7 @@ class PackageController extends Controller
 			]);
 
 			$created_wrappers[] = $wrapper;
+			
 
 			if (count($package['products']) > 0) {
 				foreach($package['products'] as $product) {

@@ -42,7 +42,7 @@
             </div>
 
             <div class="products-counter">
-                <span>{{ wrapper.products.length }}  produit{{ wrapper.products.length > 1 ? 's' : '' }}</span>
+                <span>{{ wrapper.products.length }} produit {{ wrapper.products.length > 1 ? 's' : '' }}</span>
                 <div>
                     <button type="button" @click.prevent="decrementProduct(wrapper_index)" class="btn btn-primary">-</button>
                     <button type="button" @click.prevent="incrementProduct(wrapper_index)" class="btn btn-primary">+</button>
@@ -72,7 +72,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">DESCRIPTION</label>
-                            <input type="number" name="description" v-model="product.description" class="form-control">
+                            <textarea name="description" v-model="product.description" class="form-control"></textarea>
                         </div>
                     </div>
                 </div>
@@ -109,6 +109,7 @@
         },
         methods: {
             onClosePackage(wrapper_index) {
+                if(this.wrappers.length>1)
                 this.wrappers.splice(wrapper_index, 1);
             },
             resetForm() {
@@ -142,6 +143,7 @@
                 }
             },
             onSubmitPackageForm() {
+                
                 this.loading = true;
 
                 axios.post(this.path, {
@@ -149,16 +151,31 @@
                 }).then(({data}) => {
                     if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
                         this.resetForm();
+
+                        sessionStorage.removeItem('wrappers');
+                        return window.location.href = '/';
                     }
                 }).catch(response => {
                     console.error(response);
                 }).finally(_ => {
                    this.loading = false; 
                 });
+                
             },
         },
         mounted() {
-            console.log(this.path);
+            
+            const jsonWrappers = sessionStorage.getItem('wrappers');
+            let wrappers = null
+
+            if (jsonWrappers != null && jsonWrappers != undefined) {
+                wrappers = JSON.parse(jsonWrappers);
+            }
+            if(wrappers!=null){
+                this.wrappers = wrappers;
+            }
+                
+
         },
     }
 </script>

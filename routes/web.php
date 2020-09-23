@@ -72,3 +72,15 @@ Route::get('/envelope/create', 'EnvelopeController@create')->name('envelope.crea
 
 //route qui permet de faire passer les données à travers une route post
 Route::post('/envelope', 'EnvelopeController@create')->name('envelope.store');
+
+//ceci est une route qui nous méne vers la page de selection du phyto ou non 
+Route::get('/checkphyto', function(){
+    return view('checkphyto');
+});
+
+//cette route permet d'afficher la page de check de package or envelop lors de la demande d'un pick up
+Route::get('/checkforpickup', function(){
+    
+    return view('checkforpickup');
+
+});

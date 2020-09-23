@@ -77,6 +77,52 @@
                     </div>
                 </div>
             </div>
+
+            <div class="certificats">
+                    <div class="container-phytho" style="display:flex;">
+                        <div class="form-group col-md-6">
+                            <label for="" style="font-size:15px;">AJOUTER  PHYTHO</label>
+                            <input type="checkbox" v-model="is_phytho" >
+                            
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="" style="font-size:15px;">PAS NECESSAIRE</label>
+                            <input type="checkbox" v-model="is_nophytho">
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" v-if="is_phytho">
+                        <div class="form-group">
+                            <label for="">UPLOADER LE FICHIER</label>
+                            <input type="file" class="form-control" name="certificatoforigine" @change="selectFile">                        
+                        </div>
+                    </div>
+
+                    <!--div class="container-phytho" style="display:flex;">
+                        <div class="form-group col-md-6">
+                            <label for="" style="font-size:15px;">AJOUTER UN CERTIFICAT D'ORIGIN</label>
+                            <input type="checkbox" v-model="is_origincertificat" >
+                            
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="" style="font-size:15px;">PAS NECESSAIRE</label>
+                            <input type="checkbox" v-model="is_noorigincertificat">
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6" v-if="is_origincertificat">
+                        <div class="form-group">
+                            <label for="">UPLOADER LE FICHIER</label>
+                            <input type="text">
+                        </div>
+                    </div-->
+            </div>
+
+
         </div>
         
         <div class="form-group">
@@ -89,14 +135,50 @@
 
 <script>
     export default {
+
+        watch:{
+       is_nophytho(value){
+           if(value==true){
+               this.is_phytho=false;
+           }
+       },
+
+      is_phytho(value){
+          if(value==true){
+              this.is_nophytho=false;
+          }
+
+      },
+
+      is_origincertificat(value){
+           if(value==true){
+               this.is_noorigincertificat=false;
+           }
+       },
+
+      is_noorigincertificat(value){
+          if(value==true){
+              this.is_origincertificat=false;
+          }
+
+      }
+
+    },
+
         props: ['path'],
         data() {
             return {
+                is_origincertificat:false,
+                is_noorigincertificat:false,
+                is_nophytho: false,
+                is_phytho: false,
+
                 wrappers: [{
                     width: null,
                     height: null,
                     length: null,
                     weight: null,
+                    certificatoforigine: null,
                     products: []
                 }],
                 loading: false,
@@ -142,9 +224,26 @@
                     this.wrappers[wrapper_index].products.pop();
                 }
             },
+
+            selectFile(event) {
+            // `files` is always an array because the file input may be in multiple mode
+            console.log(event.target.files[0]);
+            this.certificatoforigine = event.target.files[0];
+            },
+
             onSubmitPackageForm() {
                 
                 this.loading = true;
+
+                    /*axios.post('/login', {
+                    firstName: 'Finn',
+                    lastName: 'Williams'
+                    })
+                    .then((response) => {
+                    console.log(response);
+                    }, (error) => {
+                    console.log(error);
+                    });*/
 
                 axios.post(this.path, {
                     data: this.wrappers

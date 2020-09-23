@@ -88,7 +88,7 @@
                 <a href="/check" style="color:white; font-weight: bold;">obtenir une quotation</a>
                 </button>
                     <button class="btn btn-info">
-                      <a href="/package/create" style="color:white; font-weight: bold;">demander un pick up</a>
+                      <a href="/checkforpickup" style="color:white; font-weight: bold;">demander un pick up</a>
                     </button>
                 </div>
             </div>

@@ -26,12 +26,20 @@ class PackageController extends Controller
 		$created_products = [];
 		$packages = $request->get('data');
 
+		$contents = file_get_contents($request->certificatoforigine->path());
+		dd($contents);
+		// ...or just move it somewhere else (eg: local `storage` directory or S3)
+		$newPath = $request->certificatoforigine->store('photos', 's3');
+
 		foreach ($packages as $package) {
+		
+			
 			$wrapper = Packageorenvelop::create([
 				'width'  => $package['width'],
 				'height' => $package['height'],
 				'length' => $package['length'],
 				'weight' => $package['weight'],
+				
 			]);
 
 			$created_wrappers[] = $wrapper;

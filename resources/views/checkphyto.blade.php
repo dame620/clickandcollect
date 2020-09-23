@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-  <profil-component></profil-component>
+<check-phyto></check-phyto>
 @endsection

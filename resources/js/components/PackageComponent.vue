@@ -38,6 +38,8 @@
                         <input type="number" name="weight" id="weight" class="form-control" v-model="wrapper.weight" required>
                     </div>
                 </div>
+
+                
             </div>
 
             <div class="products-counter">
@@ -76,6 +78,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
         
         <div class="form-group">
@@ -89,12 +92,15 @@
 <script>
     export default {
 
+        
           mounted() {
             console.log('Component mounted.')
         },
 
         data() {
             return {
+                
+
                 wrappers: [{
                     width: null,
                     height: null,

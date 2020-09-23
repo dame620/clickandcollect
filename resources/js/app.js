@@ -45,6 +45,17 @@ Vue.component('invoice-envelop', require('./components/InvoiceenvelopeProforma.v
 //ceci est la page de renseignement du email et de la compagnie pour recevoir le proforma par email
 Vue.component('fillemail-envelop', require('./components/Fillemailforenvelope.vue').default);
 
+//ceci est la page de renseignement du email et de la compagnie pour recevoir le proforma par email
+Vue.component('check-phyto', require('./components/CheckPhyto.vue').default);
+
+
+//ceci est la page qui affiche le profil de chaque uset
+Vue.component('profil-component', require('./components/ProfilComponent.vue').default);
+
+//ceci est un component de check de packet ou envelop apres click sur pick up
+Vue.component('checkforpickup-component', require('./components/CheckforPickup.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

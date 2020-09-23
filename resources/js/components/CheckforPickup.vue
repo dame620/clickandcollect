@@ -56,7 +56,7 @@ export default {
 
         ongotoNextPage(){
             if(this.is_package==true){
-                window.location.href = '/packageform';
+                window.location.href = '/package/create';
             }
             else if(this.is_envelope==true){
                 window.location.href = '/envelopeform';

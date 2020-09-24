@@ -55,6 +55,9 @@ Vue.component('profil-component', require('./components/ProfilComponent.vue').de
 //ceci est un component de check de packet ou envelop apres click sur pick up
 Vue.component('checkforpickup-component', require('./components/CheckforPickup.vue').default);
 
+//formulaire qui va enregistrer nos paquets dans la base de donnée
+Vue.component('envelope-form', require('./components/pick_envelope_after_quote.vue').default);
+
 
 
 /**

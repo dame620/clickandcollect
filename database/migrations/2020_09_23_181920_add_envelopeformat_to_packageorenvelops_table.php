@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCertificatoforigineToPackageorenvelopsTable extends Migration
+class AddEnvelopeformatToPackageorenvelopsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,9 @@ class AddCertificatoforigineToPackageorenvelopsTable extends Migration
     public function up()
     {
         Schema::table('packageorenvelops', function (Blueprint $table) {
-
-            $table->string('certificatoforigine')->nullable();
+            $table->boolean('is_bigformat');
+            $table->boolean('is_smallformat');
+            
         });
     }
 
@@ -27,7 +28,8 @@ class AddCertificatoforigineToPackageorenvelopsTable extends Migration
     public function down()
     {
         Schema::table('packageorenvelops', function (Blueprint $table) {
-            $table->dropColumn('certificatoforigine');
+            $table->dropColumn('is_bigformat');
+            $table->dropColumn('is_smallformat');
         });
     }
 }

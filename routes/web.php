@@ -71,7 +71,7 @@ Route::get('/mon-compte', 'ProfilController@show')->name('profil.show');
 Route::get('/envelope/create', 'EnvelopeController@create')->name('envelope.create');
 
 //route qui permet de faire passer les données à travers une route post
-Route::post('/envelope', 'EnvelopeController@create')->name('envelope.store');
+Route::post('/envelope', 'EnvelopeController@store')->name('envelope.store');
 
 //ceci est une route qui nous méne vers la page de selection du phyto ou non 
 Route::get('/checkphyto', function(){

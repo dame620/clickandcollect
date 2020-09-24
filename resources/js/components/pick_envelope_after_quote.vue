@@ -90,8 +90,20 @@
 
           mounted() {
             console.log('Component mounted.')
+            const jsonWrappers = sessionStorage.getItem('wrappers');
+                let wrappers = null
+
+                if (jsonWrappers != null && jsonWrappers != undefined) {
+                    wrappers = JSON.parse(jsonWrappers);
+                }
+
+            if(wrappers!=null){
+                this.wrappers = wrappers;
+            }
+            
         },
-         
+
+        props: ['path'],
         data() {
             return {
                 wrappers: [{
@@ -100,6 +112,7 @@
                     weight: null,
                     products: [],
                 }],
+                loading: false,
             }
         },
         computed: {
@@ -112,6 +125,10 @@
                 if(this.wrappers.length>1)
                 this.wrappers.splice(wrapper_index, 1);
             },
+                resetForm() {
+                this.wrappers = this.wrappers
+            },
+
             incrementWrapper() {
                 this.wrappers.push({
                     is_bigformat: null,
@@ -139,9 +156,26 @@
                 }
             },
             onSubmitEnvelopeForm() {
-                sessionStorage.setItem('wrappers', JSON.stringify(this.wrappers));
-             
-                return window.location.href = '/invoiceenvelope';
+
+                //alert('hrllo')
+
+                    this.loading = true;
+
+                     axios.post(this.path, {
+                     data: this.wrappers
+                     }).then(({data}) => {
+                     if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
+                        this.resetForm();
+
+                         sessionStorage.removeItem('wrappers');
+                        return window.location.href = '/';
+                     }
+                 }).catch(response => {
+                     console.error(response);
+                 }).finally(_ => {
+                   this.loading = false; 
+             });
+               
             },
         },
       

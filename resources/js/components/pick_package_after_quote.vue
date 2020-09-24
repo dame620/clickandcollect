@@ -225,12 +225,7 @@
                 }
             },
 
-            selectFile(event) {
-            // `files` is always an array because the file input may be in multiple mode
-            console.log(event.target.files[0]);
-            this.certificatoforigine = event.target.files[0];
-            },
-
+            
             onSubmitPackageForm() {
                 
                 this.loading = true;

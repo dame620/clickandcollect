@@ -229,7 +229,7 @@
             onSubmitPackageForm() {
                 
                 this.loading = true;
-
+                  
                     /*axios.post('/login', {
                     firstName: 'Finn',
                     lastName: 'Williams'
@@ -243,9 +243,10 @@
                 axios.post(this.path, {
                     data: this.wrappers
                 }).then(({data}) => {
+                    //alert(data.products.length);
                     if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
                         this.resetForm();
-
+                         
                         sessionStorage.removeItem('wrappers');
                         return window.location.href = '/';
                     }

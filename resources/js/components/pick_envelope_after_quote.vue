@@ -110,7 +110,7 @@
                     is_smallformat: false,
                     is_bigformat: false,
                     weight: null,
-                    products: [],
+                    products: []
                 }],
                 loading: false,
             }
@@ -158,15 +158,16 @@
             onSubmitEnvelopeForm() {
 
                 //alert('hrllo')
-
+                   
                     this.loading = true;
 
                      axios.post(this.path, {
                      data: this.wrappers
                      }).then(({data}) => {
-                     if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
+                       
+                     if (data.success && data.wrappers.length > 0 /* && data.products.length > 0*/) {
+                          
                         this.resetForm();
-
                          sessionStorage.removeItem('wrappers');
                         return window.location.href = '/';
                      }

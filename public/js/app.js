@@ -2085,7 +2085,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.is_package == true) {
         window.location.href = '/package/create';
       } else if (this.is_envelope == true) {
-        window.location.href = '/envelopeform';
+        window.location.href = '/envelope/create';
       }
     }
   }
@@ -2886,12 +2886,14 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (_ref) {
         var data = _ref.data;
 
-        if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
-          _this.resetForm();
+        if (data.success && data.wrappers.length > 0
+        /* && data.products.length > 0*/
+        ) {
+            _this.resetForm();
 
-          sessionStorage.removeItem('wrappers');
-          return window.location.href = '/';
-        }
+            sessionStorage.removeItem('wrappers');
+            return window.location.href = '/';
+          }
       })["catch"](function (response) {
         console.error(response);
       })["finally"](function (_) {
@@ -3146,6 +3148,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (_ref) {
         var data = _ref.data;
 
+        //alert(data.products.length);
         if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
           _this.resetForm();
 

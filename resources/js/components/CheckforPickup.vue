@@ -59,7 +59,7 @@ export default {
                 window.location.href = '/package/create';
             }
             else if(this.is_envelope==true){
-                window.location.href = '/envelopeform';
+                window.location.href = '/envelope/create';
             }
         }
     }

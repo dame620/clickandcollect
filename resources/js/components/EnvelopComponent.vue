@@ -16,6 +16,34 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label for="weight">Pays d'origine</label>
+                        <country-select v-model="wrapper.origincountry" :country="wrapper.origincountry" topCountry="US" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Region d'origine</label>
+                        <region-select v-model="wrapper.originregion" :country="wrapper.origincountry" :region="wrapper.originregion" />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Pays de destination</label>
+                        <country-select v-model="wrapper.destinationcountry" :country="wrapper.destinationcountry" topCountry="US" />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Region de destination</label>
+                        <region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :region="wrapper.destinationregion" />
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label for="">petit format <i class="fa fa-envelope-square" aria-hidden="true" style="padding:10px; margin-left:4px"></i>
                                    
                             <input type="checkbox" v-model="wrapper.is_smallformat" :disabled="wrapper.is_bigformat==true" >
@@ -98,6 +126,10 @@
                     is_smallformat: false,
                     is_bigformat: false,
                     weight: null,
+                    origincountry:null,
+                    originregion:null,
+                    destinationcountry:null,
+                    destinationregion:null,
                     products: [],
                 }],
             }
@@ -116,6 +148,10 @@
                 this.wrappers.push({
                     is_bigformat: null,
                     is_smallformat: null,
+                    origincountry:null,
+                    originregion:null,
+                    destinationcountry:null,
+                    destinationregion:null,
                     weight: null,
                     products: []
                 })

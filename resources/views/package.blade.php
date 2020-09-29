@@ -1,6 +1,20 @@
 @extends('layouts.app')
-
 @section('content')
 @csrf
-<package-component></package-component>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="card">
+                
+                <div class="card-header bg-primary text-light"></div>
+                
+                <div class="card-body">
+                    
+                    <package-component></package-component>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

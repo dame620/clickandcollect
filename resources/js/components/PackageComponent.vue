@@ -14,6 +14,35 @@
             </button>
 
             <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Pays d'origine</label>
+                        <country-select v-model="wrapper.origincountry" :country="wrapper.origincountry" topCountry="US" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Regions d'origine</label>
+                        <region-select v-model="wrapper.originregion" :country="wrapper.origincountry" :region="wrapper.originregion" />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Pays de destination</label>
+                        <country-select v-model="wrapper.destinationcountry" :country="wrapper.destinationcountry" topCountry="US" />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Regions de destination</label>
+                        <region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :region="wrapper.destinationregion" />
+                    </div>
+                </div>
+
+
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="width">Largeur (cm)</label>
@@ -106,6 +135,10 @@
                     height: null,
                     length: null,
                     weight: null,
+                    origincountry:null,
+                    originregion:null,
+                    destinationcountry:null,
+                    destinationregion:null,
                     products: []
                 }],
             }
@@ -126,6 +159,10 @@
                     height: null,
                     length: null,
                     weight: null,
+                    origincountry:null,
+                    originregion:null,
+                    destinationcountry:null,
+                    destinationregion:null,
                     products: []
                 })
             },

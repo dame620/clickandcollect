@@ -29,16 +29,23 @@ class EnvelopeController extends Controller
                  'weight'  => $envelope['weight'],
                 'is_smallformat' => $envelope['is_smallformat'],
                  'is_bigformat'=> $envelope['is_bigformat'],
+                 'origincountry'=> $envelope['origincountry'],
+                 'originregion'=> $envelope['originregion'],
+                 'destinationcountry'=> $envelope['destinationcountry'],
+                 'destinationregion'=> $envelope['destinationregion'],
+            
                 
              ]);
              $created_wrappers[] = $wrapper;
+
+           
 
              if(count($envelope['products'])>0){
 
                 foreach($envelope['products'] as $product){
 
                     $created_products = Product::create([
-                        'unit_price'       => $product['unit_price'],
+                        'unit_price'    => $product['unit_price'],
 						'quantity'   => $product['quantity'],
                         'product_type' => $product['product_type'],
                         'description' => $product['description'],

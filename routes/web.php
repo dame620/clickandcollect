@@ -84,3 +84,11 @@ Route::get('/checkforpickup', function(){
     return view('checkforpickup');
 
 });
+
+
+//cette route permet d'afficher country list
+Route::get('/countrylist', function(){
+    
+    return view('countrylist');
+
+});

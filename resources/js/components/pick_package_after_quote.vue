@@ -15,6 +15,39 @@
             </button>
 
             <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Pays d'origine</label>
+                       
+                        <country-select v-model="wrapper.origincountry" :country="wrapper.origincountry" topCountry="US" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Regions d'origine</label>
+                        
+                        <region-select v-model="wrapper.originregion" :country="wrapper.origincountry" :region="wrapper.originregion" />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Pays de destination</label>
+                        
+                        <country-select v-model="wrapper.destinationcountry" :country="wrapper.destinationcountry" topCountry="US" />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Region de destination</label>
+                        
+                        <region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :region="wrapper.destinationregion" />
+                    </div>
+                </div>
+
+
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="width">Largeur (cm)</label>
@@ -178,6 +211,10 @@
                     height: null,
                     length: null,
                     weight: null,
+                    origincountry:null,
+                    originregion:null,
+                    destinationcountry:null,
+                    destinationregion:null,
                     certificatoforigine: null,
                     products: []
                 }],
@@ -203,6 +240,10 @@
                     height: null,
                     length: null,
                     weight: null,
+                    origincountry:null,
+                    originregion:null,
+                    destinationcountry:null,
+                    destinationregion:null,
                     products: []
                 })
             },
@@ -229,6 +270,7 @@
             onSubmitPackageForm() {
                 
                 this.loading = true;
+                
                   
                     /*axios.post('/login', {
                     firstName: 'Finn',
@@ -243,7 +285,10 @@
                 axios.post(this.path, {
                     data: this.wrappers
                 }).then(({data}) => {
-                    //alert(data.products.length);
+                   
+                   if(data.products.length<1){
+                     alert("veuillez renseigner au moins un produit")  
+                   };
                     if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
                         this.resetForm();
                          

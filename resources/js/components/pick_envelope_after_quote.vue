@@ -1,7 +1,7 @@
 <template>
     <form @submit.prevent="onSubmitEnvelopeForm()">
         <div class="products-counter">
-            <span>{{ wrappers_count }} ENVELOPPE{{ wrappers_count > 1 ? 's' : '' }}</span>
+            <span>{{ wrappers_count }} Enveloppe{{ wrappers_count > 1 ? 's' : '' }}</span>
             <div>
                 <button type="button" @click.prevent="decrementWrapper" class="btn btn-primary">-</button>
                 <button type="button" @click.prevent="incrementWrapper" class="btn btn-primary">+</button>
@@ -14,10 +14,42 @@
             </button>
 
             <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Pays d'origine</label>
+                       
+                        <country-select v-model="wrapper.origincountry" :country="wrapper.origincountry" topCountry="US" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Regions d'origine</label>
+                        
+                        <region-select v-model="wrapper.originregion" :country="wrapper.origincountry" :region="wrapper.originregion" />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Pays de destination</label>
+                        
+                        <country-select v-model="wrapper.destinationcountry" :country="wrapper.destinationcountry" topCountry="US" />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Region de destination</label>
+                        
+                        <region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :region="wrapper.destinationregion" />
+                    </div>
+                </div>
+
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">petit format <i class="fa fa-envelope-square" aria-hidden="true" style="padding:10px; margin-left:4px"></i>
-                                   
+                                  
                             <input type="checkbox" v-model="wrapper.is_smallformat" :disabled="wrapper.is_bigformat==true" >
                         </label>
                     </div>
@@ -30,9 +62,11 @@
                         </label>
                     </div>
                 </div>
+                
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="weight">Poids (kg)</label>
+                      
                         <input type="number" name="weight" id="weight" class="form-control" v-model="wrapper.weight" required>
                     </div>
                 </div>
@@ -110,6 +144,10 @@
                     is_smallformat: false,
                     is_bigformat: false,
                     weight: null,
+                    origincountry:null,
+                    originregion:null,
+                    destinationcountry:null,
+                    destinationregion:null,
                     products: []
                 }],
                 loading: false,
@@ -131,9 +169,13 @@
 
             incrementWrapper() {
                 this.wrappers.push({
-                    is_bigformat: null,
-                    is_smallformat: null,
+                    is_bigformat: false,
+                    is_smallformat: false,
                     weight: null,
+                    origincountry:null,
+                    originregion:null,
+                    destinationcountry:null,
+                    destinationregion:null,
                     products: []
                 })
             },

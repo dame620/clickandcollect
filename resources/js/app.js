@@ -7,6 +7,9 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import vueCountryRegionSelect from 'vue-country-region-select'
+Vue.use(vueCountryRegionSelect)
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -58,6 +61,9 @@ Vue.component('checkforpickup-component', require('./components/CheckforPickup.v
 //formulaire qui va enregistrer nos paquets dans la base de donnée
 Vue.component('envelope-form', require('./components/pick_envelope_after_quote.vue').default);
 
+//ceci est la page qui afiche country list
+Vue.component('country-list', require('./components/CountryList.vue').default);
+
 
 
 /**
@@ -66,6 +72,7 @@ Vue.component('envelope-form', require('./components/pick_envelope_after_quote.v
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+new Vue({
     el: '#app',
+   
 });

@@ -2249,6 +2249,75 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -2259,10 +2328,16 @@ __webpack_require__.r(__webpack_exports__);
         is_smallformat: false,
         is_bigformat: false,
         weight: null,
+        is_nophytho: false,
+        is_phythoexiste: false,
+        is_phytho_your_own: false,
+        is_phytho_provide_tosma: false,
+        is_origincertificat: false,
+        is_noorigincertificat: false,
+        is_origin_certificat_your_own: false,
+        is_origin_certificat_provide_to_sma: false,
         origincountry: null,
-        originregion: null,
         destinationcountry: null,
-        destinationregion: null,
         products: []
       }]
     };
@@ -2278,12 +2353,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     incrementWrapper: function incrementWrapper() {
       this.wrappers.push({
-        is_bigformat: null,
-        is_smallformat: null,
+        is_bigformat: false,
+        is_smallformat: false,
+        is_nophytho: false,
+        is_phythoexiste: false,
+        is_phytho_your_own: false,
+        is_phytho_provide_tosma: false,
+        is_origincertificat: false,
+        is_noorigincertificat: false,
+        is_origin_certificat_your_own: false,
+        is_origin_certificat_provide_to_sma: false,
         origincountry: null,
-        originregion: null,
         destinationcountry: null,
-        destinationregion: null,
         weight: null,
         products: []
       });
@@ -2711,6 +2792,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -2722,10 +2871,16 @@ __webpack_require__.r(__webpack_exports__);
         height: null,
         length: null,
         weight: null,
+        is_nophytho: false,
+        is_phythoexiste: false,
+        is_phytho_your_own: false,
+        is_phytho_provide_tosma: false,
+        is_origincertificat: false,
+        is_noorigincertificat: false,
+        is_origin_certificat_your_own: false,
+        is_origin_certificat_provide_to_sma: false,
         origincountry: null,
-        originregion: null,
         destinationcountry: null,
-        destinationregion: null,
         products: []
       }]
     };
@@ -2746,9 +2901,15 @@ __webpack_require__.r(__webpack_exports__);
         length: null,
         weight: null,
         origincountry: null,
-        originregion: null,
+        is_nophytho: false,
+        is_phythoexiste: false,
+        is_phytho_your_own: false,
+        is_phytho_provide_tosma: false,
+        is_origincertificat: false,
+        is_noorigincertificat: false,
+        is_origin_certificat_your_own: false,
+        is_origin_certificat_provide_to_sma: false,
         destinationcountry: null,
-        destinationregion: null,
         products: []
       });
     },
@@ -2951,6 +3112,75 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -2971,11 +3201,17 @@ __webpack_require__.r(__webpack_exports__);
       wrappers: [{
         is_smallformat: false,
         is_bigformat: false,
+        is_nophytho: false,
+        is_phythoexiste: false,
+        is_phytho_your_own: false,
+        is_phytho_provide_tosma: false,
+        is_origincertificat: false,
+        is_noorigincertificat: false,
+        is_origin_certificat_your_own: false,
+        is_origin_certificat_provide_to_sma: false,
         weight: null,
         origincountry: null,
-        originregion: null,
         destinationcountry: null,
-        destinationregion: null,
         products: []
       }],
       loading: false
@@ -2997,11 +3233,17 @@ __webpack_require__.r(__webpack_exports__);
       this.wrappers.push({
         is_bigformat: false,
         is_smallformat: false,
+        is_nophytho: false,
+        is_phythoexiste: false,
+        is_phytho_your_own: false,
+        is_phytho_provide_tosma: false,
+        is_origincertificat: false,
+        is_noorigincertificat: false,
+        is_origin_certificat_your_own: false,
+        is_origin_certificat_provide_to_sma: false,
         weight: null,
         origincountry: null,
-        originregion: null,
         destinationcountry: null,
-        destinationregion: null,
         products: []
       });
     },
@@ -3229,6 +3471,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   watch: {
     is_nophytho: function is_nophytho(value) {
@@ -3264,11 +3530,16 @@ __webpack_require__.r(__webpack_exports__);
         height: null,
         length: null,
         weight: null,
+        is_nophytho: false,
+        is_phythoexiste: false,
+        is_phytho_your_own: false,
+        is_phytho_provide_tosma: false,
+        is_origincertificat: false,
+        is_noorigincertificat: false,
+        is_origin_certificat_your_own: false,
+        is_origin_certificat_provide_to_sma: false,
         origincountry: null,
-        originregion: null,
         destinationcountry: null,
-        destinationregion: null,
-        certificatoforigine: null,
         products: []
       }],
       loading: false
@@ -3292,10 +3563,16 @@ __webpack_require__.r(__webpack_exports__);
         height: null,
         length: null,
         weight: null,
+        is_nophytho: false,
+        is_phythoexiste: false,
+        is_phytho_your_own: false,
+        is_phytho_provide_tosma: false,
+        is_origincertificat: false,
+        is_noorigincertificat: false,
+        is_origin_certificat_your_own: false,
+        is_origin_certificat_provide_to_sma: false,
         origincountry: null,
-        originregion: null,
         destinationcountry: null,
-        destinationregion: null,
         products: []
       });
     },
@@ -41283,33 +41560,6 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "weight" } }, [
-                      _vm._v("Region d'origine")
-                    ]),
-                    _vm._v(" "),
-                    _c("region-select", {
-                      attrs: {
-                        country: wrapper.origincountry,
-                        region: wrapper.originregion
-                      },
-                      model: {
-                        value: wrapper.originregion,
-                        callback: function($$v) {
-                          _vm.$set(wrapper, "originregion", $$v)
-                        },
-                        expression: "wrapper.originregion"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "weight" } }, [
                       _vm._v("Pays de destination")
                     ]),
                     _vm._v(" "),
@@ -41324,33 +41574,6 @@ var render = function() {
                           _vm.$set(wrapper, "destinationcountry", $$v)
                         },
                         expression: "wrapper.destinationcountry"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "weight" } }, [
-                      _vm._v("Region de destination")
-                    ]),
-                    _vm._v(" "),
-                    _c("region-select", {
-                      attrs: {
-                        country: wrapper.destinationcountry,
-                        region: wrapper.destinationregion
-                      },
-                      model: {
-                        value: wrapper.destinationregion,
-                        callback: function($$v) {
-                          _vm.$set(wrapper, "destinationregion", $$v)
-                        },
-                        expression: "wrapper.destinationregion"
                       }
                     })
                   ],
@@ -41697,7 +41920,646 @@ var render = function() {
                   ])
                 ]
               )
-            })
+            }),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "phytho-container",
+                staticStyle: { display: "flex" }
+              },
+              [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          "Ajouter un certificat phytho\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_phythoexiste,
+                              expression: "wrapper.is_phythoexiste"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_nophytho == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(wrapper.is_phythoexiste)
+                              ? _vm._i(wrapper.is_phythoexiste, null) > -1
+                              : wrapper.is_phythoexiste
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_phythoexiste,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_phythoexiste",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_phythoexiste",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_phythoexiste", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          " phyto Pas Necessaire\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_nophytho,
+                              expression: "wrapper.is_nophytho"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_phythoexiste == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(wrapper.is_nophytho)
+                              ? _vm._i(wrapper.is_nophytho, null) > -1
+                              : wrapper.is_nophytho
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_nophytho,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_nophytho",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_nophytho",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_nophytho", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            wrapper.is_phythoexiste
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "phyto-owner",
+                    staticStyle: { display: "flex" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-md-6",
+                        staticStyle: { display: "flex" }
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "" } }, [
+                            _vm._v(
+                              "Vous avez votre phytho\n                            "
+                            ),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: wrapper.is_phytho_your_own,
+                                  expression: "wrapper.is_phytho_your_own"
+                                }
+                              ],
+                              attrs: {
+                                type: "checkbox",
+                                disabled:
+                                  wrapper.is_phytho_provide_tosma == true
+                              },
+                              domProps: {
+                                checked: Array.isArray(
+                                  wrapper.is_phytho_your_own
+                                )
+                                  ? _vm._i(wrapper.is_phytho_your_own, null) >
+                                    -1
+                                  : wrapper.is_phytho_your_own
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = wrapper.is_phytho_your_own,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_phytho_your_own",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_phytho_your_own",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(wrapper, "is_phytho_your_own", $$c)
+                                  }
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "form-group",
+                          staticStyle: { display: "flex" }
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticStyle: { display: "flex" },
+                              attrs: { for: "" }
+                            },
+                            [
+                              _vm._v(
+                                "On le cheche pr vous\n                            "
+                              ),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: wrapper.is_phytho_provide_tosma,
+                                    expression:
+                                      "wrapper.is_phytho_provide_tosma"
+                                  }
+                                ],
+                                attrs: {
+                                  type: "checkbox",
+                                  disabled: wrapper.is_phytho_your_own == true
+                                },
+                                domProps: {
+                                  checked: Array.isArray(
+                                    wrapper.is_phytho_provide_tosma
+                                  )
+                                    ? _vm._i(
+                                        wrapper.is_phytho_provide_tosma,
+                                        null
+                                      ) > -1
+                                    : wrapper.is_phytho_provide_tosma
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a = wrapper.is_phytho_provide_tosma,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = null,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_phytho_provide_tosma",
+                                            $$a.concat([$$v])
+                                          )
+                                      } else {
+                                        $$i > -1 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_phytho_provide_tosma",
+                                            $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1))
+                                          )
+                                      }
+                                    } else {
+                                      _vm.$set(
+                                        wrapper,
+                                        "is_phytho_provide_tosma",
+                                        $$c
+                                      )
+                                    }
+                                  }
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "phytho-container",
+                staticStyle: { display: "flex" }
+              },
+              [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          "Ajouter un certificat d'origine\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_origincertificat,
+                              expression: "wrapper.is_origincertificat"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_noorigincertificat == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(wrapper.is_origincertificat)
+                              ? _vm._i(wrapper.is_origincertificat, null) > -1
+                              : wrapper.is_origincertificat
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_origincertificat,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_origincertificat",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_origincertificat",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_origincertificat", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          " certificat d'origine Pas Necessaire\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_noorigincertificat,
+                              expression: "wrapper.is_noorigincertificat"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_origincertificat == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(
+                              wrapper.is_noorigincertificat
+                            )
+                              ? _vm._i(wrapper.is_noorigincertificat, null) > -1
+                              : wrapper.is_noorigincertificat
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_noorigincertificat,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_noorigincertificat",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_noorigincertificat",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_noorigincertificat", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            wrapper.is_origincertificat
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "phyto-owner",
+                    staticStyle: { display: "flex" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-md-6",
+                        staticStyle: { display: "flex" }
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "" } }, [
+                            _vm._v(
+                              "Vous avez votre certificat\n                            "
+                            ),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: wrapper.is_origin_certificat_your_own,
+                                  expression:
+                                    "wrapper.is_origin_certificat_your_own"
+                                }
+                              ],
+                              attrs: {
+                                type: "checkbox",
+                                disabled:
+                                  wrapper.is_origin_certificat_provide_to_sma ==
+                                  true
+                              },
+                              domProps: {
+                                checked: Array.isArray(
+                                  wrapper.is_origin_certificat_your_own
+                                )
+                                  ? _vm._i(
+                                      wrapper.is_origin_certificat_your_own,
+                                      null
+                                    ) > -1
+                                  : wrapper.is_origin_certificat_your_own
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a =
+                                      wrapper.is_origin_certificat_your_own,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_origin_certificat_your_own",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_origin_certificat_your_own",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_origin_certificat_your_own",
+                                      $$c
+                                    )
+                                  }
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "form-group",
+                          staticStyle: { display: "flex" }
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticStyle: { display: "flex" },
+                              attrs: { for: "" }
+                            },
+                            [
+                              _vm._v(
+                                "On le cheche pr vous\n                            "
+                              ),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value:
+                                      wrapper.is_origin_certificat_provide_to_sma,
+                                    expression:
+                                      "wrapper.is_origin_certificat_provide_to_sma"
+                                  }
+                                ],
+                                attrs: {
+                                  type: "checkbox",
+                                  disabled:
+                                    wrapper.is_origin_certificat_your_own ==
+                                    true
+                                },
+                                domProps: {
+                                  checked: Array.isArray(
+                                    wrapper.is_origin_certificat_provide_to_sma
+                                  )
+                                    ? _vm._i(
+                                        wrapper.is_origin_certificat_provide_to_sma,
+                                        null
+                                      ) > -1
+                                    : wrapper.is_origin_certificat_provide_to_sma
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a =
+                                        wrapper.is_origin_certificat_provide_to_sma,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = null,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_origin_certificat_provide_to_sma",
+                                            $$a.concat([$$v])
+                                          )
+                                      } else {
+                                        $$i > -1 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_origin_certificat_provide_to_sma",
+                                            $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1))
+                                          )
+                                      }
+                                    } else {
+                                      _vm.$set(
+                                        wrapper,
+                                        "is_origin_certificat_provide_to_sma",
+                                        $$c
+                                      )
+                                    }
+                                  }
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              : _vm._e()
           ],
           2
         )
@@ -42341,33 +43203,6 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "weight" } }, [
-                      _vm._v("Regions d'origine")
-                    ]),
-                    _vm._v(" "),
-                    _c("region-select", {
-                      attrs: {
-                        country: wrapper.origincountry,
-                        region: wrapper.originregion
-                      },
-                      model: {
-                        value: wrapper.originregion,
-                        callback: function($$v) {
-                          _vm.$set(wrapper, "originregion", $$v)
-                        },
-                        expression: "wrapper.originregion"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "weight" } }, [
                       _vm._v("Pays de destination")
                     ]),
                     _vm._v(" "),
@@ -42382,33 +43217,6 @@ var render = function() {
                           _vm.$set(wrapper, "destinationcountry", $$v)
                         },
                         expression: "wrapper.destinationcountry"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "weight" } }, [
-                      _vm._v("Regions de destination")
-                    ]),
-                    _vm._v(" "),
-                    _c("region-select", {
-                      attrs: {
-                        country: wrapper.destinationcountry,
-                        region: wrapper.destinationregion
-                      },
-                      model: {
-                        value: wrapper.destinationregion,
-                        callback: function($$v) {
-                          _vm.$set(wrapper, "destinationregion", $$v)
-                        },
-                        expression: "wrapper.destinationregion"
                       }
                     })
                   ],
@@ -42739,7 +43547,646 @@ var render = function() {
                   ])
                 ]
               )
-            })
+            }),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "phytho-container",
+                staticStyle: { display: "flex" }
+              },
+              [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          "Ajouter un certificat phytho\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_phythoexiste,
+                              expression: "wrapper.is_phythoexiste"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_nophytho == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(wrapper.is_phythoexiste)
+                              ? _vm._i(wrapper.is_phythoexiste, null) > -1
+                              : wrapper.is_phythoexiste
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_phythoexiste,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_phythoexiste",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_phythoexiste",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_phythoexiste", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          " phyto Pas Necessaire\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_nophytho,
+                              expression: "wrapper.is_nophytho"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_phythoexiste == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(wrapper.is_nophytho)
+                              ? _vm._i(wrapper.is_nophytho, null) > -1
+                              : wrapper.is_nophytho
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_nophytho,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_nophytho",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_nophytho",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_nophytho", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            wrapper.is_phythoexiste
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "phyto-owner",
+                    staticStyle: { display: "flex" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-md-6",
+                        staticStyle: { display: "flex" }
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "" } }, [
+                            _vm._v(
+                              "Vous avez votre phytho\n                            "
+                            ),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: wrapper.is_phytho_your_own,
+                                  expression: "wrapper.is_phytho_your_own"
+                                }
+                              ],
+                              attrs: {
+                                type: "checkbox",
+                                disabled:
+                                  wrapper.is_phytho_provide_tosma == true
+                              },
+                              domProps: {
+                                checked: Array.isArray(
+                                  wrapper.is_phytho_your_own
+                                )
+                                  ? _vm._i(wrapper.is_phytho_your_own, null) >
+                                    -1
+                                  : wrapper.is_phytho_your_own
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = wrapper.is_phytho_your_own,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_phytho_your_own",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_phytho_your_own",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(wrapper, "is_phytho_your_own", $$c)
+                                  }
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "form-group",
+                          staticStyle: { display: "flex" }
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticStyle: { display: "flex" },
+                              attrs: { for: "" }
+                            },
+                            [
+                              _vm._v(
+                                "On le cheche pr vous\n                            "
+                              ),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: wrapper.is_phytho_provide_tosma,
+                                    expression:
+                                      "wrapper.is_phytho_provide_tosma"
+                                  }
+                                ],
+                                attrs: {
+                                  type: "checkbox",
+                                  disabled: wrapper.is_phytho_your_own == true
+                                },
+                                domProps: {
+                                  checked: Array.isArray(
+                                    wrapper.is_phytho_provide_tosma
+                                  )
+                                    ? _vm._i(
+                                        wrapper.is_phytho_provide_tosma,
+                                        null
+                                      ) > -1
+                                    : wrapper.is_phytho_provide_tosma
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a = wrapper.is_phytho_provide_tosma,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = null,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_phytho_provide_tosma",
+                                            $$a.concat([$$v])
+                                          )
+                                      } else {
+                                        $$i > -1 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_phytho_provide_tosma",
+                                            $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1))
+                                          )
+                                      }
+                                    } else {
+                                      _vm.$set(
+                                        wrapper,
+                                        "is_phytho_provide_tosma",
+                                        $$c
+                                      )
+                                    }
+                                  }
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "phytho-container",
+                staticStyle: { display: "flex" }
+              },
+              [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          "Ajouter un certificat d'origine\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_origincertificat,
+                              expression: "wrapper.is_origincertificat"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_noorigincertificat == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(wrapper.is_origincertificat)
+                              ? _vm._i(wrapper.is_origincertificat, null) > -1
+                              : wrapper.is_origincertificat
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_origincertificat,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_origincertificat",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_origincertificat",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_origincertificat", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          " certificat d'origine Pas Necessaire\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_noorigincertificat,
+                              expression: "wrapper.is_noorigincertificat"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_origincertificat == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(
+                              wrapper.is_noorigincertificat
+                            )
+                              ? _vm._i(wrapper.is_noorigincertificat, null) > -1
+                              : wrapper.is_noorigincertificat
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_noorigincertificat,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_noorigincertificat",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_noorigincertificat",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_noorigincertificat", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            wrapper.is_origincertificat
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "phyto-owner",
+                    staticStyle: { display: "flex" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-md-6",
+                        staticStyle: { display: "flex" }
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "" } }, [
+                            _vm._v(
+                              "Vous avez votre certificat\n                            "
+                            ),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: wrapper.is_origin_certificat_your_own,
+                                  expression:
+                                    "wrapper.is_origin_certificat_your_own"
+                                }
+                              ],
+                              attrs: {
+                                type: "checkbox",
+                                disabled:
+                                  wrapper.is_origin_certificat_provide_to_sma ==
+                                  true
+                              },
+                              domProps: {
+                                checked: Array.isArray(
+                                  wrapper.is_origin_certificat_your_own
+                                )
+                                  ? _vm._i(
+                                      wrapper.is_origin_certificat_your_own,
+                                      null
+                                    ) > -1
+                                  : wrapper.is_origin_certificat_your_own
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a =
+                                      wrapper.is_origin_certificat_your_own,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_origin_certificat_your_own",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_origin_certificat_your_own",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_origin_certificat_your_own",
+                                      $$c
+                                    )
+                                  }
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "form-group",
+                          staticStyle: { display: "flex" }
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticStyle: { display: "flex" },
+                              attrs: { for: "" }
+                            },
+                            [
+                              _vm._v(
+                                "On le cheche pr vous\n                            "
+                              ),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value:
+                                      wrapper.is_origin_certificat_provide_to_sma,
+                                    expression:
+                                      "wrapper.is_origin_certificat_provide_to_sma"
+                                  }
+                                ],
+                                attrs: {
+                                  type: "checkbox",
+                                  disabled:
+                                    wrapper.is_origin_certificat_your_own ==
+                                    true
+                                },
+                                domProps: {
+                                  checked: Array.isArray(
+                                    wrapper.is_origin_certificat_provide_to_sma
+                                  )
+                                    ? _vm._i(
+                                        wrapper.is_origin_certificat_provide_to_sma,
+                                        null
+                                      ) > -1
+                                    : wrapper.is_origin_certificat_provide_to_sma
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a =
+                                        wrapper.is_origin_certificat_provide_to_sma,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = null,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_origin_certificat_provide_to_sma",
+                                            $$a.concat([$$v])
+                                          )
+                                      } else {
+                                        $$i > -1 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_origin_certificat_provide_to_sma",
+                                            $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1))
+                                          )
+                                      }
+                                    } else {
+                                      _vm.$set(
+                                        wrapper,
+                                        "is_origin_certificat_provide_to_sma",
+                                        $$c
+                                      )
+                                    }
+                                  }
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              : _vm._e()
           ],
           2
         )
@@ -42925,33 +44372,6 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "weight" } }, [
-                      _vm._v("Regions d'origine")
-                    ]),
-                    _vm._v(" "),
-                    _c("region-select", {
-                      attrs: {
-                        country: wrapper.origincountry,
-                        region: wrapper.originregion
-                      },
-                      model: {
-                        value: wrapper.originregion,
-                        callback: function($$v) {
-                          _vm.$set(wrapper, "originregion", $$v)
-                        },
-                        expression: "wrapper.originregion"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "weight" } }, [
                       _vm._v("Pays de destination")
                     ]),
                     _vm._v(" "),
@@ -42966,33 +44386,6 @@ var render = function() {
                           _vm.$set(wrapper, "destinationcountry", $$v)
                         },
                         expression: "wrapper.destinationcountry"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "weight" } }, [
-                      _vm._v("Region de destination")
-                    ]),
-                    _vm._v(" "),
-                    _c("region-select", {
-                      attrs: {
-                        country: wrapper.destinationcountry,
-                        region: wrapper.destinationregion
-                      },
-                      model: {
-                        value: wrapper.destinationregion,
-                        callback: function($$v) {
-                          _vm.$set(wrapper, "destinationregion", $$v)
-                        },
-                        expression: "wrapper.destinationregion"
                       }
                     })
                   ],
@@ -43339,7 +44732,646 @@ var render = function() {
                   ])
                 ]
               )
-            })
+            }),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "phytho-container",
+                staticStyle: { display: "flex" }
+              },
+              [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          "Ajouter un certificat phytho\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_phythoexiste,
+                              expression: "wrapper.is_phythoexiste"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_nophytho == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(wrapper.is_phythoexiste)
+                              ? _vm._i(wrapper.is_phythoexiste, null) > -1
+                              : wrapper.is_phythoexiste
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_phythoexiste,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_phythoexiste",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_phythoexiste",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_phythoexiste", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          " phyto Pas Necessaire\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_nophytho,
+                              expression: "wrapper.is_nophytho"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_phythoexiste == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(wrapper.is_nophytho)
+                              ? _vm._i(wrapper.is_nophytho, null) > -1
+                              : wrapper.is_nophytho
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_nophytho,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_nophytho",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_nophytho",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_nophytho", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            wrapper.is_phythoexiste
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "phyto-owner",
+                    staticStyle: { display: "flex" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-md-6",
+                        staticStyle: { display: "flex" }
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "" } }, [
+                            _vm._v(
+                              "Vous avez votre phytho\n                            "
+                            ),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: wrapper.is_phytho_your_own,
+                                  expression: "wrapper.is_phytho_your_own"
+                                }
+                              ],
+                              attrs: {
+                                type: "checkbox",
+                                disabled:
+                                  wrapper.is_phytho_provide_tosma == true
+                              },
+                              domProps: {
+                                checked: Array.isArray(
+                                  wrapper.is_phytho_your_own
+                                )
+                                  ? _vm._i(wrapper.is_phytho_your_own, null) >
+                                    -1
+                                  : wrapper.is_phytho_your_own
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = wrapper.is_phytho_your_own,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_phytho_your_own",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_phytho_your_own",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(wrapper, "is_phytho_your_own", $$c)
+                                  }
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "form-group",
+                          staticStyle: { display: "flex" }
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticStyle: { display: "flex" },
+                              attrs: { for: "" }
+                            },
+                            [
+                              _vm._v(
+                                "On le cheche pr vous\n                            "
+                              ),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: wrapper.is_phytho_provide_tosma,
+                                    expression:
+                                      "wrapper.is_phytho_provide_tosma"
+                                  }
+                                ],
+                                attrs: {
+                                  type: "checkbox",
+                                  disabled: wrapper.is_phytho_your_own == true
+                                },
+                                domProps: {
+                                  checked: Array.isArray(
+                                    wrapper.is_phytho_provide_tosma
+                                  )
+                                    ? _vm._i(
+                                        wrapper.is_phytho_provide_tosma,
+                                        null
+                                      ) > -1
+                                    : wrapper.is_phytho_provide_tosma
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a = wrapper.is_phytho_provide_tosma,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = null,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_phytho_provide_tosma",
+                                            $$a.concat([$$v])
+                                          )
+                                      } else {
+                                        $$i > -1 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_phytho_provide_tosma",
+                                            $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1))
+                                          )
+                                      }
+                                    } else {
+                                      _vm.$set(
+                                        wrapper,
+                                        "is_phytho_provide_tosma",
+                                        $$c
+                                      )
+                                    }
+                                  }
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "phytho-container",
+                staticStyle: { display: "flex" }
+              },
+              [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          "Ajouter un certificat d'origine\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_origincertificat,
+                              expression: "wrapper.is_origincertificat"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_noorigincertificat == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(wrapper.is_origincertificat)
+                              ? _vm._i(wrapper.is_origincertificat, null) > -1
+                              : wrapper.is_origincertificat
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_origincertificat,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_origincertificat",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_origincertificat",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_origincertificat", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          " certificat d'origine Pas Necessaire\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_noorigincertificat,
+                              expression: "wrapper.is_noorigincertificat"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_origincertificat == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(
+                              wrapper.is_noorigincertificat
+                            )
+                              ? _vm._i(wrapper.is_noorigincertificat, null) > -1
+                              : wrapper.is_noorigincertificat
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_noorigincertificat,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_noorigincertificat",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_noorigincertificat",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_noorigincertificat", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            wrapper.is_origincertificat
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "phyto-owner",
+                    staticStyle: { display: "flex" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-md-6",
+                        staticStyle: { display: "flex" }
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "" } }, [
+                            _vm._v(
+                              "Vous avez votre certificat\n                            "
+                            ),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: wrapper.is_origin_certificat_your_own,
+                                  expression:
+                                    "wrapper.is_origin_certificat_your_own"
+                                }
+                              ],
+                              attrs: {
+                                type: "checkbox",
+                                disabled:
+                                  wrapper.is_origin_certificat_provide_to_sma ==
+                                  true
+                              },
+                              domProps: {
+                                checked: Array.isArray(
+                                  wrapper.is_origin_certificat_your_own
+                                )
+                                  ? _vm._i(
+                                      wrapper.is_origin_certificat_your_own,
+                                      null
+                                    ) > -1
+                                  : wrapper.is_origin_certificat_your_own
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a =
+                                      wrapper.is_origin_certificat_your_own,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_origin_certificat_your_own",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_origin_certificat_your_own",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_origin_certificat_your_own",
+                                      $$c
+                                    )
+                                  }
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "form-group",
+                          staticStyle: { display: "flex" }
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticStyle: { display: "flex" },
+                              attrs: { for: "" }
+                            },
+                            [
+                              _vm._v(
+                                "On le cheche pr vous\n                            "
+                              ),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value:
+                                      wrapper.is_origin_certificat_provide_to_sma,
+                                    expression:
+                                      "wrapper.is_origin_certificat_provide_to_sma"
+                                  }
+                                ],
+                                attrs: {
+                                  type: "checkbox",
+                                  disabled:
+                                    wrapper.is_origin_certificat_your_own ==
+                                    true
+                                },
+                                domProps: {
+                                  checked: Array.isArray(
+                                    wrapper.is_origin_certificat_provide_to_sma
+                                  )
+                                    ? _vm._i(
+                                        wrapper.is_origin_certificat_provide_to_sma,
+                                        null
+                                      ) > -1
+                                    : wrapper.is_origin_certificat_provide_to_sma
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a =
+                                        wrapper.is_origin_certificat_provide_to_sma,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = null,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_origin_certificat_provide_to_sma",
+                                            $$a.concat([$$v])
+                                          )
+                                      } else {
+                                        $$i > -1 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_origin_certificat_provide_to_sma",
+                                            $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1))
+                                          )
+                                      }
+                                    } else {
+                                      _vm.$set(
+                                        wrapper,
+                                        "is_origin_certificat_provide_to_sma",
+                                        $$c
+                                      )
+                                    }
+                                  }
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              : _vm._e()
           ],
           2
         )
@@ -43493,33 +45525,6 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "weight" } }, [
-                      _vm._v("Regions d'origine")
-                    ]),
-                    _vm._v(" "),
-                    _c("region-select", {
-                      attrs: {
-                        country: wrapper.origincountry,
-                        region: wrapper.originregion
-                      },
-                      model: {
-                        value: wrapper.originregion,
-                        callback: function($$v) {
-                          _vm.$set(wrapper, "originregion", $$v)
-                        },
-                        expression: "wrapper.originregion"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "weight" } }, [
                       _vm._v("Pays de destination")
                     ]),
                     _vm._v(" "),
@@ -43534,33 +45539,6 @@ var render = function() {
                           _vm.$set(wrapper, "destinationcountry", $$v)
                         },
                         expression: "wrapper.destinationcountry"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", { attrs: { for: "weight" } }, [
-                      _vm._v("Region de destination")
-                    ]),
-                    _vm._v(" "),
-                    _c("region-select", {
-                      attrs: {
-                        country: wrapper.destinationcountry,
-                        region: wrapper.destinationregion
-                      },
-                      model: {
-                        value: wrapper.destinationregion,
-                        callback: function($$v) {
-                          _vm.$set(wrapper, "destinationregion", $$v)
-                        },
-                        expression: "wrapper.destinationregion"
                       }
                     })
                   ],
@@ -43893,130 +45871,644 @@ var render = function() {
               )
             }),
             _vm._v(" "),
-            _c("div", { staticClass: "certificats" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "container-phytho",
-                  staticStyle: { display: "flex" }
-                },
-                [
-                  _c("div", { staticClass: "form-group col-md-6" }, [
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "phytho-container",
+                staticStyle: { display: "flex" }
+              },
+              [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
                     _c(
                       "label",
                       {
-                        staticStyle: { "font-size": "15px" },
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
                         attrs: { for: "" }
                       },
-                      [_vm._v("AJOUTER  PHYTHO")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.is_phytho,
-                          expression: "is_phytho"
-                        }
-                      ],
-                      attrs: { type: "checkbox" },
-                      domProps: {
-                        checked: Array.isArray(_vm.is_phytho)
-                          ? _vm._i(_vm.is_phytho, null) > -1
-                          : _vm.is_phytho
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.is_phytho,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.is_phytho = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.is_phytho = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
+                      [
+                        _vm._v(
+                          "Ajouter un certificat phytho\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_phythoexiste,
+                              expression: "wrapper.is_phythoexiste"
                             }
-                          } else {
-                            _vm.is_phytho = $$c
-                          }
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group col-md-6" }, [
-                    _c(
-                      "label",
-                      {
-                        staticStyle: { "font-size": "15px" },
-                        attrs: { for: "" }
-                      },
-                      [_vm._v("PAS NECESSAIRE")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.is_nophytho,
-                          expression: "is_nophytho"
-                        }
-                      ],
-                      attrs: { type: "checkbox" },
-                      domProps: {
-                        checked: Array.isArray(_vm.is_nophytho)
-                          ? _vm._i(_vm.is_nophytho, null) > -1
-                          : _vm.is_nophytho
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.is_nophytho,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.is_nophytho = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.is_nophytho = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_nophytho == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(wrapper.is_phythoexiste)
+                              ? _vm._i(wrapper.is_phythoexiste, null) > -1
+                              : wrapper.is_phythoexiste
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_phythoexiste,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_phythoexiste",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_phythoexiste",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_phythoexiste", $$c)
+                              }
                             }
-                          } else {
-                            _vm.is_nophytho = $$c
                           }
-                        }
-                      }
-                    })
+                        })
+                      ]
+                    )
                   ])
-                ]
-              ),
-              _vm._v(" "),
-              _vm.is_phytho
-                ? _c("div", { staticClass: "col-md-6" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "" } }, [
-                        _vm._v("UPLOADER LE FICHIER")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "file", name: "certificatoforigine" },
-                        on: { change: _vm.selectFile }
-                      })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          " phyto Pas Necessaire\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_nophytho,
+                              expression: "wrapper.is_nophytho"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_phythoexiste == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(wrapper.is_nophytho)
+                              ? _vm._i(wrapper.is_nophytho, null) > -1
+                              : wrapper.is_nophytho
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_nophytho,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_nophytho",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_nophytho",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_nophytho", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            wrapper.is_phythoexiste
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "phyto-owner",
+                    staticStyle: { display: "flex" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-md-6",
+                        staticStyle: { display: "flex" }
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "" } }, [
+                            _vm._v(
+                              "Vous avez votre phytho\n                            "
+                            ),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: wrapper.is_phytho_your_own,
+                                  expression: "wrapper.is_phytho_your_own"
+                                }
+                              ],
+                              attrs: {
+                                type: "checkbox",
+                                disabled:
+                                  wrapper.is_phytho_provide_tosma == true
+                              },
+                              domProps: {
+                                checked: Array.isArray(
+                                  wrapper.is_phytho_your_own
+                                )
+                                  ? _vm._i(wrapper.is_phytho_your_own, null) >
+                                    -1
+                                  : wrapper.is_phytho_your_own
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = wrapper.is_phytho_your_own,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_phytho_your_own",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_phytho_your_own",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(wrapper, "is_phytho_your_own", $$c)
+                                  }
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "form-group",
+                          staticStyle: { display: "flex" }
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticStyle: { display: "flex" },
+                              attrs: { for: "" }
+                            },
+                            [
+                              _vm._v(
+                                "On le cheche pr vous\n                            "
+                              ),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: wrapper.is_phytho_provide_tosma,
+                                    expression:
+                                      "wrapper.is_phytho_provide_tosma"
+                                  }
+                                ],
+                                attrs: {
+                                  type: "checkbox",
+                                  disabled: wrapper.is_phytho_your_own == true
+                                },
+                                domProps: {
+                                  checked: Array.isArray(
+                                    wrapper.is_phytho_provide_tosma
+                                  )
+                                    ? _vm._i(
+                                        wrapper.is_phytho_provide_tosma,
+                                        null
+                                      ) > -1
+                                    : wrapper.is_phytho_provide_tosma
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a = wrapper.is_phytho_provide_tosma,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = null,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_phytho_provide_tosma",
+                                            $$a.concat([$$v])
+                                          )
+                                      } else {
+                                        $$i > -1 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_phytho_provide_tosma",
+                                            $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1))
+                                          )
+                                      }
+                                    } else {
+                                      _vm.$set(
+                                        wrapper,
+                                        "is_phytho_provide_tosma",
+                                        $$c
+                                      )
+                                    }
+                                  }
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
                     ])
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "phytho-container",
+                staticStyle: { display: "flex" }
+              },
+              [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          "Ajouter un certificat d'origine\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_origincertificat,
+                              expression: "wrapper.is_origincertificat"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_noorigincertificat == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(wrapper.is_origincertificat)
+                              ? _vm._i(wrapper.is_origincertificat, null) > -1
+                              : wrapper.is_origincertificat
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_origincertificat,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_origincertificat",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_origincertificat",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_origincertificat", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
                   ])
-                : _vm._e()
-            ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: {
+                          "font-size": "20px",
+                          "font-weight": "bold"
+                        },
+                        attrs: { for: "" }
+                      },
+                      [
+                        _vm._v(
+                          " certificat d'origine Pas Necessaire\n                        "
+                        ),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: wrapper.is_noorigincertificat,
+                              expression: "wrapper.is_noorigincertificat"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            disabled: wrapper.is_origincertificat == true
+                          },
+                          domProps: {
+                            checked: Array.isArray(
+                              wrapper.is_noorigincertificat
+                            )
+                              ? _vm._i(wrapper.is_noorigincertificat, null) > -1
+                              : wrapper.is_noorigincertificat
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = wrapper.is_noorigincertificat,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_noorigincertificat",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_noorigincertificat",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(wrapper, "is_noorigincertificat", $$c)
+                              }
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            wrapper.is_origincertificat
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "phyto-owner",
+                    staticStyle: { display: "flex" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-md-6",
+                        staticStyle: { display: "flex" }
+                      },
+                      [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "" } }, [
+                            _vm._v(
+                              "Vous avez votre certificat\n                            "
+                            ),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: wrapper.is_origin_certificat_your_own,
+                                  expression:
+                                    "wrapper.is_origin_certificat_your_own"
+                                }
+                              ],
+                              attrs: {
+                                type: "checkbox",
+                                disabled:
+                                  wrapper.is_origin_certificat_provide_to_sma ==
+                                  true
+                              },
+                              domProps: {
+                                checked: Array.isArray(
+                                  wrapper.is_origin_certificat_your_own
+                                )
+                                  ? _vm._i(
+                                      wrapper.is_origin_certificat_your_own,
+                                      null
+                                    ) > -1
+                                  : wrapper.is_origin_certificat_your_own
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a =
+                                      wrapper.is_origin_certificat_your_own,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_origin_certificat_your_own",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          wrapper,
+                                          "is_origin_certificat_your_own",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(
+                                      wrapper,
+                                      "is_origin_certificat_your_own",
+                                      $$c
+                                    )
+                                  }
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "form-group",
+                          staticStyle: { display: "flex" }
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticStyle: { display: "flex" },
+                              attrs: { for: "" }
+                            },
+                            [
+                              _vm._v(
+                                "On le cheche pr vous\n                            "
+                              ),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value:
+                                      wrapper.is_origin_certificat_provide_to_sma,
+                                    expression:
+                                      "wrapper.is_origin_certificat_provide_to_sma"
+                                  }
+                                ],
+                                attrs: {
+                                  type: "checkbox",
+                                  disabled:
+                                    wrapper.is_origin_certificat_your_own ==
+                                    true
+                                },
+                                domProps: {
+                                  checked: Array.isArray(
+                                    wrapper.is_origin_certificat_provide_to_sma
+                                  )
+                                    ? _vm._i(
+                                        wrapper.is_origin_certificat_provide_to_sma,
+                                        null
+                                      ) > -1
+                                    : wrapper.is_origin_certificat_provide_to_sma
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a =
+                                        wrapper.is_origin_certificat_provide_to_sma,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = null,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_origin_certificat_provide_to_sma",
+                                            $$a.concat([$$v])
+                                          )
+                                      } else {
+                                        $$i > -1 &&
+                                          _vm.$set(
+                                            wrapper,
+                                            "is_origin_certificat_provide_to_sma",
+                                            $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1))
+                                          )
+                                      }
+                                    } else {
+                                      _vm.$set(
+                                        wrapper,
+                                        "is_origin_certificat_provide_to_sma",
+                                        $$c
+                                      )
+                                    }
+                                  }
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              : _vm._e()
           ],
           2
         )

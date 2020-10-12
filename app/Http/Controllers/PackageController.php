@@ -34,9 +34,19 @@ class PackageController extends Controller
 				'height' => $package['height'],
 				'length' => $package['length'],
 				'weight' => $package['weight'],
+				'origincountry'=> $package['origincountry'],
+                'destinationcountry'=> $package['destinationcountry'],
 				'is_smallformat' => false,
                 'is_bigformat'=> false,
-				
+				'is_nophytho' => $package['is_nophytho'],
+				'is_phythoexiste' => $package['is_phythoexiste'],
+				'is_phytho_your_own' => $package['is_phytho_your_own'],
+				'is_phytho_provide_tosma' => $package['is_phytho_provide_tosma'],	
+				'is_origincertificat'=> $package['is_origincertificat'],
+            	'is_noorigincertificat'=> $package['is_noorigincertificat'],
+            	'is_origin_certificat_your_own'=> $package['is_origin_certificat_your_own'],
+                'is_origin_certificat_provide_to_sma'=> $package['is_origin_certificat_provide_to_sma'],
+                
 			]);
 
 			$created_wrappers[] = $wrapper;

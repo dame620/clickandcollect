@@ -28,13 +28,19 @@ class EnvelopeController extends Controller
              $wrapper=Packageorenvelop::create([
                  'weight'  => $envelope['weight'],
                 'is_smallformat' => $envelope['is_smallformat'],
-                 'is_bigformat'=> $envelope['is_bigformat'],
-                 'origincountry'=> $envelope['origincountry'],
-                 'originregion'=> $envelope['originregion'],
-                 'destinationcountry'=> $envelope['destinationcountry'],
-                 'destinationregion'=> $envelope['destinationregion'],
-            
-                
+                'is_bigformat'=> $envelope['is_bigformat'],
+                'origincountry'=> $envelope['origincountry'],
+                'destinationcountry'=> $envelope['destinationcountry'],
+                'is_nophytho' => $envelope['is_nophytho'],
+				'is_phythoexiste' => $envelope['is_phythoexiste'],
+				'is_phytho_your_own' => $envelope['is_phytho_your_own'],
+				'is_phytho_provide_tosma' => $envelope['is_phytho_provide_tosma'],	
+				'is_origincertificat'=> $envelope['is_origincertificat'],
+            	'is_noorigincertificat'=> $envelope['is_noorigincertificat'],
+            	'is_origin_certificat_your_own'=> $envelope['is_origin_certificat_your_own'],
+                'is_origin_certificat_provide_to_sma'=> $envelope['is_origin_certificat_provide_to_sma'],
+ 
+      
              ]);
              $created_wrappers[] = $wrapper;
 

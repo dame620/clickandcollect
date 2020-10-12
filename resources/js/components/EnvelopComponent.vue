@@ -20,12 +20,6 @@
                         <country-select v-model="wrapper.origincountry" :country="wrapper.origincountry" topCountry="US" />
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="weight">Region d'origine</label>
-                        <region-select v-model="wrapper.originregion" :country="wrapper.origincountry" :region="wrapper.originregion" />
-                    </div>
-                </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -33,14 +27,6 @@
                         <country-select v-model="wrapper.destinationcountry" :country="wrapper.destinationcountry" topCountry="US" />
                     </div>
                 </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="weight">Region de destination</label>
-                        <region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :region="wrapper.destinationregion" />
-                    </div>
-                </div>
-
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -103,6 +89,89 @@
                     </div>
                 </div>
             </div>
+
+                      <hr>
+            <!--debut certificat phytho-->
+            <div class="phytho-container" style="display:flex;">
+               <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="" style="font-size:20px; font-weight:bold;">Ajouter un certificat phytho
+                            <input type="checkbox" v-model="wrapper.is_phythoexiste" :disabled="wrapper.is_nophytho==true">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-6" >
+                    <div class="form-group" >
+                        <label for="" style="font-size:20px; font-weight:bold;"> phyto Pas Necessaire
+                            <input type="checkbox" :disabled="wrapper.is_phythoexiste==true"  v-model="wrapper.is_nophytho">
+                        </label>
+                    </div>
+                </div>
+                 
+            </div>
+            <div class="phyto-owner" v-if="wrapper.is_phythoexiste" style="display:flex;">
+
+                    <div class="col-md-6" style="display:flex;">
+                        <div class="form-group" >
+                            <label for="" >Vous avez votre phytho
+                                <input type="checkbox" :disabled="wrapper.is_phytho_provide_tosma==true"  v-model="wrapper.is_phytho_your_own">
+                            </label>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-6">
+                        <div class="form-group" style="display:flex;">
+                            <label for="" style="display:flex;">On le cheche pr vous
+                                <input type="checkbox" v-model="wrapper.is_phytho_provide_tosma" :disabled="wrapper.is_phytho_your_own==true">
+                            </label>
+                        </div>
+                    </div>
+
+            </div>  
+        <!--fin certificat phytho-->
+
+         <!--debut certificat origine-->
+
+            <div class="phytho-container" style="display:flex;">
+               <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="" style="font-size:20px; font-weight:bold;">Ajouter un certificat d'origine
+                            <input type="checkbox" v-model="wrapper.is_origincertificat" :disabled="wrapper.is_noorigincertificat==true">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-6" >
+                    <div class="form-group" >
+                        <label for="" style="font-size:20px; font-weight:bold;"> certificat d'origine Pas Necessaire
+                            <input type="checkbox" :disabled="wrapper.is_origincertificat==true"  v-model="wrapper.is_noorigincertificat">
+                        </label>
+                    </div>
+                </div>
+                 
+            </div>
+            <div class="phyto-owner" v-if="wrapper.is_origincertificat" style="display:flex;">
+
+                    <div class="col-md-6" style="display:flex;">
+                        <div class="form-group" >
+                            <label for="" >Vous avez votre certificat
+                                <input type="checkbox" :disabled="wrapper.is_origin_certificat_provide_to_sma==true"  v-model="wrapper.is_origin_certificat_your_own">
+                            </label>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-6">
+                        <div class="form-group" style="display:flex;">
+                            <label for="" style="display:flex;">On le cheche pr vous
+                                <input type="checkbox" v-model="wrapper.is_origin_certificat_provide_to_sma" :disabled="wrapper.is_origin_certificat_your_own==true">
+                            </label>
+                        </div>
+                    </div>
+
+            </div>
+
+          <!--fin certificat origin-->
         </div>
         
         <div class="form-group">
@@ -126,10 +195,16 @@
                     is_smallformat: false,
                     is_bigformat: false,
                     weight: null,
+                    is_nophytho: false,
+                    is_phythoexiste: false,
+                    is_phytho_your_own: false,
+                    is_phytho_provide_tosma: false,
+                    is_origincertificat:false,
+                    is_noorigincertificat:false,
+                    is_origin_certificat_your_own:false,
+                    is_origin_certificat_provide_to_sma:false,
                     origincountry:null,
-                    originregion:null,
                     destinationcountry:null,
-                    destinationregion:null,
                     products: [],
                 }],
             }
@@ -146,12 +221,18 @@
             },
             incrementWrapper() {
                 this.wrappers.push({
-                    is_bigformat: null,
-                    is_smallformat: null,
+                    is_bigformat: false,
+                    is_smallformat: false,
+                    is_nophytho: false,
+                    is_phythoexiste: false,
+                    is_phytho_your_own: false,
+                    is_phytho_provide_tosma: false,
+                    is_origincertificat:false,
+                    is_noorigincertificat:false,
+                    is_origin_certificat_your_own:false,
+                    is_origin_certificat_provide_to_sma:false,
                     origincountry:null,
-                    originregion:null,
                     destinationcountry:null,
-                    destinationregion:null,
                     weight: null,
                     products: []
                 })

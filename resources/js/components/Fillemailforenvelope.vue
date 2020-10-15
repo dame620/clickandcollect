@@ -2,7 +2,9 @@
     <div class="container">
         <div class="header" style="margin-bottom:30px;">
             <h2>veuillez renseigner votre email votre nom ou nom de votre compagnie </h2>
+            <label for="">EMAIL</label>
             <input type="text" placeholder="entrez ici votre email">
+            <label for="">Nom de votre compagnie</label>
             <input type="text" placeholder="nom de votre compagnie">
             <button type="submit" class="btn btn-success" style="">ENREGISTRER</button>
         </div>

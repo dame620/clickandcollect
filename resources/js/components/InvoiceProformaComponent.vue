@@ -7,13 +7,36 @@
         </div>
         <div id="container"></div>
         
-
-        <p id="demo">la longueur de votre paquet est:{{lengthval}}</p>
-        <p>la largeur est:{{widthtval}}</p>
-        <p> la hauteur est:{{heightval}}</p>
-        <p> le poids est:{{weightval}}</p>
+        <div class="container_containt" v-for="(wrapper, wrapper_index) in wrappers" :key="wrapper_index">
+            
+            <br>
+            <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>NUMERO PAQUET</th>
+                            <th>poids</th>
+                            <th>largeur</th> 
+                            <th>hauteur</th> 
+                            <th>longueur</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ wrapper_index+1 }}</td>
+                            <td>{{ wrapper.weight }}</td>
+                            <td>{{ wrapper.width }}</td>
+                            <td>{{ wrapper.height }}</td>
+                            <td>{{ wrapper.length }}</td>
+                            
+                            
+                        </tr>
+                    </tbody>
+            </table>
+    
+        </div>
 
         <p>vos frais d'envoi sont de 30000 F CFA</p>
+
 
         <div class="containt_bottom" style="display:flex; flex-direction:column;">
             <button type="submit" style="background-color:rgb(218, 175, 127); border:none; width:300px; margin-bottom:20px; height:35px;" >
@@ -35,12 +58,26 @@
     export default {
         mounted() {
                     console.log('Component mounted.');
+                    //progress bar
                     var ProgressBar = require('progressbar.js');
 
-// Assuming we have an empty <div id="container"></div> in
-// HTML
-    var bar = new ProgressBar.Line('#container', {easing: 'easeInOut'});
-    bar.animate(1);  // Value from 0.0 to 1.0
+                  // Assuming we have an empty <div id="container"></div> in
+                 // HTML
+                var bar = new ProgressBar.Line('#container', {easing: 'easeInOut'});
+                bar.animate(1);  // Value from 0.0 to 1.0
+                //get the informations inside session storage
+                const jsonWrappers = sessionStorage.getItem('wrappers');
+                let wrappers = null
+
+                if (jsonWrappers != null && jsonWrappers != undefined) {
+                    wrappers = JSON.parse(jsonWrappers);
+                }
+
+                this.wrappers=wrappers;
+                if(wrappers!=null){
+                    console.log(wrappers);
+                }
+
             
         },
 
@@ -49,10 +86,8 @@
         data() {
          return {
 
-                 weightval : localStorage.getItem("weightsvalue"),
-                 widthtval : localStorage.getItem("widthsvalue"),
-                 lengthval : localStorage.getItem("lengthsvalue"),
-                 heightval : localStorage.getItem("heightsvalue"),
+                 wrappers: null,
+               
                  
          }
              },

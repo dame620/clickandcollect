@@ -92,3 +92,9 @@ Route::get('/countrylist', function(){
     return view('countrylist');
 
 });
+
+//ceci est la route de la facture proforma apres avoir demander une quotation
+Route::get('/invoicequotepackage', function(){
+
+    return view('invoicequotepackage');
+});

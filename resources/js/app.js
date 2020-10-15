@@ -64,6 +64,9 @@ Vue.component('envelope-form', require('./components/pick_envelope_after_quote.v
 //ceci est la page qui afiche country list
 Vue.component('country-list', require('./components/CountryList.vue').default);
 
+//voila la page de la facture apres avoir demandé une quotation
+Vue.component('invoicepackage-quote', require('./components/InvoicePackagequote.vue').default);
+
 
 
 /**

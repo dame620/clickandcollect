@@ -98,3 +98,42 @@ Route::get('/invoicequotepackage', function(){
 
     return view('invoicequotepackage');
 });
+
+//ceci est une route de la request dhl
+Route::get('/dhlrequest', function(){
+    return view('dhlrequest');
+});
+
+//ceci est une route de la reponse dhl
+Route::get('/dhlresponse', function(){
+    return view('dhlresponse');
+});
+
+//ceci est une route de la request dhl un pour tester via vuejs
+Route::get('/dhlrequestun', function(){
+    return view('dhlrequestun');
+});
+
+//ceci est une route de la reponse dhl un pour tester via vuejs
+Route::get('/dhlresponseun', function(){
+    return view('dhlresponseun');
+});
+
+//ceci est une route de la requette dhl un pour tester via vuejs
+Route::get('/dhlrequestun', function(){
+    return view('dhlrequestun');
+});
+
+
+//ceci est la route créer au niveau back end pour recuperer les données pour le get rates 
+Route::post('/get-rates', 'DhlController@index')->name('dhl.rates');
+
+
+
+//ceci est la route qui permet de verifier si les infos saisi sur obtebir un quotation pour le paquet sont corrrecte 
+Route::get('/checkquoteforpackage', function(){
+    return view('checkquoteforpackage');
+});
+
+//ceci est la route qui permet d'envoyer des données en post vers l'url /rates
+Route::post('/rates', 'DhlController@store')->name('rates.store');

@@ -5,6 +5,7 @@ use App\Product;
 use App\Packageorenvelop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class PackageController extends Controller
 {
@@ -66,10 +67,17 @@ class PackageController extends Controller
 			}
         }	
        // dd($request->ajax());
-
+	   //$request->session()->flash('status', 'Task was successful!');
+	   //Session::flash('success', "le paquet a été bien savegarder");
+	  // return redirect()->route('package.create')->with('success', 'le paquet a été bien enregistrer');
+	   
 		if ($request->ajax()) {
+			
 			return ['success' => true, 'wrappers' => $created_wrappers, 'products' => $created_products];
+			
 		}
+
+
 
     }
 

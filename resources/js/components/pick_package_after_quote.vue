@@ -326,11 +326,12 @@
                    };
                     if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
                         this.resetForm();
-                         
+                         alert('le paquet a été enregistrer avec success');
                         sessionStorage.removeItem('wrappers');
                         return window.location.href = '/';
                     }
                 }).catch(response => {
+                    alert('oups echec de l\'ajout');
                     console.error(response);
                 }).finally(_ => {
                    this.loading = false; 

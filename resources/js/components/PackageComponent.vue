@@ -274,7 +274,9 @@
 
                 console.log(wraper);
              */
-                return window.location.href = '/invoiceproforma';
+                
+                return window.location.href = '/checkquoteforpackage';
+                
             },
         },
       

@@ -67,6 +67,17 @@ Vue.component('country-list', require('./components/CountryList.vue').default);
 //voila la page de la facture apres avoir demandé une quotation
 Vue.component('invoicepackage-quote', require('./components/InvoicePackagequote.vue').default);
 
+//ceci est notre exemple de requette dhl
+Vue.component('dhl-request', require('./components/DhltestunComponent.vue').default);
+
+
+//ceci est notre exemple de reponse dhl
+Vue.component('dhl-response', require('./components/DhlgetrateComponent.vue').default);
+
+//ceci est le component pour checker les paquets avant de passer à la demande de la quotation
+Vue.component('checkquotefor-package', require('./components/checkdataquoteforpackageComponent.vue').default);
+
+
 
 
 /**

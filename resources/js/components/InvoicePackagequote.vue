@@ -59,9 +59,9 @@
 
             <div class="TotalHt">
                 <h2>Total HT:</h2>
-            </div>
+            </div>product
             <div class="TotalTTC">
-                <h2>Total TTC:</h2>
+                <h2>Total TTC: {{ productPrice }} </h2>
             </div>
 
         </div>
@@ -72,19 +72,74 @@
 export default {
 
     mounted(){
-        console.log('mounted')
         //recuperation des infos du paquet
-                const jsonWrappers = sessionStorage.getItem('wrappers');
-                let wrappers = null
+        const jsonWrappers = sessionStorage.getItem('wrappers');
+        let wrappers = null
 
-                if (jsonWrappers != null && jsonWrappers != undefined) {
-                    wrappers = JSON.parse(jsonWrappers);
-                }
+        if (jsonWrappers != null && jsonWrappers != undefined) {
+            wrappers = JSON.parse(jsonWrappers);
+        }
 
-                this.wrappers=wrappers;
-                if(wrappers!=null){
-                    console.log(wrappers);
-                }
+        this.wrappers=wrappers;
+        if(wrappers!=null){
+            console.log(wrappers);
+        }
+
+        const formattedWrappers = wrappers.map(function(wrapper) {
+            return {
+                width:  Number(wrapper.width),
+                height: Number(wrapper.height),
+                weight: Number(wrapper.weight),
+                length: Number(wrapper.length),
+            }
+        });
+        console.log(formattedWrappers);
+
+        formattedWrappers.push({
+            width: 19,
+            height:11,
+            weight: 6,
+            length: 17,
+        });
+
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('X-CSRF-TOKEN', window.csrfContent);
+        
+        const options = {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify({
+                packages: formattedWrappers
+            })
+        };
+
+        const request = new Request('/get-rates', options);
+
+        fetch(request, options)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.responses);
+            
+        })
+
+
+
+        
+        /*fetch('/rates'){}
+        .then(response => response.json())
+        .then(data => {
+            const response = data.response
+            let product_detail = (JSON.parse(response))
+            console.log(product_detail);
+            let productPrice=(product_detail.products[0].totalPrice[0].price);
+            this.productPrice = productPrice;
+            
+        });*/
+
+
+
+        
 
         //get the name
         var name=null;
@@ -115,8 +170,8 @@ export default {
             wrappers: null,
             name: null,
             companie_name :null,
-            email: null
-
+            email: null,
+            productPrice:null
         }
     },
     

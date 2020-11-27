@@ -13,6 +13,12 @@ try {
     require('bootstrap');
 } catch (e) {}
 
+
+const csrfContent = document.head.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+
+window.csrfContent = csrfContent;
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

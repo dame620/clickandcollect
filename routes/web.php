@@ -104,26 +104,12 @@ Route::get('/dhlrequest', function(){
     return view('dhlrequest');
 });
 
-//ceci est une route de la reponse dhl
-Route::get('/dhlresponse', function(){
-    return view('dhlresponse');
-});
 
-//ceci est une route de la request dhl un pour tester via vuejs
-Route::get('/dhlrequestun', function(){
-    return view('dhlrequestun');
-});
 
-//ceci est une route de la reponse dhl un pour tester via vuejs
-Route::get('/dhlresponseun', function(){
-    return view('dhlresponseun');
+//ceci est une route qui méne vers la route de test
+Route::get('/test', function(){
+    return view('test');
 });
-
-//ceci est une route de la requette dhl un pour tester via vuejs
-Route::get('/dhlrequestun', function(){
-    return view('dhlrequestun');
-});
-
 
 //ceci est la route créer au niveau back end pour recuperer les données pour le get rates 
 Route::post('/get-rates', 'DhlController@index')->name('dhl.rates');

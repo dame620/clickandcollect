@@ -1,7 +1,6 @@
 <template>
     <div class="container">
          
-         <p>un instant nous cherchons le meilleur prix</p>
         <div id="myProgress" style="width: 100%; background-color: #ddd;">
             <div id="myBar" style="width: 100%; height: 30px; background-color: #4CAF50; text-align: center;line-height: 30px;  color: white;">100%</div>
         </div>
@@ -35,7 +34,6 @@
     
         </div>
 
-        <p>vos frais d'envoi sont de 30000 F CFA</p>
 
 
         <div class="containt_bottom" style="display:flex; flex-direction:column;">

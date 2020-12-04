@@ -25,7 +25,6 @@
         </div>
         <div class="body_invoice">
             <div class="container_containt" v-for="(wrapper, wrapper_index) in wrappers" :key="wrapper_index">
-            
                 <br>
                 <table class="table table-dark">
                         <thead>
@@ -45,7 +44,7 @@
                                 <td>{{ wrapper.width }}</td>
                                 <td>{{ wrapper.height }}</td>
                                 <td>{{ wrapper.length }}</td> 
-                                
+                                <!--td>{{ responses[wrapper_index].products[0].totalPrice[0].price }}</td--> 
                             </tr>
                         </tbody>
                 </table>
@@ -59,9 +58,9 @@
 
             <div class="TotalHt">
                 <h2>Total HT:</h2>
-            </div>product
+            </div>
             <div class="TotalTTC">
-                <h2>Total TTC: {{ productPrice }} </h2>
+                <h2>Total TTC: {{ sum_for_total_price }} </h2>
             </div>
 
         </div>
@@ -91,16 +90,20 @@ export default {
                 height: Number(wrapper.height),
                 weight: Number(wrapper.weight),
                 length: Number(wrapper.length),
+                origincountry: wrapper.origincountry,
+                destinationcountry: wrapper.destinationcountry,
+                originregion: wrapper.originregion,
+                destinationregion: wrapper.destinationregion
             }
         });
         console.log(formattedWrappers);
 
-        formattedWrappers.push({
+        /*formattedWrappers.push({
             width: 19,
             height:11,
             weight: 6,
             length: 17,
-        });
+        });*/
 
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -119,8 +122,29 @@ export default {
         fetch(request, options)
         .then(response => response.json())
         .then(data => {
-            console.log(data.responses);
-            
+            console.log(data);
+            let responses=data.responses;
+            //data.responses[0].products[0].totalPrice[0].price
+            this.responses=responses;
+            var table_for_price=[];
+           responses.forEach(response=>{
+               const products=response.products;
+
+               products.forEach(product=>{
+                    const prix=product.totalPrice[0].price;
+                    console.log("test produit", prix);
+                    table_for_price.push(prix);
+               })
+               
+           })
+           console.log(table_for_price);
+           var sum_for_total_price=table_for_price.reduce(function(acc, number){
+               return acc + number;
+           }, 0)
+            console.log(sum_for_total_price);
+
+           this.sum_for_total_price=sum_for_total_price;
+
         })
 
 
@@ -171,7 +195,10 @@ export default {
             name: null,
             companie_name :null,
             email: null,
-            productPrice:null
+            responses:null,
+            table_for_price:null,
+            sum_for_total_price:null
+          //  data:null
         }
     },
     

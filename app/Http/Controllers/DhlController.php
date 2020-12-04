@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DhlController extends Controller
@@ -11,7 +12,7 @@ class DhlController extends Controller
         $packages = $request->packages;
         $responses = [];
         foreach($packages as $package) {
-            $response = $this->getRates($package['width'],$package['height'],$package['weight'],$package['length']);
+            $response = $this->getRates($package['width'],$package['height'],$package['weight'],$package['length'],$package['origincountry'],$package['originregion'],$package['destinationcountry'],$package['destinationregion']);
             array_push($responses, json_decode($response));
         }
 
@@ -23,14 +24,14 @@ class DhlController extends Controller
         $response = $this->getRates($request->width, $request->height, $request->weight, $request->length); 
 
     }       
-
-
-
-    private function getRates($width, $height, $weight, $length) {
+   
+    private function getRates($width, $height, $weight, $length, $origincountry, $originregion, $destinationcountry, $destinationregion) {
+        $newDate = Carbon::now()->addDays(5);
+        $fifthday=$newDate->toDateString();
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://express.api.dhl.com/mydhlapi/test/rates?accountNumber=403022667&originCountryCode=CZ&originCityName=Prague&destinationCountryCode=CZ&destinationCityName=Prague&plannedShippingDate=2020-11-28&isCustomsDeclarable=true&length=$length&weight=$weight&width=$width&height=$height&unitOfMeasurement=metric",
+        CURLOPT_URL => "https://express.api.dhl.com/mydhlapi/test/rates?accountNumber=403022667&originCountryCode=$origincountry&originCityName=$originregion&destinationCountryCode=$destinationcountry&destinationCityName=$destinationregion&plannedShippingDate=$fifthday&isCustomsDeclarable=true&length=$length&weight=$weight&width=$width&height=$height&unitOfMeasurement=metric",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,

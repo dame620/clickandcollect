@@ -15,6 +15,8 @@ class ProfilController extends Controller
     
     public function show() 
     {
+        //$newDate = Carbon::now()->addDays(5);
+        //$fifthday=$newDate->toDateString();
         $user = Auth::user();
         
         return view('profil.show', compact('user'));

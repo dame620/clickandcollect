@@ -2125,135 +2125,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DhlgetrateComponent.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DhlgetrateComponent.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    var url = "/rates";
-    /*  fetch('/rates', {
-          method: 'post',
-          data: {
-              weight: Number(this.weight) 
-          }
-      })*/
-
-    fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      var response = data.response;
-      console.log(JSON.parse(response));
-    });
-  },
-  data: function data() {
-    return {};
-  },
-  methods: {
-    onSubmitrequestform: function onSubmitrequestform() {
-      return window.location.href = '/';
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DhltestunComponent.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DhltestunComponent.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  },
-  data: function data() {
-    return {};
-  },
-  methods: {
-    onSubmitrequestform: function onSubmitrequestform() {
-      return window.location.href = '/dhlresponseun';
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EnvelopComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/EnvelopComponent.vue?vue&type=script&lang=js& ***!
@@ -2775,9 +2646,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
+    var _this = this;
+
     //recuperation des infos du paquet
     var jsonWrappers = sessionStorage.getItem('wrappers');
     var wrappers = null;
@@ -2797,16 +2669,21 @@ __webpack_require__.r(__webpack_exports__);
         width: Number(wrapper.width),
         height: Number(wrapper.height),
         weight: Number(wrapper.weight),
-        length: Number(wrapper.length)
+        length: Number(wrapper.length),
+        origincountry: wrapper.origincountry,
+        destinationcountry: wrapper.destinationcountry,
+        originregion: wrapper.originregion,
+        destinationregion: wrapper.destinationregion
       };
     });
     console.log(formattedWrappers);
-    formattedWrappers.push({
-      width: 19,
-      height: 11,
-      weight: 6,
-      length: 17
-    });
+    /*formattedWrappers.push({
+        width: 19,
+        height:11,
+        weight: 6,
+        length: 17,
+    });*/
+
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('X-CSRF-TOKEN', window.csrfContent);
@@ -2821,7 +2698,25 @@ __webpack_require__.r(__webpack_exports__);
     fetch(request, options).then(function (response) {
       return response.json();
     }).then(function (data) {
-      console.log(data.responses);
+      console.log(data);
+      var responses = data.responses; //data.responses[0].products[0].totalPrice[0].price
+
+      _this.responses = responses;
+      var table_for_price = [];
+      responses.forEach(function (response) {
+        var products = response.products;
+        products.forEach(function (product) {
+          var prix = product.totalPrice[0].price;
+          console.log("test produit", prix);
+          table_for_price.push(prix);
+        });
+      });
+      console.log(table_for_price);
+      var sum_for_total_price = table_for_price.reduce(function (acc, number) {
+        return acc + number;
+      }, 0);
+      console.log(sum_for_total_price);
+      _this.sum_for_total_price = sum_for_total_price;
     });
     /*fetch('/rates'){}
     .then(response => response.json())
@@ -2864,7 +2759,10 @@ __webpack_require__.r(__webpack_exports__);
       name: null,
       companie_name: null,
       email: null,
-      productPrice: null
+      responses: null,
+      table_for_price: null,
+      sum_for_total_price: null //  data:null
+
     };
   },
   methods: {}
@@ -2881,8 +2779,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -3235,6 +3131,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -3256,6 +3166,8 @@ __webpack_require__.r(__webpack_exports__);
         is_origin_certificat_provide_to_sma: false,
         origincountry: null,
         destinationcountry: null,
+        originregion: null,
+        destinationregion: null,
         products: []
       }]
     };
@@ -3285,6 +3197,8 @@ __webpack_require__.r(__webpack_exports__);
         is_origin_certificat_your_own: false,
         is_origin_certificat_provide_to_sma: false,
         destinationcountry: null,
+        originregion: null,
+        destinationregion: null,
         products: []
       });
     },
@@ -3308,14 +3222,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     onSubmitPackageForm: function onSubmitPackageForm() {
       sessionStorage.setItem('wrappers', JSON.stringify(this.wrappers));
-      /*   const jsonWrappers = sessionStorage.getItem('wrappers');
-         let wraper = null
-         if (jsonWrappers != null && jsonWrappers != undefined) {
-             wraper = JSON.parse(jsonWrappers);
-         }
-          console.log(wraper);
-      */
-
       return window.location.href = '/checkquoteforpackage';
     }
   }
@@ -3352,6 +3258,53 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       return console.log(error);
     });
+  }
+}); //responses[wrapper_index].products[0].totalPrice[0].price
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TestComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TestComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    /* const url = "/rates"
+     fetch(url)
+     .then(response => response.json())
+     .then(data => {
+         const response = data.response
+         console.log(JSON.parse(response));
+     });*/
+    //console.log(this.fullnamecountry);
+    //console.log("US (Alpha-2) => " + countries.getName("US", "de", {select: "official"})); // Vereinigte Staaten von Amerika
+    var countries = window.isoCountries; //console.log("US (Alpha-2) => " + countries.getName("US", "en", {select: "official"}));
+
+    var full_country_name = countries.getName("SN", "en", {
+      select: "official"
+    }); // United States of America
+
+    console.log(full_country_name);
+  },
+  data: function data() {
+    return {
+      fullnamecountry: "senegal"
+    };
+  },
+  methods: {
+    onSubmitrequestform: function onSubmitrequestform() {
+      return window.location.href = '/';
+    }
   }
 });
 
@@ -3416,8 +3369,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
+    var _this = this;
+
     console.log('Component mounted.'); //get the informations inside session storage
 
     var jsonWrappers = sessionStorage.getItem('wrappers');
@@ -3434,29 +3392,87 @@ __webpack_require__.r(__webpack_exports__);
     } //fin de recupération des données
     //fetch request
 
-    /* const data = wrappers;
-      fetch('/rates', {
-         method: 'POST', // or 'PUT'
-         headers: {
-             'Content-Type': 'application/json',
-             'X-CSRF-TOKEN': window.csrfContent,
-         },
-         body: JSON.stringify(data),
-     })
-     .then(response => response.json())
-     .then(data => {
-         console.log('Success:', data);
-     })
-     .catch((error) => {
-         console.error('Error:', error);
-     });
-     */
-    //end of fetch request
 
+    var formattedWrappers = wrappers.map(function (wrapper) {
+      return {
+        width: Number(wrapper.width),
+        height: Number(wrapper.height),
+        weight: Number(wrapper.weight),
+        length: Number(wrapper.length),
+        origincountry: wrapper.origincountry,
+        destinationcountry: wrapper.destinationcountry,
+        originregion: wrapper.originregion,
+        destinationregion: wrapper.destinationregion
+      };
+    });
+    console.log(formattedWrappers);
+    /*formattedWrappers.push({
+        width: 19,
+        height:11,
+        weight: 6,
+        length: 17,
+    });*/
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('X-CSRF-TOKEN', window.csrfContent);
+    var options = {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify({
+        packages: formattedWrappers
+      })
+    };
+    var request = new Request('/get-rates', options);
+    fetch(request, options).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      console.log(data);
+      var responses = data.responses;
+      _this.responses = responses; //console.log(this.responses)
+      // table_for_price est la variable qui doit contenir les prix de l'ensemble des paquets
+
+      var table_for_price = [];
+      responses.forEach(function (response) {
+        var products = response.products;
+        products.forEach(function (product) {
+          //totalPrice[0] ns retourne une ligne qui contient le price en fcfa avec 1 ou 2 on aura l'aura avec euro
+          var prix = product.totalPrice[0].price;
+          console.log(prix);
+          table_for_price.push(prix);
+        });
+      });
+      console.log(table_for_price);
+      var sum_for_total_price = table_for_price.reduce(function (acc, number) {
+        return number + acc;
+      }, 0);
+      _this.sum_for_total_price = sum_for_total_price; // console.log(this.responses);
+    }); // console.log("sama responses", this.responses)
+
+    /* const data = wrappers;
+     fetch('/rates', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': window.csrfContent,
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+    */
+    //end of fetch request
   },
   data: function data() {
     return {
-      wrappers: null
+      wrappers: null,
+      responses: null,
+      sum_for_total_price: null
     };
   },
   methods: {
@@ -8559,25 +8575,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DhltestunComponent.vue?vue&type=style&index=0&lang=css&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DhltestunComponent.vue?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.btn.btn-success{\n    display: flex;\n    margin-top: 30px;\n    padding: 10px;\n    width: 100px;\n}\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EnvelopComponent.vue?vue&type=style&index=0&id=111d409a&scoped=true&lang=css&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/EnvelopComponent.vue?vue&type=style&index=0&id=111d409a&scoped=true&lang=css& ***!
@@ -8609,7 +8606,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* ceci est le css de tt ce qui est au top*/\n.top_container{\n         display: flex;\n         justify-content: space-between;\n}\n     /*the logo style*/\n.contaier_left_first img{\n        width: 200px;\n        height: 150px;\n}\n    /*top container style*/\n.contaier_left_first{\n        border: dashed rgb(170, 50, 220);\n        width: 220px;\n        margin-bottom: 5px;\n}\n.top_right_container{\n        display: flex;\n        flex-direction: column;\n}\n    /*Contenu du milieux style*/\n.title_center{\n        display: flex;\n        justify-content: center;\n        border-bottom: 2mm ridge rgba(170, 50, 220, .6);\n}\n    /*Style du bas du facture*/\n.invoice_footer{\n        display: flex;\n        flex-direction: column;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* ceci est le css de tt ce qui est au top*/\n.top_container{\n         display: flex;\n         justify-content: space-between;\n}\n     /*the logo style*/\n.contaier_left_first img{\n        width: 200px;\n        height: 150px;\n}\n    /*top container style*/\n.contaier_left_first{\n        border: dashed rgb(170, 50, 220);\n        width: 220px;\n        margin-bottom: 5px;\n}\n.top_right_container{\n        display: flex;\n        flex-direction: column;\n}\n    /*Contenu du milieux style*/\n.title_center{\n        display: flex;\n        justify-content: center;\n        border-bottom: 2mm ridge rgba(170, 50, 220, .6);\n}\n    /*Style du bas du facture*/\n.invoice_footer{\n        display: flex;\n        flex-direction: column;\n}\n", ""]);
 
 // exports
 
@@ -8757,6 +8754,753 @@ function toComment(sourceMap) {
 	return '/*# ' + data + ' */';
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/diacritics/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/diacritics/index.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+exports.remove = removeDiacritics;
+
+var replacementList = [
+  {
+    base: ' ',
+    chars: "\u00A0",
+  }, {
+    base: '0',
+    chars: "\u07C0",
+  }, {
+    base: 'A',
+    chars: "\u24B6\uFF21\u00C0\u00C1\u00C2\u1EA6\u1EA4\u1EAA\u1EA8\u00C3\u0100\u0102\u1EB0\u1EAE\u1EB4\u1EB2\u0226\u01E0\u00C4\u01DE\u1EA2\u00C5\u01FA\u01CD\u0200\u0202\u1EA0\u1EAC\u1EB6\u1E00\u0104\u023A\u2C6F",
+  }, {
+    base: 'AA',
+    chars: "\uA732",
+  }, {
+    base: 'AE',
+    chars: "\u00C6\u01FC\u01E2",
+  }, {
+    base: 'AO',
+    chars: "\uA734",
+  }, {
+    base: 'AU',
+    chars: "\uA736",
+  }, {
+    base: 'AV',
+    chars: "\uA738\uA73A",
+  }, {
+    base: 'AY',
+    chars: "\uA73C",
+  }, {
+    base: 'B',
+    chars: "\u24B7\uFF22\u1E02\u1E04\u1E06\u0243\u0181",
+  }, {
+    base: 'C',
+    chars: "\u24b8\uff23\uA73E\u1E08\u0106\u0043\u0108\u010A\u010C\u00C7\u0187\u023B",
+  }, {
+    base: 'D',
+    chars: "\u24B9\uFF24\u1E0A\u010E\u1E0C\u1E10\u1E12\u1E0E\u0110\u018A\u0189\u1D05\uA779",
+  }, {
+    base: 'Dh',
+    chars: "\u00D0",
+  }, {
+    base: 'DZ',
+    chars: "\u01F1\u01C4",
+  }, {
+    base: 'Dz',
+    chars: "\u01F2\u01C5",
+  }, {
+    base: 'E',
+    chars: "\u025B\u24BA\uFF25\u00C8\u00C9\u00CA\u1EC0\u1EBE\u1EC4\u1EC2\u1EBC\u0112\u1E14\u1E16\u0114\u0116\u00CB\u1EBA\u011A\u0204\u0206\u1EB8\u1EC6\u0228\u1E1C\u0118\u1E18\u1E1A\u0190\u018E\u1D07",
+  }, {
+    base: 'F',
+    chars: "\uA77C\u24BB\uFF26\u1E1E\u0191\uA77B",
+  }, {
+    base: 'G',
+    chars: "\u24BC\uFF27\u01F4\u011C\u1E20\u011E\u0120\u01E6\u0122\u01E4\u0193\uA7A0\uA77D\uA77E\u0262",
+  }, {
+    base: 'H',
+    chars: "\u24BD\uFF28\u0124\u1E22\u1E26\u021E\u1E24\u1E28\u1E2A\u0126\u2C67\u2C75\uA78D",
+  }, {
+    base: 'I',
+    chars: "\u24BE\uFF29\xCC\xCD\xCE\u0128\u012A\u012C\u0130\xCF\u1E2E\u1EC8\u01CF\u0208\u020A\u1ECA\u012E\u1E2C\u0197",
+  }, {
+    base: 'J',
+    chars: "\u24BF\uFF2A\u0134\u0248\u0237",
+  }, {
+    base: 'K',
+    chars: "\u24C0\uFF2B\u1E30\u01E8\u1E32\u0136\u1E34\u0198\u2C69\uA740\uA742\uA744\uA7A2",
+  }, {
+    base: 'L',
+    chars: "\u24C1\uFF2C\u013F\u0139\u013D\u1E36\u1E38\u013B\u1E3C\u1E3A\u0141\u023D\u2C62\u2C60\uA748\uA746\uA780",
+  }, {
+    base: 'LJ',
+    chars: "\u01C7",
+  }, {
+    base: 'Lj',
+    chars: "\u01C8",
+  }, {
+    base: 'M',
+    chars: "\u24C2\uFF2D\u1E3E\u1E40\u1E42\u2C6E\u019C\u03FB",
+  }, {
+    base: 'N',
+    chars: "\uA7A4\u0220\u24C3\uFF2E\u01F8\u0143\xD1\u1E44\u0147\u1E46\u0145\u1E4A\u1E48\u019D\uA790\u1D0E",
+  }, {
+    base: 'NJ',
+    chars: "\u01CA",
+  }, {
+    base: 'Nj',
+    chars: "\u01CB",
+  }, {
+    base: 'O',
+    chars: "\u24C4\uFF2F\xD2\xD3\xD4\u1ED2\u1ED0\u1ED6\u1ED4\xD5\u1E4C\u022C\u1E4E\u014C\u1E50\u1E52\u014E\u022E\u0230\xD6\u022A\u1ECE\u0150\u01D1\u020C\u020E\u01A0\u1EDC\u1EDA\u1EE0\u1EDE\u1EE2\u1ECC\u1ED8\u01EA\u01EC\xD8\u01FE\u0186\u019F\uA74A\uA74C",
+  }, {
+    base: 'OE',
+    chars: "\u0152",
+  }, {
+    base: 'OI',
+    chars: "\u01A2",
+  }, {
+    base: 'OO',
+    chars: "\uA74E",
+  }, {
+    base: 'OU',
+    chars: "\u0222",
+  }, {
+    base: 'P',
+    chars: "\u24C5\uFF30\u1E54\u1E56\u01A4\u2C63\uA750\uA752\uA754",
+  }, {
+    base: 'Q',
+    chars: "\u24C6\uFF31\uA756\uA758\u024A",
+  }, {
+    base: 'R',
+    chars: "\u24C7\uFF32\u0154\u1E58\u0158\u0210\u0212\u1E5A\u1E5C\u0156\u1E5E\u024C\u2C64\uA75A\uA7A6\uA782",
+  }, {
+    base: 'S',
+    chars: "\u24C8\uFF33\u1E9E\u015A\u1E64\u015C\u1E60\u0160\u1E66\u1E62\u1E68\u0218\u015E\u2C7E\uA7A8\uA784",
+  }, {
+    base: 'T',
+    chars: "\u24C9\uFF34\u1E6A\u0164\u1E6C\u021A\u0162\u1E70\u1E6E\u0166\u01AC\u01AE\u023E\uA786",
+  }, {
+    base: 'Th',
+    chars: "\u00DE",
+  }, {
+    base: 'TZ',
+    chars: "\uA728",
+  }, {
+    base: 'U',
+    chars: "\u24CA\uFF35\xD9\xDA\xDB\u0168\u1E78\u016A\u1E7A\u016C\xDC\u01DB\u01D7\u01D5\u01D9\u1EE6\u016E\u0170\u01D3\u0214\u0216\u01AF\u1EEA\u1EE8\u1EEE\u1EEC\u1EF0\u1EE4\u1E72\u0172\u1E76\u1E74\u0244",
+  }, {
+    base: 'V',
+    chars: "\u24CB\uFF36\u1E7C\u1E7E\u01B2\uA75E\u0245",
+  }, {
+    base: 'VY',
+    chars: "\uA760",
+  }, {
+    base: 'W',
+    chars: "\u24CC\uFF37\u1E80\u1E82\u0174\u1E86\u1E84\u1E88\u2C72",
+  }, {
+    base: 'X',
+    chars: "\u24CD\uFF38\u1E8A\u1E8C",
+  }, {
+    base: 'Y',
+    chars: "\u24CE\uFF39\u1EF2\xDD\u0176\u1EF8\u0232\u1E8E\u0178\u1EF6\u1EF4\u01B3\u024E\u1EFE",
+  }, {
+    base: 'Z',
+    chars: "\u24CF\uFF3A\u0179\u1E90\u017B\u017D\u1E92\u1E94\u01B5\u0224\u2C7F\u2C6B\uA762",
+  }, {
+    base: 'a',
+    chars: "\u24D0\uFF41\u1E9A\u00E0\u00E1\u00E2\u1EA7\u1EA5\u1EAB\u1EA9\u00E3\u0101\u0103\u1EB1\u1EAF\u1EB5\u1EB3\u0227\u01E1\u00E4\u01DF\u1EA3\u00E5\u01FB\u01CE\u0201\u0203\u1EA1\u1EAD\u1EB7\u1E01\u0105\u2C65\u0250\u0251",
+  }, {
+    base: 'aa',
+    chars: "\uA733",
+  }, {
+    base: 'ae',
+    chars: "\u00E6\u01FD\u01E3",
+  }, {
+    base: 'ao',
+    chars: "\uA735",
+  }, {
+    base: 'au',
+    chars: "\uA737",
+  }, {
+    base: 'av',
+    chars: "\uA739\uA73B",
+  }, {
+    base: 'ay',
+    chars: "\uA73D",
+  }, {
+    base: 'b',
+    chars: "\u24D1\uFF42\u1E03\u1E05\u1E07\u0180\u0183\u0253\u0182",
+  }, {
+    base: 'c',
+    chars: "\uFF43\u24D2\u0107\u0109\u010B\u010D\u00E7\u1E09\u0188\u023C\uA73F\u2184",
+  }, {
+    base: 'd',
+    chars: "\u24D3\uFF44\u1E0B\u010F\u1E0D\u1E11\u1E13\u1E0F\u0111\u018C\u0256\u0257\u018B\u13E7\u0501\uA7AA",
+  }, {
+    base: 'dh',
+    chars: "\u00F0",
+  }, {
+    base: 'dz',
+    chars: "\u01F3\u01C6",
+  }, {
+    base: 'e',
+    chars: "\u24D4\uFF45\u00E8\u00E9\u00EA\u1EC1\u1EBF\u1EC5\u1EC3\u1EBD\u0113\u1E15\u1E17\u0115\u0117\u00EB\u1EBB\u011B\u0205\u0207\u1EB9\u1EC7\u0229\u1E1D\u0119\u1E19\u1E1B\u0247\u01DD",
+  }, {
+    base: 'f',
+    chars: "\u24D5\uFF46\u1E1F\u0192",
+  }, {
+    base: 'ff',
+    chars: "\uFB00",
+  }, {
+    base: 'fi',
+    chars: "\uFB01",
+  }, {
+    base: 'fl',
+    chars: "\uFB02",
+  }, {
+    base: 'ffi',
+    chars: "\uFB03",
+  }, {
+    base: 'ffl',
+    chars: "\uFB04",
+  }, {
+    base: 'g',
+    chars: "\u24D6\uFF47\u01F5\u011D\u1E21\u011F\u0121\u01E7\u0123\u01E5\u0260\uA7A1\uA77F\u1D79",
+  }, {
+    base: 'h',
+    chars: "\u24D7\uFF48\u0125\u1E23\u1E27\u021F\u1E25\u1E29\u1E2B\u1E96\u0127\u2C68\u2C76\u0265",
+  }, {
+    base: 'hv',
+    chars: "\u0195",
+  }, {
+    base: 'i',
+    chars: "\u24D8\uFF49\xEC\xED\xEE\u0129\u012B\u012D\xEF\u1E2F\u1EC9\u01D0\u0209\u020B\u1ECB\u012F\u1E2D\u0268\u0131",
+  }, {
+    base: 'j',
+    chars: "\u24D9\uFF4A\u0135\u01F0\u0249",
+  }, {
+    base: 'k',
+    chars: "\u24DA\uFF4B\u1E31\u01E9\u1E33\u0137\u1E35\u0199\u2C6A\uA741\uA743\uA745\uA7A3",
+  }, {
+    base: 'l',
+    chars: "\u24DB\uFF4C\u0140\u013A\u013E\u1E37\u1E39\u013C\u1E3D\u1E3B\u017F\u0142\u019A\u026B\u2C61\uA749\uA781\uA747\u026D",
+  }, {
+    base: 'lj',
+    chars: "\u01C9",
+  }, {
+    base: 'm',
+    chars: "\u24DC\uFF4D\u1E3F\u1E41\u1E43\u0271\u026F",
+  }, {
+    base: 'n',
+    chars: "\u24DD\uFF4E\u01F9\u0144\xF1\u1E45\u0148\u1E47\u0146\u1E4B\u1E49\u019E\u0272\u0149\uA791\uA7A5\u043B\u0509",
+  }, {
+    base: 'nj',
+    chars: "\u01CC",
+  }, {
+    base: 'o',
+    chars: "\u24DE\uFF4F\xF2\xF3\xF4\u1ED3\u1ED1\u1ED7\u1ED5\xF5\u1E4D\u022D\u1E4F\u014D\u1E51\u1E53\u014F\u022F\u0231\xF6\u022B\u1ECF\u0151\u01D2\u020D\u020F\u01A1\u1EDD\u1EDB\u1EE1\u1EDF\u1EE3\u1ECD\u1ED9\u01EB\u01ED\xF8\u01FF\uA74B\uA74D\u0275\u0254\u1D11",
+  }, {
+    base: 'oe',
+    chars: "\u0153",
+  }, {
+    base: 'oi',
+    chars: "\u01A3",
+  }, {
+    base: 'oo',
+    chars: "\uA74F",
+  }, {
+    base: 'ou',
+    chars: "\u0223",
+  }, {
+    base: 'p',
+    chars: "\u24DF\uFF50\u1E55\u1E57\u01A5\u1D7D\uA751\uA753\uA755\u03C1",
+  }, {
+    base: 'q',
+    chars: "\u24E0\uFF51\u024B\uA757\uA759",
+  }, {
+    base: 'r',
+    chars: "\u24E1\uFF52\u0155\u1E59\u0159\u0211\u0213\u1E5B\u1E5D\u0157\u1E5F\u024D\u027D\uA75B\uA7A7\uA783",
+  }, {
+    base: 's',
+    chars: "\u24E2\uFF53\u015B\u1E65\u015D\u1E61\u0161\u1E67\u1E63\u1E69\u0219\u015F\u023F\uA7A9\uA785\u1E9B\u0282",
+  }, {
+    base: 'ss',
+    chars: "\xDF",
+  }, {
+    base: 't',
+    chars: "\u24E3\uFF54\u1E6B\u1E97\u0165\u1E6D\u021B\u0163\u1E71\u1E6F\u0167\u01AD\u0288\u2C66\uA787",
+  }, {
+    base: 'th',
+    chars: "\u00FE",
+  }, {
+    base: 'tz',
+    chars: "\uA729",
+  }, {
+    base: 'u',
+    chars: "\u24E4\uFF55\xF9\xFA\xFB\u0169\u1E79\u016B\u1E7B\u016D\xFC\u01DC\u01D8\u01D6\u01DA\u1EE7\u016F\u0171\u01D4\u0215\u0217\u01B0\u1EEB\u1EE9\u1EEF\u1EED\u1EF1\u1EE5\u1E73\u0173\u1E77\u1E75\u0289",
+  }, {
+    base: 'v',
+    chars: "\u24E5\uFF56\u1E7D\u1E7F\u028B\uA75F\u028C",
+  }, {
+    base: 'vy',
+    chars: "\uA761",
+  }, {
+    base: 'w',
+    chars: "\u24E6\uFF57\u1E81\u1E83\u0175\u1E87\u1E85\u1E98\u1E89\u2C73",
+  }, {
+    base: 'x',
+    chars: "\u24E7\uFF58\u1E8B\u1E8D",
+  }, {
+    base: 'y',
+    chars: "\u24E8\uFF59\u1EF3\xFD\u0177\u1EF9\u0233\u1E8F\xFF\u1EF7\u1E99\u1EF5\u01B4\u024F\u1EFF",
+  }, {
+    base: 'z',
+    chars: "\u24E9\uFF5A\u017A\u1E91\u017C\u017E\u1E93\u1E95\u01B6\u0225\u0240\u2C6C\uA763",
+  }
+];
+
+var diacriticsMap = {};
+for (var i = 0; i < replacementList.length; i += 1) {
+  var chars = replacementList[i].chars;
+  for (var j = 0; j < chars.length; j += 1) {
+    diacriticsMap[chars[j]] = replacementList[i].base;
+  }
+}
+
+function removeDiacritics(str) {
+  return str.replace(/[^\u0000-\u007e]/g, function(c) {
+    return diacriticsMap[c] || c;
+  });
+}
+
+exports.replacementList = replacementList;
+exports.diacriticsMap = diacriticsMap;
+
+
+/***/ }),
+
+/***/ "./node_modules/i18n-iso-countries/codes.json":
+/*!****************************************************!*\
+  !*** ./node_modules/i18n-iso-countries/codes.json ***!
+  \****************************************************/
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("[[\"AF\",\"AFG\",\"004\",\"ISO 3166-2:AF\"],[\"AL\",\"ALB\",\"008\",\"ISO 3166-2:AL\"],[\"DZ\",\"DZA\",\"012\",\"ISO 3166-2:DZ\"],[\"AS\",\"ASM\",\"016\",\"ISO 3166-2:AS\"],[\"AD\",\"AND\",\"020\",\"ISO 3166-2:AD\"],[\"AO\",\"AGO\",\"024\",\"ISO 3166-2:AO\"],[\"AI\",\"AIA\",\"660\",\"ISO 3166-2:AI\"],[\"AQ\",\"ATA\",\"010\",\"ISO 3166-2:AQ\"],[\"AG\",\"ATG\",\"028\",\"ISO 3166-2:AG\"],[\"AR\",\"ARG\",\"032\",\"ISO 3166-2:AR\"],[\"AM\",\"ARM\",\"051\",\"ISO 3166-2:AM\"],[\"AW\",\"ABW\",\"533\",\"ISO 3166-2:AW\"],[\"AU\",\"AUS\",\"036\",\"ISO 3166-2:AU\"],[\"AT\",\"AUT\",\"040\",\"ISO 3166-2:AT\"],[\"AZ\",\"AZE\",\"031\",\"ISO 3166-2:AZ\"],[\"BS\",\"BHS\",\"044\",\"ISO 3166-2:BS\"],[\"BH\",\"BHR\",\"048\",\"ISO 3166-2:BH\"],[\"BD\",\"BGD\",\"050\",\"ISO 3166-2:BD\"],[\"BB\",\"BRB\",\"052\",\"ISO 3166-2:BB\"],[\"BY\",\"BLR\",\"112\",\"ISO 3166-2:BY\"],[\"BE\",\"BEL\",\"056\",\"ISO 3166-2:BE\"],[\"BZ\",\"BLZ\",\"084\",\"ISO 3166-2:BZ\"],[\"BJ\",\"BEN\",\"204\",\"ISO 3166-2:BJ\"],[\"BM\",\"BMU\",\"060\",\"ISO 3166-2:BM\"],[\"BT\",\"BTN\",\"064\",\"ISO 3166-2:BT\"],[\"BO\",\"BOL\",\"068\",\"ISO 3166-2:BO\"],[\"BA\",\"BIH\",\"070\",\"ISO 3166-2:BA\"],[\"BW\",\"BWA\",\"072\",\"ISO 3166-2:BW\"],[\"BV\",\"BVT\",\"074\",\"ISO 3166-2:BV\"],[\"BR\",\"BRA\",\"076\",\"ISO 3166-2:BR\"],[\"IO\",\"IOT\",\"086\",\"ISO 3166-2:IO\"],[\"BN\",\"BRN\",\"096\",\"ISO 3166-2:BN\"],[\"BG\",\"BGR\",\"100\",\"ISO 3166-2:BG\"],[\"BF\",\"BFA\",\"854\",\"ISO 3166-2:BF\"],[\"BI\",\"BDI\",\"108\",\"ISO 3166-2:BI\"],[\"KH\",\"KHM\",\"116\",\"ISO 3166-2:KH\"],[\"CM\",\"CMR\",\"120\",\"ISO 3166-2:CM\"],[\"CA\",\"CAN\",\"124\",\"ISO 3166-2:CA\"],[\"CV\",\"CPV\",\"132\",\"ISO 3166-2:CV\"],[\"KY\",\"CYM\",\"136\",\"ISO 3166-2:KY\"],[\"CF\",\"CAF\",\"140\",\"ISO 3166-2:CF\"],[\"TD\",\"TCD\",\"148\",\"ISO 3166-2:TD\"],[\"CL\",\"CHL\",\"152\",\"ISO 3166-2:CL\"],[\"CN\",\"CHN\",\"156\",\"ISO 3166-2:CN\"],[\"CX\",\"CXR\",\"162\",\"ISO 3166-2:CX\"],[\"CC\",\"CCK\",\"166\",\"ISO 3166-2:CC\"],[\"CO\",\"COL\",\"170\",\"ISO 3166-2:CO\"],[\"KM\",\"COM\",\"174\",\"ISO 3166-2:KM\"],[\"CG\",\"COG\",\"178\",\"ISO 3166-2:CG\"],[\"CD\",\"COD\",\"180\",\"ISO 3166-2:CD\"],[\"CK\",\"COK\",\"184\",\"ISO 3166-2:CK\"],[\"CR\",\"CRI\",\"188\",\"ISO 3166-2:CR\"],[\"CI\",\"CIV\",\"384\",\"ISO 3166-2:CI\"],[\"HR\",\"HRV\",\"191\",\"ISO 3166-2:HR\"],[\"CU\",\"CUB\",\"192\",\"ISO 3166-2:CU\"],[\"CY\",\"CYP\",\"196\",\"ISO 3166-2:CY\"],[\"CZ\",\"CZE\",\"203\",\"ISO 3166-2:CZ\"],[\"DK\",\"DNK\",\"208\",\"ISO 3166-2:DK\"],[\"DJ\",\"DJI\",\"262\",\"ISO 3166-2:DJ\"],[\"DM\",\"DMA\",\"212\",\"ISO 3166-2:DM\"],[\"DO\",\"DOM\",\"214\",\"ISO 3166-2:DO\"],[\"EC\",\"ECU\",\"218\",\"ISO 3166-2:EC\"],[\"EG\",\"EGY\",\"818\",\"ISO 3166-2:EG\"],[\"SV\",\"SLV\",\"222\",\"ISO 3166-2:SV\"],[\"GQ\",\"GNQ\",\"226\",\"ISO 3166-2:GQ\"],[\"ER\",\"ERI\",\"232\",\"ISO 3166-2:ER\"],[\"EE\",\"EST\",\"233\",\"ISO 3166-2:EE\"],[\"ET\",\"ETH\",\"231\",\"ISO 3166-2:ET\"],[\"FK\",\"FLK\",\"238\",\"ISO 3166-2:FK\"],[\"FO\",\"FRO\",\"234\",\"ISO 3166-2:FO\"],[\"FJ\",\"FJI\",\"242\",\"ISO 3166-2:FJ\"],[\"FI\",\"FIN\",\"246\",\"ISO 3166-2:FI\"],[\"FR\",\"FRA\",\"250\",\"ISO 3166-2:FR\"],[\"GF\",\"GUF\",\"254\",\"ISO 3166-2:GF\"],[\"PF\",\"PYF\",\"258\",\"ISO 3166-2:PF\"],[\"TF\",\"ATF\",\"260\",\"ISO 3166-2:TF\"],[\"GA\",\"GAB\",\"266\",\"ISO 3166-2:GA\"],[\"GM\",\"GMB\",\"270\",\"ISO 3166-2:GM\"],[\"GE\",\"GEO\",\"268\",\"ISO 3166-2:GE\"],[\"DE\",\"DEU\",\"276\",\"ISO 3166-2:DE\"],[\"GH\",\"GHA\",\"288\",\"ISO 3166-2:GH\"],[\"GI\",\"GIB\",\"292\",\"ISO 3166-2:GI\"],[\"GR\",\"GRC\",\"300\",\"ISO 3166-2:GR\"],[\"GL\",\"GRL\",\"304\",\"ISO 3166-2:GL\"],[\"GD\",\"GRD\",\"308\",\"ISO 3166-2:GD\"],[\"GP\",\"GLP\",\"312\",\"ISO 3166-2:GP\"],[\"GU\",\"GUM\",\"316\",\"ISO 3166-2:GU\"],[\"GT\",\"GTM\",\"320\",\"ISO 3166-2:GT\"],[\"GN\",\"GIN\",\"324\",\"ISO 3166-2:GN\"],[\"GW\",\"GNB\",\"624\",\"ISO 3166-2:GW\"],[\"GY\",\"GUY\",\"328\",\"ISO 3166-2:GY\"],[\"HT\",\"HTI\",\"332\",\"ISO 3166-2:HT\"],[\"HM\",\"HMD\",\"334\",\"ISO 3166-2:HM\"],[\"VA\",\"VAT\",\"336\",\"ISO 3166-2:VA\"],[\"HN\",\"HND\",\"340\",\"ISO 3166-2:HN\"],[\"HK\",\"HKG\",\"344\",\"ISO 3166-2:HK\"],[\"HU\",\"HUN\",\"348\",\"ISO 3166-2:HU\"],[\"IS\",\"ISL\",\"352\",\"ISO 3166-2:IS\"],[\"IN\",\"IND\",\"356\",\"ISO 3166-2:IN\"],[\"ID\",\"IDN\",\"360\",\"ISO 3166-2:ID\"],[\"IR\",\"IRN\",\"364\",\"ISO 3166-2:IR\"],[\"IQ\",\"IRQ\",\"368\",\"ISO 3166-2:IQ\"],[\"IE\",\"IRL\",\"372\",\"ISO 3166-2:IE\"],[\"IL\",\"ISR\",\"376\",\"ISO 3166-2:IL\"],[\"IT\",\"ITA\",\"380\",\"ISO 3166-2:IT\"],[\"JM\",\"JAM\",\"388\",\"ISO 3166-2:JM\"],[\"JP\",\"JPN\",\"392\",\"ISO 3166-2:JP\"],[\"JO\",\"JOR\",\"400\",\"ISO 3166-2:JO\"],[\"KZ\",\"KAZ\",\"398\",\"ISO 3166-2:KZ\"],[\"KE\",\"KEN\",\"404\",\"ISO 3166-2:KE\"],[\"KI\",\"KIR\",\"296\",\"ISO 3166-2:KI\"],[\"KP\",\"PRK\",\"408\",\"ISO 3166-2:KP\"],[\"KR\",\"KOR\",\"410\",\"ISO 3166-2:KR\"],[\"KW\",\"KWT\",\"414\",\"ISO 3166-2:KW\"],[\"KG\",\"KGZ\",\"417\",\"ISO 3166-2:KG\"],[\"LA\",\"LAO\",\"418\",\"ISO 3166-2:LA\"],[\"LV\",\"LVA\",\"428\",\"ISO 3166-2:LV\"],[\"LB\",\"LBN\",\"422\",\"ISO 3166-2:LB\"],[\"LS\",\"LSO\",\"426\",\"ISO 3166-2:LS\"],[\"LR\",\"LBR\",\"430\",\"ISO 3166-2:LR\"],[\"LY\",\"LBY\",\"434\",\"ISO 3166-2:LY\"],[\"LI\",\"LIE\",\"438\",\"ISO 3166-2:LI\"],[\"LT\",\"LTU\",\"440\",\"ISO 3166-2:LT\"],[\"LU\",\"LUX\",\"442\",\"ISO 3166-2:LU\"],[\"MO\",\"MAC\",\"446\",\"ISO 3166-2:MO\"],[\"MG\",\"MDG\",\"450\",\"ISO 3166-2:MG\"],[\"MW\",\"MWI\",\"454\",\"ISO 3166-2:MW\"],[\"MY\",\"MYS\",\"458\",\"ISO 3166-2:MY\"],[\"MV\",\"MDV\",\"462\",\"ISO 3166-2:MV\"],[\"ML\",\"MLI\",\"466\",\"ISO 3166-2:ML\"],[\"MT\",\"MLT\",\"470\",\"ISO 3166-2:MT\"],[\"MH\",\"MHL\",\"584\",\"ISO 3166-2:MH\"],[\"MQ\",\"MTQ\",\"474\",\"ISO 3166-2:MQ\"],[\"MR\",\"MRT\",\"478\",\"ISO 3166-2:MR\"],[\"MU\",\"MUS\",\"480\",\"ISO 3166-2:MU\"],[\"YT\",\"MYT\",\"175\",\"ISO 3166-2:YT\"],[\"MX\",\"MEX\",\"484\",\"ISO 3166-2:MX\"],[\"FM\",\"FSM\",\"583\",\"ISO 3166-2:FM\"],[\"MD\",\"MDA\",\"498\",\"ISO 3166-2:MD\"],[\"MC\",\"MCO\",\"492\",\"ISO 3166-2:MC\"],[\"MN\",\"MNG\",\"496\",\"ISO 3166-2:MN\"],[\"MS\",\"MSR\",\"500\",\"ISO 3166-2:MS\"],[\"MA\",\"MAR\",\"504\",\"ISO 3166-2:MA\"],[\"MZ\",\"MOZ\",\"508\",\"ISO 3166-2:MZ\"],[\"MM\",\"MMR\",\"104\",\"ISO 3166-2:MM\"],[\"NA\",\"NAM\",\"516\",\"ISO 3166-2:NA\"],[\"NR\",\"NRU\",\"520\",\"ISO 3166-2:NR\"],[\"NP\",\"NPL\",\"524\",\"ISO 3166-2:NP\"],[\"NL\",\"NLD\",\"528\",\"ISO 3166-2:NL\"],[\"NC\",\"NCL\",\"540\",\"ISO 3166-2:NC\"],[\"NZ\",\"NZL\",\"554\",\"ISO 3166-2:NZ\"],[\"NI\",\"NIC\",\"558\",\"ISO 3166-2:NI\"],[\"NE\",\"NER\",\"562\",\"ISO 3166-2:NE\"],[\"NG\",\"NGA\",\"566\",\"ISO 3166-2:NG\"],[\"NU\",\"NIU\",\"570\",\"ISO 3166-2:NU\"],[\"NF\",\"NFK\",\"574\",\"ISO 3166-2:NF\"],[\"MP\",\"MNP\",\"580\",\"ISO 3166-2:MP\"],[\"MK\",\"MKD\",\"807\",\"ISO 3166-2:MK\"],[\"NO\",\"NOR\",\"578\",\"ISO 3166-2:NO\"],[\"OM\",\"OMN\",\"512\",\"ISO 3166-2:OM\"],[\"PK\",\"PAK\",\"586\",\"ISO 3166-2:PK\"],[\"PW\",\"PLW\",\"585\",\"ISO 3166-2:PW\"],[\"PS\",\"PSE\",\"275\",\"ISO 3166-2:PS\"],[\"PA\",\"PAN\",\"591\",\"ISO 3166-2:PA\"],[\"PG\",\"PNG\",\"598\",\"ISO 3166-2:PG\"],[\"PY\",\"PRY\",\"600\",\"ISO 3166-2:PY\"],[\"PE\",\"PER\",\"604\",\"ISO 3166-2:PE\"],[\"PH\",\"PHL\",\"608\",\"ISO 3166-2:PH\"],[\"PN\",\"PCN\",\"612\",\"ISO 3166-2:PN\"],[\"PL\",\"POL\",\"616\",\"ISO 3166-2:PL\"],[\"PT\",\"PRT\",\"620\",\"ISO 3166-2:PT\"],[\"PR\",\"PRI\",\"630\",\"ISO 3166-2:PR\"],[\"QA\",\"QAT\",\"634\",\"ISO 3166-2:QA\"],[\"RE\",\"REU\",\"638\",\"ISO 3166-2:RE\"],[\"RO\",\"ROU\",\"642\",\"ISO 3166-2:RO\"],[\"RU\",\"RUS\",\"643\",\"ISO 3166-2:RU\"],[\"RW\",\"RWA\",\"646\",\"ISO 3166-2:RW\"],[\"SH\",\"SHN\",\"654\",\"ISO 3166-2:SH\"],[\"KN\",\"KNA\",\"659\",\"ISO 3166-2:KN\"],[\"LC\",\"LCA\",\"662\",\"ISO 3166-2:LC\"],[\"PM\",\"SPM\",\"666\",\"ISO 3166-2:PM\"],[\"VC\",\"VCT\",\"670\",\"ISO 3166-2:VC\"],[\"WS\",\"WSM\",\"882\",\"ISO 3166-2:WS\"],[\"SM\",\"SMR\",\"674\",\"ISO 3166-2:SM\"],[\"ST\",\"STP\",\"678\",\"ISO 3166-2:ST\"],[\"SA\",\"SAU\",\"682\",\"ISO 3166-2:SA\"],[\"SN\",\"SEN\",\"686\",\"ISO 3166-2:SN\"],[\"SC\",\"SYC\",\"690\",\"ISO 3166-2:SC\"],[\"SL\",\"SLE\",\"694\",\"ISO 3166-2:SL\"],[\"SG\",\"SGP\",\"702\",\"ISO 3166-2:SG\"],[\"SK\",\"SVK\",\"703\",\"ISO 3166-2:SK\"],[\"SI\",\"SVN\",\"705\",\"ISO 3166-2:SI\"],[\"SB\",\"SLB\",\"090\",\"ISO 3166-2:SB\"],[\"SO\",\"SOM\",\"706\",\"ISO 3166-2:SO\"],[\"ZA\",\"ZAF\",\"710\",\"ISO 3166-2:ZA\"],[\"GS\",\"SGS\",\"239\",\"ISO 3166-2:GS\"],[\"ES\",\"ESP\",\"724\",\"ISO 3166-2:ES\"],[\"LK\",\"LKA\",\"144\",\"ISO 3166-2:LK\"],[\"SD\",\"SDN\",\"729\",\"ISO 3166-2:SD\"],[\"SR\",\"SUR\",\"740\",\"ISO 3166-2:SR\"],[\"SJ\",\"SJM\",\"744\",\"ISO 3166-2:SJ\"],[\"SZ\",\"SWZ\",\"748\",\"ISO 3166-2:SZ\"],[\"SE\",\"SWE\",\"752\",\"ISO 3166-2:SE\"],[\"CH\",\"CHE\",\"756\",\"ISO 3166-2:CH\"],[\"SY\",\"SYR\",\"760\",\"ISO 3166-2:SY\"],[\"TW\",\"TWN\",\"158\",\"ISO 3166-2:TW\"],[\"TJ\",\"TJK\",\"762\",\"ISO 3166-2:TJ\"],[\"TZ\",\"TZA\",\"834\",\"ISO 3166-2:TZ\"],[\"TH\",\"THA\",\"764\",\"ISO 3166-2:TH\"],[\"TL\",\"TLS\",\"626\",\"ISO 3166-2:TL\"],[\"TG\",\"TGO\",\"768\",\"ISO 3166-2:TG\"],[\"TK\",\"TKL\",\"772\",\"ISO 3166-2:TK\"],[\"TO\",\"TON\",\"776\",\"ISO 3166-2:TO\"],[\"TT\",\"TTO\",\"780\",\"ISO 3166-2:TT\"],[\"TN\",\"TUN\",\"788\",\"ISO 3166-2:TN\"],[\"TR\",\"TUR\",\"792\",\"ISO 3166-2:TR\"],[\"TM\",\"TKM\",\"795\",\"ISO 3166-2:TM\"],[\"TC\",\"TCA\",\"796\",\"ISO 3166-2:TC\"],[\"TV\",\"TUV\",\"798\",\"ISO 3166-2:TV\"],[\"UG\",\"UGA\",\"800\",\"ISO 3166-2:UG\"],[\"UA\",\"UKR\",\"804\",\"ISO 3166-2:UA\"],[\"AE\",\"ARE\",\"784\",\"ISO 3166-2:AE\"],[\"GB\",\"GBR\",\"826\",\"ISO 3166-2:GB\"],[\"US\",\"USA\",\"840\",\"ISO 3166-2:US\"],[\"UM\",\"UMI\",\"581\",\"ISO 3166-2:UM\"],[\"UY\",\"URY\",\"858\",\"ISO 3166-2:UY\"],[\"UZ\",\"UZB\",\"860\",\"ISO 3166-2:UZ\"],[\"VU\",\"VUT\",\"548\",\"ISO 3166-2:VU\"],[\"VE\",\"VEN\",\"862\",\"ISO 3166-2:VE\"],[\"VN\",\"VNM\",\"704\",\"ISO 3166-2:VN\"],[\"VG\",\"VGB\",\"092\",\"ISO 3166-2:VG\"],[\"VI\",\"VIR\",\"850\",\"ISO 3166-2:VI\"],[\"WF\",\"WLF\",\"876\",\"ISO 3166-2:WF\"],[\"EH\",\"ESH\",\"732\",\"ISO 3166-2:EH\"],[\"YE\",\"YEM\",\"887\",\"ISO 3166-2:YE\"],[\"ZM\",\"ZMB\",\"894\",\"ISO 3166-2:ZM\"],[\"ZW\",\"ZWE\",\"716\",\"ISO 3166-2:ZW\"],[\"AX\",\"ALA\",\"248\",\"ISO 3166-2:AX\"],[\"BQ\",\"BES\",\"535\",\"ISO 3166-2:BQ\"],[\"CW\",\"CUW\",\"531\",\"ISO 3166-2:CW\"],[\"GG\",\"GGY\",\"831\",\"ISO 3166-2:GG\"],[\"IM\",\"IMN\",\"833\",\"ISO 3166-2:IM\"],[\"JE\",\"JEY\",\"832\",\"ISO 3166-2:JE\"],[\"ME\",\"MNE\",\"499\",\"ISO 3166-2:ME\"],[\"BL\",\"BLM\",\"652\",\"ISO 3166-2:BL\"],[\"MF\",\"MAF\",\"663\",\"ISO 3166-2:MF\"],[\"RS\",\"SRB\",\"688\",\"ISO 3166-2:RS\"],[\"SX\",\"SXM\",\"534\",\"ISO 3166-2:SX\"],[\"SS\",\"SSD\",\"728\",\"ISO 3166-2:SS\"],[\"XK\",\"XKX\",\"\",\"ISO 3166-2:XK\"]]");
+
+/***/ }),
+
+/***/ "./node_modules/i18n-iso-countries/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/i18n-iso-countries/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var codes = __webpack_require__(/*! ./codes.json */ "./node_modules/i18n-iso-countries/codes.json");
+var removeDiacritics = __webpack_require__(/*! diacritics */ "./node_modules/diacritics/index.js").remove;
+var registeredLocales = {};
+
+/*
+ * All codes map to ISO 3166-1 alpha-2
+ */
+var alpha2 = {},
+  alpha3 = {},
+  numeric = {},
+  invertedNumeric = {};
+
+codes.forEach(function (codeInformation) {
+  var s = codeInformation;
+  alpha2[s[0]] = s[1];
+  alpha3[s[1]] = s[0];
+  numeric[s[2]] = s[0];
+  invertedNumeric[s[0]] = s[2];
+});
+
+/**
+ * @private
+ * @param {number} code
+ */
+function formatNumericCode(code) {
+  return String("000" + (code ? code : "")).slice(-3);
+}
+
+/**
+ * @private
+ * Avoid using obj.hasOwnProperty directly as `hasOwnProperty` could be a
+ * property in itself ({ hasOwnProperty: 1 }) and cause weird bugs
+ * https://eslint.org/docs/rules/no-prototype-builtins
+ */
+function hasOwnProperty(object, property) {
+  return Object.prototype.hasOwnProperty.call(object, property);
+}
+
+/**
+ * @private
+ * Pass localeList through a filter and return a newLocaleList obj
+ * with the same structure of the old localeList.
+ *
+ * @param {LocalizedCountryNames} localeList  Local List in raw
+ * @param {Function} filter    callback to set filter rule
+ * @return {String | String[]} new filtered Local List
+ */
+function localeFilter(localeList, filter) {
+  return Object.keys(localeList).reduce(function (newLocaleList, alpha2) {
+    const nameList = localeList[alpha2];
+    newLocaleList[alpha2] = filter(nameList, alpha2);
+    return newLocaleList;
+  }, {});
+}
+
+/**
+ * @private
+ * Preserve for getName & getNames
+ *
+ * @param {GetNameOptions.select} type all | official | alias
+ * @param countryNameList  string array of country's
+ *                         official name and alias
+ * @return {String | String[]} of a country name
+ */
+function filterNameBy(type, countryNameList) {
+  switch (type) {
+    case "official":
+      return Array.isArray(countryNameList)
+        ? countryNameList[0]
+        : countryNameList;
+
+    case "all":
+      return typeof countryNameList === "string"
+        ? [countryNameList]
+        : countryNameList;
+
+    case "alias":
+      return Array.isArray(countryNameList)
+        ? countryNameList[1] || countryNameList[0]
+        : countryNameList;
+
+    default:
+      throw new TypeError(
+        "LocaleNameType must be one of these: all, official, alias!"
+      );
+  }
+}
+
+/**
+ * Register countries in browsers' environment:
+ * @param {object} localeData
+ * @example countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+ * @return void
+ */
+exports.registerLocale = function (localeData) {
+  if (!localeData.locale) {
+    throw new TypeError("Missing localeData.locale");
+  }
+
+  if (!localeData.countries) {
+    throw new TypeError("Missing localeData.countries");
+  }
+
+  registeredLocales[localeData.locale] = localeData.countries;
+};
+
+/*
+ * @param code Alpha-3 code
+ * @return Alpha-2 code or undefined
+ */
+function alpha3ToAlpha2(code) {
+  return alpha3[code];
+}
+exports.alpha3ToAlpha2 = alpha3ToAlpha2;
+
+/*
+ * @param code Alpha-2 code
+ * @return Alpha-3 code or undefined
+ */
+function alpha2ToAlpha3(code) {
+  return alpha2[code];
+}
+exports.alpha2ToAlpha3 = alpha2ToAlpha3;
+
+/*
+ * @param code Alpha-3 code
+ * @return Numeric code or undefined
+ */
+function alpha3ToNumeric(code) {
+  return invertedNumeric[alpha3ToAlpha2(code)];
+}
+exports.alpha3ToNumeric = alpha3ToNumeric;
+
+/*
+ * @param code Alpha-2 code
+ * @return Numeric code or undefined
+ */
+function alpha2ToNumeric(code) {
+  return invertedNumeric[code];
+}
+exports.alpha2ToNumeric = alpha2ToNumeric;
+
+/*
+ * @param code Numeric code
+ * @return Alpha-3 code or undefined
+ */
+function numericToAlpha3(code) {
+  var padded = formatNumericCode(code);
+  return alpha2ToAlpha3(numeric[padded]);
+}
+exports.numericToAlpha3 = numericToAlpha3;
+
+/*
+ * @param code Numeric code
+ * @return Alpha-2 code or undefined
+ */
+function numericToAlpha2(code) {
+  var padded = formatNumericCode(code);
+  return numeric[padded];
+}
+exports.numericToAlpha2 = numericToAlpha2;
+
+/*
+ * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
+ * @return ISO 3166-1 alpha-3
+ */
+function toAlpha3(code) {
+  if (typeof code === "string") {
+    if (/^[0-9]*$/.test(code)) {
+      return numericToAlpha3(code);
+    }
+    if (code.length === 2) {
+      return alpha2ToAlpha3(code.toUpperCase());
+    }
+    if (code.length === 3) {
+      return code.toUpperCase();
+    }
+  }
+  if (typeof code === "number") {
+    return numericToAlpha3(code);
+  }
+  return undefined;
+}
+exports.toAlpha3 = toAlpha3;
+
+/*
+ * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
+ * @return ISO 3166-1 alpha-2
+ */
+function toAlpha2(code) {
+  if (typeof code === "string") {
+    if (/^[0-9]*$/.test(code)) {
+      return numericToAlpha2(code);
+    }
+    if (code.length === 2) {
+      return code.toUpperCase();
+    }
+    if (code.length === 3) {
+      return alpha3ToAlpha2(code.toUpperCase());
+    }
+  }
+  if (typeof code === "number") {
+    return numericToAlpha2(code);
+  }
+  return undefined;
+}
+exports.toAlpha2 = toAlpha2;
+
+/**
+ * @param {string | number | Alpha2Code | Alpha3Code} code
+ * @param {String} lang          language for country name
+ * @param {GetNameOptions} options
+ * @return {String | String[] | undefined}  name
+ */
+exports.getName = function (code, lang, options = {}) {
+  if (!("select" in options)) {
+    options.select = "official";
+  }
+  try {
+    const codeMaps = registeredLocales[lang.toLowerCase()];
+    const nameList = codeMaps[toAlpha2(code)];
+    return filterNameBy(options.select, nameList);
+  } catch (err) {
+    return undefined;
+  }
+};
+
+/**
+ * @param {String} lang             language for country names
+ * @param {GetNameOptions} options   getNames Options
+ * @return {LocalizedCountryNames}  country code
+ *                                  mapped to county name
+ */
+exports.getNames = function (lang, options = {}) {
+  if (!("select" in options)) {
+    options.select = "official";
+  }
+  var localeList = registeredLocales[lang.toLowerCase()];
+  if (localeList === undefined) return {};
+  return localeFilter(localeList, function (nameList) {
+    return filterNameBy(options.select, nameList);
+  });
+};
+
+/*
+ * @param name name
+ * @param lang language for country name
+ * @return ISO 3166-1 alpha-2 or undefined
+ */
+exports.getAlpha2Code = function (name, lang) {
+  const normalizeString = (string) => string.toLowerCase();
+  const areSimilar = (a, b) => normalizeString(a) === normalizeString(b);
+
+  try {
+    const codenames = registeredLocales[lang.toLowerCase()];
+    for (const p in codenames) {
+      if (!hasOwnProperty(codenames, p)) {
+        continue;
+      }
+      if (typeof codenames[p] === "string") {
+        if (areSimilar(codenames[p], name)) {
+          return p;
+        }
+      }
+      if (Array.isArray(codenames[p])) {
+        for (const mappedName of codenames[p]) {
+          if (areSimilar(mappedName, name)) {
+            return p;
+          }
+        }
+      }
+    }
+    return undefined;
+  } catch (err) {
+    return undefined;
+  }
+};
+
+/*
+ * @param name name
+ * @param lang language for country name
+ * @return ISO 3166-1 alpha-2 or undefined
+ */
+exports.getSimpleAlpha2Code = function (name, lang) {
+  const normalizeString = (string) => removeDiacritics(string.toLowerCase());
+  const areSimilar = (a, b) => normalizeString(a) === normalizeString(b);
+
+  try {
+    const codenames = registeredLocales[lang.toLowerCase()];
+    for (const p in codenames) {
+      if (!hasOwnProperty(codenames, p)) {
+        continue;
+      }
+      if (typeof codenames[p] === "string") {
+        if (areSimilar(codenames[p], name)) {
+          return p;
+        }
+      }
+      if (Array.isArray(codenames[p])) {
+        for (const mappedName of codenames[p]) {
+          if (areSimilar(mappedName, name)) {
+            return p;
+          }
+        }
+      }
+    }
+    return undefined;
+  } catch (err) {
+    return undefined;
+  }
+};
+
+/*
+ * @return Object of alpha-2 codes mapped to alpha-3 codes
+ */
+exports.getAlpha2Codes = function () {
+  return alpha2;
+};
+
+/*
+ * @param name name
+ * @param lang language for country name
+ * @return ISO 3166-1 alpha-3 or undefined
+ */
+exports.getAlpha3Code = function (name, lang) {
+  var alpha2 = this.getAlpha2Code(name, lang);
+  if (alpha2) {
+    return this.toAlpha3(alpha2);
+  } else {
+    return undefined;
+  }
+};
+
+/*
+ * @param name name
+ * @param lang language for country name
+ * @return ISO 3166-1 alpha-3 or undefined
+ */
+exports.getSimpleAlpha3Code = function (name, lang) {
+  var alpha2 = this.getSimpleAlpha2Code(name, lang);
+  if (alpha2) {
+    return this.toAlpha3(alpha2);
+  } else {
+    return undefined;
+  }
+};
+
+/*
+ * @return Object of alpha-3 codes mapped to alpha-2 codes
+ */
+exports.getAlpha3Codes = function () {
+  return alpha3;
+};
+
+/*
+ * @return Object of numeric codes mapped to alpha-2 codes
+ */
+exports.getNumericCodes = function () {
+  return numeric;
+};
+
+/*
+ * @return Array of supported languages
+ */
+exports.langs = function () {
+  return Object.keys(registeredLocales);
+};
+
+/*
+ * @param code ISO 3166-1 alpha-2, alpha-3 or numeric code
+ * @return Boolean
+ */
+exports.isValid = function (code) {
+  if (!code) {
+    return false;
+  }
+
+  var coerced = code.toString().toUpperCase();
+  return (
+    hasOwnProperty(alpha3, coerced) ||
+    hasOwnProperty(alpha2, coerced) ||
+    hasOwnProperty(numeric, coerced)
+  );
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/i18n-iso-countries/langs/en.json":
+/*!*******************************************************!*\
+  !*** ./node_modules/i18n-iso-countries/langs/en.json ***!
+  \*******************************************************/
+/*! exports provided: locale, countries, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"locale\":\"en\",\"countries\":{\"AF\":\"Afghanistan\",\"AL\":\"Albania\",\"DZ\":\"Algeria\",\"AS\":\"American Samoa\",\"AD\":\"Andorra\",\"AO\":\"Angola\",\"AI\":\"Anguilla\",\"AQ\":\"Antarctica\",\"AG\":\"Antigua and Barbuda\",\"AR\":\"Argentina\",\"AM\":\"Armenia\",\"AW\":\"Aruba\",\"AU\":\"Australia\",\"AT\":\"Austria\",\"AZ\":\"Azerbaijan\",\"BS\":\"Bahamas\",\"BH\":\"Bahrain\",\"BD\":\"Bangladesh\",\"BB\":\"Barbados\",\"BY\":\"Belarus\",\"BE\":\"Belgium\",\"BZ\":\"Belize\",\"BJ\":\"Benin\",\"BM\":\"Bermuda\",\"BT\":\"Bhutan\",\"BO\":\"Bolivia\",\"BA\":\"Bosnia and Herzegovina\",\"BW\":\"Botswana\",\"BV\":\"Bouvet Island\",\"BR\":\"Brazil\",\"IO\":\"British Indian Ocean Territory\",\"BN\":\"Brunei Darussalam\",\"BG\":\"Bulgaria\",\"BF\":\"Burkina Faso\",\"BI\":\"Burundi\",\"KH\":\"Cambodia\",\"CM\":\"Cameroon\",\"CA\":\"Canada\",\"CV\":\"Cape Verde\",\"KY\":\"Cayman Islands\",\"CF\":\"Central African Republic\",\"TD\":\"Chad\",\"CL\":\"Chile\",\"CN\":\"China\",\"CX\":\"Christmas Island\",\"CC\":\"Cocos (Keeling) Islands\",\"CO\":\"Colombia\",\"KM\":\"Comoros\",\"CG\":\"Congo\",\"CD\":\"Congo, the Democratic Republic of the\",\"CK\":\"Cook Islands\",\"CR\":\"Costa Rica\",\"CI\":\"Cote D'Ivoire\",\"HR\":\"Croatia\",\"CU\":\"Cuba\",\"CY\":\"Cyprus\",\"CZ\":\"Czech Republic\",\"DK\":\"Denmark\",\"DJ\":\"Djibouti\",\"DM\":\"Dominica\",\"DO\":\"Dominican Republic\",\"EC\":\"Ecuador\",\"EG\":\"Egypt\",\"SV\":\"El Salvador\",\"GQ\":\"Equatorial Guinea\",\"ER\":\"Eritrea\",\"EE\":\"Estonia\",\"ET\":\"Ethiopia\",\"FK\":\"Falkland Islands (Malvinas)\",\"FO\":\"Faroe Islands\",\"FJ\":\"Fiji\",\"FI\":\"Finland\",\"FR\":\"France\",\"GF\":\"French Guiana\",\"PF\":\"French Polynesia\",\"TF\":\"French Southern Territories\",\"GA\":\"Gabon\",\"GM\":\"Gambia\",\"GE\":\"Georgia\",\"DE\":\"Germany\",\"GH\":\"Ghana\",\"GI\":\"Gibraltar\",\"GR\":\"Greece\",\"GL\":\"Greenland\",\"GD\":\"Grenada\",\"GP\":\"Guadeloupe\",\"GU\":\"Guam\",\"GT\":\"Guatemala\",\"GN\":\"Guinea\",\"GW\":\"Guinea-Bissau\",\"GY\":\"Guyana\",\"HT\":\"Haiti\",\"HM\":\"Heard Island and McDonald Islands\",\"VA\":\"Holy See (Vatican City State)\",\"HN\":\"Honduras\",\"HK\":\"Hong Kong\",\"HU\":\"Hungary\",\"IS\":\"Iceland\",\"IN\":\"India\",\"ID\":\"Indonesia\",\"IR\":\"Iran, Islamic Republic of\",\"IQ\":\"Iraq\",\"IE\":\"Ireland\",\"IL\":\"Israel\",\"IT\":\"Italy\",\"JM\":\"Jamaica\",\"JP\":\"Japan\",\"JO\":\"Jordan\",\"KZ\":\"Kazakhstan\",\"KE\":\"Kenya\",\"KI\":\"Kiribati\",\"KP\":\"North Korea\",\"KR\":\"South Korea\",\"KW\":\"Kuwait\",\"KG\":\"Kyrgyzstan\",\"LA\":\"Lao People's Democratic Republic\",\"LV\":\"Latvia\",\"LB\":\"Lebanon\",\"LS\":\"Lesotho\",\"LR\":\"Liberia\",\"LY\":\"Libya\",\"LI\":\"Liechtenstein\",\"LT\":\"Lithuania\",\"LU\":\"Luxembourg\",\"MO\":\"Macao\",\"MG\":\"Madagascar\",\"MW\":\"Malawi\",\"MY\":\"Malaysia\",\"MV\":\"Maldives\",\"ML\":\"Mali\",\"MT\":\"Malta\",\"MH\":\"Marshall Islands\",\"MQ\":\"Martinique\",\"MR\":\"Mauritania\",\"MU\":\"Mauritius\",\"YT\":\"Mayotte\",\"MX\":\"Mexico\",\"FM\":\"Micronesia, Federated States of\",\"MD\":\"Moldova, Republic of\",\"MC\":\"Monaco\",\"MN\":\"Mongolia\",\"MS\":\"Montserrat\",\"MA\":\"Morocco\",\"MZ\":\"Mozambique\",\"MM\":\"Myanmar\",\"NA\":\"Namibia\",\"NR\":\"Nauru\",\"NP\":\"Nepal\",\"NL\":\"Netherlands\",\"NC\":\"New Caledonia\",\"NZ\":\"New Zealand\",\"NI\":\"Nicaragua\",\"NE\":\"Niger\",\"NG\":\"Nigeria\",\"NU\":\"Niue\",\"NF\":\"Norfolk Island\",\"MK\":\"North Macedonia, Republic of\",\"MP\":\"Northern Mariana Islands\",\"NO\":\"Norway\",\"OM\":\"Oman\",\"PK\":\"Pakistan\",\"PW\":\"Palau\",\"PS\":\"Palestinian Territory, Occupied\",\"PA\":\"Panama\",\"PG\":\"Papua New Guinea\",\"PY\":\"Paraguay\",\"PE\":\"Peru\",\"PH\":\"Philippines\",\"PN\":\"Pitcairn\",\"PL\":\"Poland\",\"PT\":\"Portugal\",\"PR\":\"Puerto Rico\",\"QA\":\"Qatar\",\"RE\":\"Reunion\",\"RO\":\"Romania\",\"RU\":[\"Russian Federation\",\"Russia\"],\"RW\":\"Rwanda\",\"SH\":\"Saint Helena\",\"KN\":\"Saint Kitts and Nevis\",\"LC\":\"Saint Lucia\",\"PM\":\"Saint Pierre and Miquelon\",\"VC\":\"Saint Vincent and the Grenadines\",\"WS\":\"Samoa\",\"SM\":\"San Marino\",\"ST\":\"Sao Tome and Principe\",\"SA\":\"Saudi Arabia\",\"SN\":\"Senegal\",\"SC\":\"Seychelles\",\"SL\":\"Sierra Leone\",\"SG\":\"Singapore\",\"SK\":\"Slovakia\",\"SI\":\"Slovenia\",\"SB\":\"Solomon Islands\",\"SO\":\"Somalia\",\"ZA\":\"South Africa\",\"GS\":\"South Georgia and the South Sandwich Islands\",\"ES\":\"Spain\",\"LK\":\"Sri Lanka\",\"SD\":\"Sudan\",\"SR\":\"Suriname\",\"SJ\":\"Svalbard and Jan Mayen\",\"SZ\":\"Eswatini\",\"SE\":\"Sweden\",\"CH\":\"Switzerland\",\"SY\":\"Syrian Arab Republic\",\"TW\":\"Taiwan\",\"TJ\":\"Tajikistan\",\"TZ\":\"Tanzania, United Republic of\",\"TH\":\"Thailand\",\"TL\":\"Timor-Leste\",\"TG\":\"Togo\",\"TK\":\"Tokelau\",\"TO\":\"Tonga\",\"TT\":\"Trinidad and Tobago\",\"TN\":\"Tunisia\",\"TR\":\"Turkey\",\"TM\":\"Turkmenistan\",\"TC\":\"Turks and Caicos Islands\",\"TV\":\"Tuvalu\",\"UG\":\"Uganda\",\"UA\":\"Ukraine\",\"AE\":\"United Arab Emirates\",\"GB\":[\"United Kingdom\",\"UK\",\"Great Britain\"],\"US\":[\"United States of America\",\"USA\"],\"UM\":\"United States Minor Outlying Islands\",\"UY\":\"Uruguay\",\"UZ\":\"Uzbekistan\",\"VU\":\"Vanuatu\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam\",\"VG\":\"Virgin Islands, British\",\"VI\":\"Virgin Islands, U.S.\",\"WF\":\"Wallis and Futuna\",\"EH\":\"Western Sahara\",\"YE\":\"Yemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabwe\",\"AX\":\"Åland Islands\",\"BQ\":\"Bonaire, Sint Eustatius and Saba\",\"CW\":\"Curaçao\",\"GG\":\"Guernsey\",\"IM\":\"Isle of Man\",\"JE\":\"Jersey\",\"ME\":\"Montenegro\",\"BL\":\"Saint Barthélemy\",\"MF\":\"Saint Martin (French part)\",\"RS\":\"Serbia\",\"SX\":\"Sint Maarten (Dutch part)\",\"SS\":\"South Sudan\",\"XK\":\"Kosovo\"}}");
 
 /***/ }),
 
@@ -40797,36 +41541,6 @@ var r=function(t){return t},i=function(t){return Math.pow(t,2)},u=function(t){re
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DhltestunComponent.vue?vue&type=style&index=0&lang=css&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DhltestunComponent.vue?vue&type=style&index=0&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./DhltestunComponent.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DhltestunComponent.vue?vue&type=style&index=0&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EnvelopComponent.vue?vue&type=style&index=0&id=111d409a&scoped=true&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/EnvelopComponent.vue?vue&type=style&index=0&id=111d409a&scoped=true&lang=css& ***!
@@ -42019,226 +42733,6 @@ var render = function() {
     ],
     1
   )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DhlgetrateComponent.vue?vue&type=template&id=7e400b34&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DhlgetrateComponent.vue?vue&type=template&id=7e400b34& ***!
-  \**********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("h1", [_vm._v("Je suis quelque chose")])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DhltestunComponent.vue?vue&type=template&id=52530c56&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DhltestunComponent.vue?vue&type=template&id=52530c56& ***!
-  \*********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.onSubmitrequestform()
-          }
-        }
-      },
-      [
-        _vm._v('\n        <?xml version="1.0" encoding="utf-8"?>\n        '),
-        _c(
-          "p:DCTRequest",
-          {
-            attrs: {
-              "xmlns:p": "http://www.dhl.com",
-              "xmlns:p1": "http://www.dhl.com/datatypes",
-              "xmlns:p2": "http://www.dhl.com/DCTRequestdatatypes",
-              schemaVersion: "2.0",
-              "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-              "xsi:schemaLocation": "http://www.dhl.com DCT-req.xsd "
-            }
-          },
-          [
-            _c(
-              "GetQuote",
-              [
-                _c(
-                  "Request",
-                  [
-                    _c(
-                      "ServiceHeader",
-                      [
-                        _c("MessageTime", [
-                          _vm._v("2002-08-20T11:28:56.000-08:00")
-                        ]),
-                        _vm._v(" "),
-                        _c("MessageReference", [
-                          _vm._v("1234567890123456789012345678901")
-                        ]),
-                        _vm._v(" "),
-                        _c("SiteID", [_vm._v("v62_rMrBC4SZ87")]),
-                        _vm._v(" "),
-                        _c("Password", [_vm._v("ovGc7Ui83l")])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "MetaData",
-                      [
-                        _c("SoftwareName", [_vm._v("3PV")]),
-                        _vm._v(" "),
-                        _c("SoftwareVersion", [_vm._v("1.0")])
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "From",
-                  [
-                    _c("CountryCode", [_vm._v("CY")]),
-                    _vm._v(" "),
-                    _c("Postalcode", [_vm._v("1010")])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "BkgDetails",
-                  [
-                    _c("PaymentCountryCode", [_vm._v("CY")]),
-                    _vm._v(" "),
-                    _c("Date", [_vm._v("2017-11-10")]),
-                    _vm._v(" "),
-                    _c("ReadyTime", [_vm._v("PT10H21M")]),
-                    _vm._v(" "),
-                    _c("ReadyTimeGMTOffset", [_vm._v("+01:00")]),
-                    _vm._v(" "),
-                    _c("DimensionUnit", [_vm._v("CM")]),
-                    _vm._v(" "),
-                    _c("WeightUnit", [_vm._v("KG")]),
-                    _vm._v(" "),
-                    _c(
-                      "Pieces",
-                      [
-                        _c(
-                          "Piece",
-                          [
-                            _c("PieceID", [_vm._v("1")]),
-                            _vm._v(" "),
-                            _c("Height", [_vm._v("100")]),
-                            _vm._v(" "),
-                            _c("Depth", [_vm._v("50")]),
-                            _vm._v(" "),
-                            _c("Width", [_vm._v("70")]),
-                            _vm._v(" "),
-                            _c("Weight", [_vm._v("66.0")])
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("PaymentAccountNumber", [_vm._v("123456789")]),
-                    _vm._v(" "),
-                    _c("IsDutiable", [_vm._v("Y")]),
-                    _vm._v(" "),
-                    _c("NetworkTypeCode", [_vm._v("AL")]),
-                    _vm._v(" "),
-                    _c(
-                      "QtdShp",
-                      [
-                        _c("GlobalProductCode", [_vm._v("P")]),
-                        _vm._v(" "),
-                        _c("LocalProductCode", [_vm._v("P")])
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "To",
-                  [
-                    _c("CountryCode", [_vm._v("GR")]),
-                    _vm._v(" "),
-                    _c("Postalcode", [_vm._v("18535")])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "Dutiable",
-                  [
-                    _c("DeclaredCurrency", [_vm._v("EUR")]),
-                    _vm._v(" "),
-                    _c("DeclaredValue", [_vm._v("1.0")])
-                  ],
-                  1
-                )
-              ],
-              1
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-success", attrs: { type: "submit" } },
-          [_vm._v("Envoyer")]
-        )
-      ],
-      1
-    )
-  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -43824,9 +44318,11 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "invoice_footer" }, [
       _vm._m(4),
-      _vm._v("product\n        "),
+      _vm._v(" "),
       _c("div", { staticClass: "TotalTTC" }, [
-        _c("h2", [_vm._v("Total TTC: " + _vm._s(_vm.productPrice) + " ")])
+        _c("h2", [
+          _vm._v("Total TTC: " + _vm._s(_vm.sum_for_total_price) + " ")
+        ])
       ])
     ])
   ])
@@ -43926,8 +44422,6 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("p", [_vm._v("un instant nous cherchons le meilleur prix")]),
-      _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
       _c("div", { attrs: { id: "container" } }),
@@ -43959,8 +44453,6 @@ var render = function() {
           ]
         )
       }),
-      _vm._v(" "),
-      _c("p", [_vm._v("vos frais d'envoi sont de 30000 F CFA")]),
       _vm._v(" "),
       _vm._m(2)
     ],
@@ -44334,6 +44826,34 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "weight" } }, [
+                      _vm._v("Region d'origine")
+                    ]),
+                    _vm._v(" "),
+                    _c("region-select", {
+                      attrs: {
+                        country: wrapper.origincountry,
+                        regionName: true,
+                        region: wrapper.originregion
+                      },
+                      model: {
+                        value: wrapper.originregion,
+                        callback: function($$v) {
+                          _vm.$set(wrapper, "originregion", $$v)
+                        },
+                        expression: "wrapper.originregion"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6" }, [
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", { attrs: { for: "weight" } }, [
                       _vm._v("Pays de destination")
                     ]),
                     _vm._v(" "),
@@ -44348,6 +44868,34 @@ var render = function() {
                           _vm.$set(wrapper, "destinationcountry", $$v)
                         },
                         expression: "wrapper.destinationcountry"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6" }, [
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", { attrs: { for: "weight" } }, [
+                      _vm._v("Region de Destination")
+                    ]),
+                    _vm._v(" "),
+                    _c("region-select", {
+                      attrs: {
+                        country: wrapper.destinationcountry,
+                        regionName: true,
+                        region: wrapper.destinationregion
+                      },
+                      model: {
+                        value: wrapper.destinationregion,
+                        callback: function($$v) {
+                          _vm.$set(wrapper, "destinationregion", $$v)
+                        },
+                        expression: "wrapper.destinationregion"
                       }
                     })
                   ],
@@ -45381,6 +45929,39 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TestComponent.vue?vue&type=template&id=70d64aa0&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TestComponent.vue?vue&type=template&id=70d64aa0& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("h1", [_vm._v("Je suis quelque chose")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/checkdataquoteforpackageComponent.vue?vue&type=template&id=41caed1b&":
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/checkdataquoteforpackageComponent.vue?vue&type=template&id=41caed1b& ***!
@@ -45400,7 +45981,7 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("p", [
+      _c("h5", [
         _vm._v(
           "verifiez que ces informations sont bien celle que vous avez saisi"
         )
@@ -45436,6 +46017,14 @@ var render = function() {
         )
       }),
       _vm._v(" "),
+      _c("h2", [
+        _vm._v(
+          "le prix de votre paquet est: " +
+            _vm._s(_vm.sum_for_total_price) +
+            " XOF"
+        )
+      ]),
+      _vm._v(" "),
       _c(
         "div",
         {
@@ -45449,7 +46038,7 @@ var render = function() {
               staticStyle: {
                 "background-color": "rgb(218, 175, 127)",
                 border: "none",
-                width: "300px",
+                width: "330px",
                 "margin-bottom": "20px",
                 color: "white",
                 height: "35px"
@@ -45459,7 +46048,7 @@ var render = function() {
             },
             [
               _vm._v(
-                "\n            RETOURNER POUR CORRIGER\n            \n        "
+                "\n            RETOURNER POUR CORRIGER ou ANNULER\n            \n        "
               )
             ]
           ),
@@ -45500,7 +46089,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("hauteur")]),
         _vm._v(" "),
-        _c("th", [_vm._v("longueur")])
+        _c("th", [_vm._v("longueur")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("PRIX DU PAQUET EN (XOF ou F CFA)")])
       ])
     ])
   }
@@ -59982,7 +60573,12 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
-Vue.use(vue_country_region_select__WEBPACK_IMPORTED_MODULE_0___default.a);
+Vue.use(vue_country_region_select__WEBPACK_IMPORTED_MODULE_0___default.a); //this is for convert countries
+
+var isoCountries = __webpack_require__(/*! i18n-iso-countries */ "./node_modules/i18n-iso-countries/index.js");
+
+isoCountries.registerLocale(__webpack_require__(/*! i18n-iso-countries/langs/en.json */ "./node_modules/i18n-iso-countries/langs/en.json"));
+window.isoCountries = isoCountries;
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -60026,9 +60622,7 @@ Vue.component('country-list', __webpack_require__(/*! ./components/CountryList.v
 
 Vue.component('invoicepackage-quote', __webpack_require__(/*! ./components/InvoicePackagequote.vue */ "./resources/js/components/InvoicePackagequote.vue")["default"]); //ceci est notre exemple de requette dhl
 
-Vue.component('dhl-request', __webpack_require__(/*! ./components/DhltestunComponent.vue */ "./resources/js/components/DhltestunComponent.vue")["default"]); //ceci est notre exemple de reponse dhl
-
-Vue.component('dhl-response', __webpack_require__(/*! ./components/DhlgetrateComponent.vue */ "./resources/js/components/DhlgetrateComponent.vue")["default"]); //ceci est le component pour checker les paquets avant de passer à la demande de la quotation
+Vue.component('test-request', __webpack_require__(/*! ./components/TestComponent.vue */ "./resources/js/components/TestComponent.vue")["default"]); //ceci est le component pour checker les paquets avant de passer à la demande de la quotation
 
 Vue.component('checkquotefor-package', __webpack_require__(/*! ./components/checkdataquoteforpackageComponent.vue */ "./resources/js/components/checkdataquoteforpackageComponent.vue")["default"]);
 /**
@@ -60361,162 +60955,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CountryList_vue_vue_type_template_id_dad81b8e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CountryList_vue_vue_type_template_id_dad81b8e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/DhlgetrateComponent.vue":
-/*!*********************************************************!*\
-  !*** ./resources/js/components/DhlgetrateComponent.vue ***!
-  \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _DhlgetrateComponent_vue_vue_type_template_id_7e400b34___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DhlgetrateComponent.vue?vue&type=template&id=7e400b34& */ "./resources/js/components/DhlgetrateComponent.vue?vue&type=template&id=7e400b34&");
-/* harmony import */ var _DhlgetrateComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DhlgetrateComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/DhlgetrateComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _DhlgetrateComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _DhlgetrateComponent_vue_vue_type_template_id_7e400b34___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _DhlgetrateComponent_vue_vue_type_template_id_7e400b34___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/DhlgetrateComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/DhlgetrateComponent.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/components/DhlgetrateComponent.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DhlgetrateComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./DhlgetrateComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DhlgetrateComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DhlgetrateComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/DhlgetrateComponent.vue?vue&type=template&id=7e400b34&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/components/DhlgetrateComponent.vue?vue&type=template&id=7e400b34& ***!
-  \****************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DhlgetrateComponent_vue_vue_type_template_id_7e400b34___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./DhlgetrateComponent.vue?vue&type=template&id=7e400b34& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DhlgetrateComponent.vue?vue&type=template&id=7e400b34&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DhlgetrateComponent_vue_vue_type_template_id_7e400b34___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DhlgetrateComponent_vue_vue_type_template_id_7e400b34___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/DhltestunComponent.vue":
-/*!********************************************************!*\
-  !*** ./resources/js/components/DhltestunComponent.vue ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _DhltestunComponent_vue_vue_type_template_id_52530c56___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DhltestunComponent.vue?vue&type=template&id=52530c56& */ "./resources/js/components/DhltestunComponent.vue?vue&type=template&id=52530c56&");
-/* harmony import */ var _DhltestunComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DhltestunComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/DhltestunComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _DhltestunComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DhltestunComponent.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/DhltestunComponent.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _DhltestunComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _DhltestunComponent_vue_vue_type_template_id_52530c56___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _DhltestunComponent_vue_vue_type_template_id_52530c56___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/DhltestunComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/DhltestunComponent.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/components/DhltestunComponent.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DhltestunComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./DhltestunComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DhltestunComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DhltestunComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/DhltestunComponent.vue?vue&type=style&index=0&lang=css&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/components/DhltestunComponent.vue?vue&type=style&index=0&lang=css& ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DhltestunComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./DhltestunComponent.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DhltestunComponent.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DhltestunComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DhltestunComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DhltestunComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DhltestunComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DhltestunComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/components/DhltestunComponent.vue?vue&type=template&id=52530c56&":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/components/DhltestunComponent.vue?vue&type=template&id=52530c56& ***!
-  \***************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DhltestunComponent_vue_vue_type_template_id_52530c56___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./DhltestunComponent.vue?vue&type=template&id=52530c56& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DhltestunComponent.vue?vue&type=template&id=52530c56&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DhltestunComponent_vue_vue_type_template_id_52530c56___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DhltestunComponent_vue_vue_type_template_id_52530c56___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -61224,6 +61662,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfilComponent_vue_vue_type_template_id_72bf53f4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfilComponent_vue_vue_type_template_id_72bf53f4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TestComponent.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/TestComponent.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TestComponent_vue_vue_type_template_id_70d64aa0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TestComponent.vue?vue&type=template&id=70d64aa0& */ "./resources/js/components/TestComponent.vue?vue&type=template&id=70d64aa0&");
+/* harmony import */ var _TestComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TestComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/TestComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TestComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TestComponent_vue_vue_type_template_id_70d64aa0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TestComponent_vue_vue_type_template_id_70d64aa0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TestComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TestComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/TestComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TestComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TestComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TestComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TestComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TestComponent.vue?vue&type=template&id=70d64aa0&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/TestComponent.vue?vue&type=template&id=70d64aa0& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TestComponent_vue_vue_type_template_id_70d64aa0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TestComponent.vue?vue&type=template&id=70d64aa0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TestComponent.vue?vue&type=template&id=70d64aa0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TestComponent_vue_vue_type_template_id_70d64aa0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TestComponent_vue_vue_type_template_id_70d64aa0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

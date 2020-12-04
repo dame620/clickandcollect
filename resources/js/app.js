@@ -10,6 +10,11 @@ window.Vue = require('vue');
 import vueCountryRegionSelect from 'vue-country-region-select'
 Vue.use(vueCountryRegionSelect)
 
+//this is for convert countries
+var isoCountries = require("i18n-iso-countries");
+isoCountries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+
+window.isoCountries = isoCountries
 
 /**
  * The following block of code may be used to automatically register your
@@ -68,11 +73,7 @@ Vue.component('country-list', require('./components/CountryList.vue').default);
 Vue.component('invoicepackage-quote', require('./components/InvoicePackagequote.vue').default);
 
 //ceci est notre exemple de requette dhl
-Vue.component('dhl-request', require('./components/DhltestunComponent.vue').default);
-
-
-//ceci est notre exemple de reponse dhl
-Vue.component('dhl-response', require('./components/DhlgetrateComponent.vue').default);
+Vue.component('test-request', require('./components/TestComponent.vue').default);
 
 //ceci est le component pour checker les paquets avant de passer à la demande de la quotation
 Vue.component('checkquotefor-package', require('./components/checkdataquoteforpackageComponent.vue').default);

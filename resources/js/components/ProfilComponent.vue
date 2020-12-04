@@ -20,4 +20,7 @@ export default {
     
     
 }
+//responses[wrapper_index].products[0].totalPrice[0].price
 </script>
+
+

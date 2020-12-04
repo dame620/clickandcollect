@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "i18n-iso-countries": "^6.2.2",
         "progressbar.js": "^1.1.0",
         "vue-country-region-select": "^2.0.14"
     }

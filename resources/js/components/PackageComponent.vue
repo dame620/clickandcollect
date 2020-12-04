@@ -21,7 +21,14 @@
                         <country-select v-model="wrapper.origincountry" :country="wrapper.origincountry" topCountry="US" />
                     </div>
                 </div>
-                
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Region d'origine</label>
+                        <region-select v-model="wrapper.originregion" :country="wrapper.origincountry" :regionName=true :region="wrapper.originregion" />                    
+                    </div>
+                </div>
+
             <!--region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :region="wrapper.destinationregion" /-->
 
                 <div class="col-md-6">
@@ -31,6 +38,13 @@
                     </div>
                 </div>
 
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Region de Destination</label>
+                        <region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :regionName=true :region="wrapper.destinationregion" />                    
+                    </div>
+                </div>
+             
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="width">Largeur (cm)</label>
@@ -192,6 +206,7 @@
         
           mounted() {
             console.log('Component mounted.')
+            
         },
 
         data() {
@@ -213,6 +228,8 @@
                     is_origin_certificat_provide_to_sma:false,
                     origincountry:null,
                     destinationcountry:null,
+                    originregion:null,
+                    destinationregion:null,
                     products: []
                 }],
             }
@@ -243,6 +260,8 @@
                     is_origin_certificat_your_own:false,
                     is_origin_certificat_provide_to_sma:false,
                     destinationcountry:null, 
+                    originregion:null,
+                    destinationregion:null,
                     products: []
                 })
             },
@@ -265,17 +284,10 @@
                 }
             },
             onSubmitPackageForm() {
-                sessionStorage.setItem('wrappers', JSON.stringify(this.wrappers));
-             /*   const jsonWrappers = sessionStorage.getItem('wrappers');
-                let wraper = null
-                if (jsonWrappers != null && jsonWrappers != undefined) {
-                    wraper = JSON.parse(jsonWrappers);
-                }
-
-                console.log(wraper);
-             */
                 
-                return window.location.href = '/checkquoteforpackage';
+                sessionStorage.setItem('wrappers', JSON.stringify(this.wrappers));
+                
+                return window.location.href = '/checkquoteforpackage'; 
                 
             },
         },

@@ -1,5 +1,5 @@
 @extends('layouts.app')
 @section('content')
 @csrf
-<dhl-response></dhl-response>
+<test-request></test-request>
 @endsection

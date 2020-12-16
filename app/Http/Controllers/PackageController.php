@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Product;
+use App\Shipment;
 use App\Packageorenvelop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,12 +26,52 @@ class PackageController extends Controller
         
         $created_wrappers = [];
 		$created_products = [];
+		$created_shipments = [];
 		$packages = $request->get('data');
 
 		foreach ($packages as $package) {
 		
+
+			$shipment=Shipment::create([
+				'pickuppostalCode' => $package['shipmentdetails']['pickuppostalCode'],
+				'pickupcityName' => $package['shipmentdetails']['pickupcityName'],
+				'pickupcountryCode' => $package['shipmentdetails']['pickupcountryCode'],
+				'pickupaddressLine1' => $package['shipmentdetails']['pickupaddressLine1'],
+				'pickupcountyName' => $package['shipmentdetails']['pickupcountyName'],
+				'pickupemail' => $package['shipmentdetails']['pickupemail'],
+				'pickupphone' => $package['shipmentdetails']['pickupphone'],
+				'pickupmobilePhone' => $package['shipmentdetails']['pickupmobilePhone'],
+				'pickupcompanyName' => $package['shipmentdetails']['pickupcompanyName'],
+				'pickupfullName' => $package['shipmentdetails']['pickupfullName'],
+
+				'receiverpostalCode' => $package['shipmentdetails']['receiverpostalCode'],
+				'receivercityName' => $package['shipmentdetails']['receivercityName'],
+				'receivercountryCode' => $package['shipmentdetails']['receivercountryCode'],
+				'receiveraddressLine1' => $package['shipmentdetails']['receiveraddressLine1'],
+				'receivercountyName' => $package['shipmentdetails']['receivercountyName'],
+				'receiveremail' => $package['shipmentdetails']['receiveremail'],
+				'receiverphone' => $package['shipmentdetails']['receiverphone'],
+				'receivermobilePhone' => $package['shipmentdetails']['receivermobilePhone'],
+				'receivercompanyName' => $package['shipmentdetails']['receivercompanyName'],
+				'receiverfullName' => $package['shipmentdetails']['receiverfullName'],
+
+				'shipperpostalCode' => $package['shipmentdetails']['shipperpostalCode'],
+				'shippercityName' => $package['shipmentdetails']['shippercityName'],
+				'shippercountryCode' => $package['shipmentdetails']['shippercountryCode'],
+				'shipperaddressLine1' => $package['shipmentdetails']['shipperaddressLine1'],
+				'shippercountyName' => $package['shipmentdetails']['shippercountyName'],
+				'shipperemail' => $package['shipmentdetails']['shipperemail'],
+				'shipperphone' => $package['shipmentdetails']['shipperphone'],
+				'shippermobilePhone' => $package['shipmentdetails']['shippermobilePhone'],
+				'shippercompanyName' => $package['shipmentdetails']['shippercompanyName'],
+				'shipperfullName' => $package['shipmentdetails']['shipperfullName'],
+
+			]);
+
+			$created_shipments[] = $shipment;
 			
 			$wrapper = Packageorenvelop::create([
+				'shipment_id' => $shipment->id,
 				'width'  => $package['width'],
 				'height' => $package['height'],
 				'length' => $package['length'],
@@ -50,7 +91,11 @@ class PackageController extends Controller
                 
 			]);
 
+
+
 			$created_wrappers[] = $wrapper;
+
+			
 			
 
 			if (count($package['products']) > 0) {
@@ -73,10 +118,9 @@ class PackageController extends Controller
 	   
 		if ($request->ajax()) {
 			
-			return ['success' => true, 'wrappers' => $created_wrappers, 'products' => $created_products];
+			return ['success' => true, 'wrappers' => $created_wrappers, 'products' => $created_products, 'shipments'=>$created_shipments];
 			
 		}
-
 
 
     }

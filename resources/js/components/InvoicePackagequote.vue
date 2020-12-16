@@ -44,7 +44,7 @@
                                 <td>{{ wrapper.width }}</td>
                                 <td>{{ wrapper.height }}</td>
                                 <td>{{ wrapper.length }}</td> 
-                                <!--td>{{ responses[wrapper_index].products[0].totalPrice[0].price }}</td--> 
+                                <td>{{ responses[wrapper_index].products[0].totalPrice[0].price }}</td> 
                             </tr>
                         </tbody>
                 </table>
@@ -60,7 +60,7 @@
                 <h2>Total HT:</h2>
             </div>
             <div class="TotalTTC">
-                <h2>Total TTC: {{ sum_for_total_price }} </h2>
+                <h2>Total TTC: {{ sum_for_total_price }} XOF</h2>
             </div>
 
         </div>

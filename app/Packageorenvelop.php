@@ -4,6 +4,7 @@ namespace App;
 
 use App\User;
 use App\Product;
+use App\Shipment;
 use Illuminate\Database\Eloquent\Model;
 
 class Packageorenvelop extends Model
@@ -21,6 +22,13 @@ class Packageorenvelop extends Model
         return $this->belongsTo(User::class);
         
     }
+
+    public function shipment(){
+
+        return $this->belongsTo(Shipment::class);
+        
+    }
+
     protected static function boot()
     {
        parent::boot();

@@ -56,6 +56,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//ceci est la route vers la page ou on doit remplir les données si on demande une pickup 
+Route::get('/pick_up_package_data', function(){
+    return view('pick_up_package_data');
+});
 //route qui permet d'afficher la route qui méne vers le formulaire de package or envelop
 Route::post('/package', 'PackageController@store')->name('package.store');
 
@@ -123,3 +127,12 @@ Route::get('/checkquoteforpackage', function(){
 
 //ceci est la route qui permet d'envoyer des données en post vers l'url /rates
 Route::post('/rates', 'DhlController@store')->name('rates.store');
+
+//ceci est la route créer au niveau back end pour recuperer les données pour le get rates 
+Route::post('/post-shipment', 'DhlController@storeshipment')->name('dhl.rates');
+
+//ceci est la route qui méne vers la page de renseignement du pickup detail, receiver detail, shipper 
+Route::get('/infofor_shipmentdhl', function(){
+    return view('infofor_shipmentdhl');
+});
+

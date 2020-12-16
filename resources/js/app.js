@@ -78,6 +78,15 @@ Vue.component('test-request', require('./components/TestComponent.vue').default)
 //ceci est le component pour checker les paquets avant de passer à la demande de la quotation
 Vue.component('checkquotefor-package', require('./components/checkdataquoteforpackageComponent.vue').default);
 
+//ceci est la route pour renseigner les infos pour le shipment
+Vue.component('infoforshipmentdhl', require('./components/infoforshipmentdhlComponent.vue').default);
+
+//ceci est la route pour renseigner les infos pour le shipment
+Vue.component('pick-up-package', require('./components/pick_up_package_dataComponent.vue').default);
+
+
+
+
 
 
 

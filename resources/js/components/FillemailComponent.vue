@@ -26,30 +26,7 @@
             </div> 
         </div>
         </form>
-       <table class="table table-dark">
-      <thead>
-        <tr>
-          <th>Produit</th>
-          <th>PRIX</th>
-          <th>QUANTITE</th>
-          <th>PRIX TOTAL FCFA</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td>VETEMENT</td>
-            <td>1200</td>
-            <td>10</td>
-            <td>12000</td>
-        </tr>
-         <tr>
-            <td>TELEPHONE</td>
-            <td>70000</td>
-            <td>20</td>
-            <td>120000</td>
-        </tr>
-    </tbody>
-    </table>
+       
     </div>
 </template>
 <script>

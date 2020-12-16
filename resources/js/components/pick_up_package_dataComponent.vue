@@ -1,6 +1,5 @@
 <template>
-    <form @submit.prevent="onSubmitPackageForm" ref="packageForm">
-
+    <form @submit.prevent="onSubmitPackageForm()">
         <div class="products-counter">
             <span>{{ wrappers_count }} paquet{{ wrappers_count > 1 ? 's' : '' }}</span>
             <div>
@@ -19,20 +18,33 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="weight">Pays d'origine</label>
-                       
                         <country-select v-model="wrapper.origincountry" :country="wrapper.origincountry" topCountry="US" />
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label for="weight">Region d'origine</label>
+                        <region-select v-model="wrapper.originregion" :country="wrapper.origincountry" :regionName=true :region="wrapper.originregion" />                    
+                    </div>
+                </div>
+
+            <!--region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :region="wrapper.destinationregion" /-->
+
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label for="weight">Pays de destination</label>
-                        
                         <country-select v-model="wrapper.destinationcountry" :country="wrapper.destinationcountry" topCountry="US" />
                     </div>
-                </div>  
-                        <!--region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :region="wrapper.destinationregion" /-->
-                   
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Region de Destination</label>
+                        <region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :regionName=true :region="wrapper.destinationregion" />                    
+                    </div>
+                </div>
+             
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="width">Largeur (cm)</label>
@@ -57,10 +69,11 @@
                         <input type="number" name="weight" id="weight" class="form-control" v-model="wrapper.weight" required>
                     </div>
                 </div>
+                
             </div>
 
             <div class="products-counter">
-                <span>{{ wrapper.products.length }} produit {{ wrapper.products.length > 1 ? 's' : '' }}</span>
+                <span>{{ wrapper.products.length }}produit{{ wrapper.products.length > 1 ? 's' : '' }}</span>
                 <div>
                     <button type="button" @click.prevent="decrementProduct(wrapper_index)" class="btn btn-primary">-</button>
                     <button type="button" @click.prevent="incrementProduct(wrapper_index)" class="btn btn-primary">+</button>
@@ -95,8 +108,7 @@
                     </div>
                 </div>
             </div>
-
-            <hr>
+              <hr>
             <!--debut certificat phytho-->
             <div class="phytho-container" style="display:flex;">
                <div class="col-md-6">
@@ -178,8 +190,6 @@
             </div>
 
           <!--fin certificat origin-->
-
-
         </div>
         
         <div class="form-group">
@@ -193,42 +203,15 @@
 <script>
     export default {
 
-        watch:{
-       is_nophytho(value){
-           if(value==true){
-               this.is_phytho=false;
-           }
-       },
+        
+          mounted() {
+            console.log('Component mounted.')
+            
+        },
 
-      is_phytho(value){
-          if(value==true){
-              this.is_nophytho=false;
-          }
-
-      },
-
-      is_origincertificat(value){
-           if(value==true){
-               this.is_noorigincertificat=false;
-           }
-       },
-
-      is_noorigincertificat(value){
-          if(value==true){
-              this.is_origincertificat=false;
-          }
-
-      }
-
-    },
-
-        props: ['path'],
         data() {
             return {
-                is_origincertificat:false,
-                is_noorigincertificat:false,
-                is_nophytho: false,
-                is_phytho: false,
+                
 
                 wrappers: [{
                     width: null,
@@ -245,10 +228,10 @@
                     is_origin_certificat_provide_to_sma:false,
                     origincountry:null,
                     destinationcountry:null,
-                    products: [],
-                    shipmentdetails:{}
+                    originregion:null,
+                    destinationregion:null,
+                    products: []
                 }],
-                loading: false,
             }
         },
         computed: {
@@ -261,15 +244,13 @@
                 if(this.wrappers.length>1)
                 this.wrappers.splice(wrapper_index, 1);
             },
-            resetForm() {
-                this.wrappers = this.wrappers
-            },
             incrementWrapper() {
                 this.wrappers.push({
                     width: null,
                     height: null,
                     length: null,
                     weight: null,
+                    origincountry:null,
                     is_nophytho: false,
                     is_phythoexiste: false,
                     is_phytho_your_own: false,
@@ -278,8 +259,9 @@
                     is_noorigincertificat:false,
                     is_origin_certificat_your_own:false,
                     is_origin_certificat_provide_to_sma:false,
-                    origincountry:null,
-                    destinationcountry:null,
+                    destinationcountry:null, 
+                    originregion:null,
+                    destinationregion:null,
                     products: []
                 })
             },
@@ -301,59 +283,15 @@
                     this.wrappers[wrapper_index].products.pop();
                 }
             },
-
-            
             onSubmitPackageForm() {
                 
-                this.loading = true;
+                sessionStorage.setItem('wrappers', JSON.stringify(this.wrappers));
                 
-                  
-                    /*axios.post('/login', {
-                    firstName: 'Finn',
-                    lastName: 'Williams'
-                    })
-                    .then((response) => {
-                    console.log(response);
-                    }, (error) => {
-                    console.log(error);
-                    });*/
-
-                axios.post(this.path, {
-                    data: this.wrappers
-                }).then(({data}) => {
-                   
-                   if(data.products.length<1){
-                     alert("veuillez renseigner au moins un produit")  
-                   };
-                    if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
-                        this.resetForm();
-                         alert('le paquet a été enregistrer avec success');
-                        sessionStorage.removeItem('wrappers');
-                        return window.location.href = '/';
-                    }
-                }).catch(response => {
-                    alert('oups echec de l\'ajout');
-                    console.error(response);
-                }).finally(_ => {
-                   this.loading = false; 
-                });
+                return window.location.href = '/infofor_shipmentdhl'; 
                 
             },
         },
-        mounted() {
-            
-            const jsonWrappers = sessionStorage.getItem('wrappers');
-            let wrappers = null
-
-            if (jsonWrappers != null && jsonWrappers != undefined) {
-                wrappers = JSON.parse(jsonWrappers);
-            }
-            if(wrappers!=null){
-                this.wrappers = wrappers;
-            }
-               console.log(this.wrappers);
-
-        },
+      
     }
 </script>
 

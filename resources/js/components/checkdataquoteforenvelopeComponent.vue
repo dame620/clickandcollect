@@ -98,8 +98,22 @@
                 console.log(wrappers);
             }
             //fin de recupération des données
+                wrappers.forEach(wrapper=>{
+                    if(wrapper.is_smallformat){
+                        wrapper.length=5
+                        wrapper.width=3
+                        wrapper.height=1
+                    }
+                    else{
+                        wrapper.length=7
+                        wrapper.width=5
+                        wrapper.height=2  
+                    }
+                    
+                
+            });
             //fetch request
-                  const formattedWrappers = wrappers.map(function(wrapper) {
+                const formattedWrappers = wrappers.map(function(wrapper) {
             return {
                 width:  Number(wrapper.width),
                 height: Number(wrapper.height),

@@ -4,6 +4,13 @@
             <span v-for="(e, erro_index) in errors" :key="erro_index" style="color:red; font-weight: bold;">{{e}} </span>
           
             <section v-if="step==1">
+                <div class="progress-container">
+                    <ul class="progressbar">
+                        <li class="active">step1</li>
+                        <li>step2</li>
+                        <li>step3</li>
+                    </ul>
+                </div>
                 <h3>Detail de la personne à contacter et du Lieu de Ramassage</h3>
                 <div class="row">
 
@@ -20,21 +27,6 @@
                             <input type="text" class="form-control" placeholder="nom de la ville" v-model="shipmentdetails.pickupcityName"> 
                         </div>
                     </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="weight">CountryCode</label>
-                            <input type="text" v-model="shipmentdetails.pickupcountryCode" class="form-control" placeholder="nom du pays"> 
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="weight">CountyName</label>
-                            <input type="text" class="form-control" v-model="shipmentdetails.pickupcountyName"  placeholder="nom du pays"> 
-                        </div>
-                    </div>
-
 
                     <div class="col-md-6">
                         <div class="form-group">
@@ -82,6 +74,15 @@
             </section>
 
              <section v-if="step==2">
+
+                 <div class="progress-container">
+                    <ul class="progressbar">
+                        <li class="active">step1</li>
+                        <li class="active">step2</li>
+                        <li>step3</li>
+                    </ul>
+                </div>
+
                 <h3>Detail du demandeur de Ramassage</h3>
                 <div class="row">
 
@@ -98,21 +99,6 @@
                             <input type="text" class="form-control" placeholder="nom de la ville" v-model="shipmentdetails.shippercityName"> 
                         </div>
                     </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="weight">CountryCode</label>
-                            <input type="text" v-model="shipmentdetails.shippercountryCode" class="form-control" placeholder="nom du pays"> 
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="weight">CountyName</label>
-                            <input type="text" class="form-control" v-model="shipmentdetails.shippercountyName"  placeholder="nom du pays"> 
-                        </div>
-                    </div>
-
 
                     <div class="col-md-6">
                         <div class="form-group">
@@ -160,6 +146,15 @@
             </section>
 
              <section v-if="step==3">
+
+                 <div class="progress-container">
+                    <ul class="progressbar">
+                        <li class="active">step1</li>
+                        <li class="active">step2</li>
+                        <li class="active">step3</li>
+                    </ul>
+                </div>
+                 
                 <h3>Detail du RECEIVER</h3>
                 <div class="row">
 
@@ -176,21 +171,6 @@
                             <input type="text" class="form-control" placeholder="nom de la ville" v-model="shipmentdetails.receivercityName"> 
                         </div>
                     </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="weight">CountryCode</label>
-                            <input type="text" v-model="shipmentdetails.receivercountryCode" class="form-control" placeholder="nom du pays"> 
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="weight">CountyName</label>
-                            <input type="text" class="form-control" v-model="shipmentdetails.receivercountyName"  placeholder="nom du pays"> 
-                        </div>
-                    </div>
-
 
                     <div class="col-md-6">
                         <div class="form-group">
@@ -245,10 +225,68 @@
         
     </div>
 </template>
+<style scoped>
+     .progress-container{
+                    width:100%;
+                }
+                .progressbar{
+                    counter-reset: step;
+                } 
+                .progressbar li{
+                    list-style-type: none;
+                    float:left;
+                    width:33%;
+                    position:relative;
+                    text-align: center;
+                } 
+                .progressbar li:before{
+                    content: counter(step);
+                    counter-increment:step;
+                    line-height: 30px;
+                    width: 30px;
+                    height:30px;
+                    border: 1px solid #ddd;
+                    display: block;
+                    text-align: center;
+                    margin: 0 auto 10px auto;
+                    border-radius: 50%;
+                    background-color: white;
+
+                }
+                .progressbar li:after{
+                    content:'';
+                    position:absolute;
+                    width:100%;
+                    height:1px;
+                    background-color: #ddd;
+                    top:15px;
+                    left:-50%;
+                    z-index: -1;
+                }
+
+                .progressbar li:first-child:after{
+                    content:none;
+                }
+                .progressbar li.active{
+                    color:rgb(8, 8, 8);
+                   
+                } 
+                .progressbar li.active:before{
+                    border-color:green;
+                    background-color: green;
+                }
+                .progressbar li.active + li:after{
+                    background-color: green;
+                }  
+    
+</style>
 <script>
 export default {
   mounted() {
     console.log('mounted');
+        const countries = window.isoCountries
+        var full_country_name=countries.getName("SN", "en", {select: "official"}); // United States of America
+        console.log(full_country_name);
     
     },
   data() {
@@ -258,7 +296,7 @@ export default {
         totalsteps:3,
         errors:[],
         respon:null,
-        wrapers:null,
+        wrappers:null,
 
       shipmentdetails:{
         pickuppostalCode: null,
@@ -363,6 +401,23 @@ export default {
             //fin recuperation wrappers
 
             wrappers.forEach(wrapper => {
+                //recuperation du nom du country complet
+                const countries = window.isoCountries
+                var full_country_name=countries.getName(wrapper.origincountry, "en", {select: "official"}); // United States of America
+                console.log(full_country_name);
+                //passage du full country name et pickup country a la variable du pickup
+                this.shipmentdetails.pickupcountyName=full_country_name;
+                this.shipmentdetails.pickupcountryCode=wrapper.origincountry;
+                //passage des infos pour le shipper
+                this.shipmentdetails.shippercountyName=full_country_name;
+                this.shipmentdetails.shippercountryCode=wrapper.origincountry;
+                //conversion du destination country en full country name
+                var full_destinationcountry_name=countries.getName(wrapper.destinationcountry, "en", {select: "official"}); // United States of America
+                console.log(full_destinationcountry_name);
+                //on fait passer full country et le country code 
+                 this.shipmentdetails.receivercountyName=full_destinationcountry_name;
+                 this.shipmentdetails.receivercountryCode=wrapper.destinationcountry;
+
                  wrapper.shipmentdetails = this.shipmentdetails;
                 });
 
@@ -382,7 +437,7 @@ export default {
                         pickuppostalCode: wrapper.shipmentdetails.pickuppostalCode,
                         pickupcityName: wrapper.shipmentdetails.pickupcityName,
                         pickupcountryCode: wrapper.shipmentdetails.pickupcountryCode,
-                        provinceCode: wrapper.shipmentdetails.provinceCode,
+                       // provinceCode: wrapper.shipmentdetails.provinceCode,
                         pickupaddressLine1: wrapper.shipmentdetails.pickupaddressLine1,
                         pickupcountyName: wrapper.shipmentdetails.pickupcountyName,
                         pickupemail: wrapper.shipmentdetails.pickupemail,
@@ -422,7 +477,43 @@ export default {
 
             console.log(formatted_shipmentdetails);
 
-            const url = "/post-shipment"
+            async function shipmentreq(){
+                const url = "/post-shipment"
+                const response = await fetch(url, {
+                    method: 'POST', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': window.csrfContent
+                    }, 
+
+                    body: JSON.stringify({
+                        packages: formatted_shipmentdetails
+                    })
+
+                })
+                const data = await response.json();
+                //console.log(data.responses);
+                var responses=data.responses;
+                //PARCOURIR le tableau de responses
+                responses.forEach(function(response){
+                    const responseData = JSON.parse(response);
+                    console.log(responseData);
+                    console.log(responseData.shipmentTrackingNumber);
+                    wrappers.trackingnumber=responseData.shipmentTrackingNumber;
+                    //parcourir les wrapper pour leur donner le tracking number
+                    wrappers.forEach(function(wrapper){
+                        wrapper.trackingnumber=responseData.shipmentTrackingNumber;
+                    }) 
+                })
+
+                console.log(wrappers);
+                this.wrappers=wrappers;
+                sessionStorage.setItem("wrappers", JSON.stringify(this.wrappers));
+
+               
+            }
+             shipmentreq();
+            /*const url = "/post-shipment"
             
             fetch(url, {
             method: 'POST', // or 'PUT'
@@ -435,8 +526,8 @@ export default {
                 packages: formatted_shipmentdetails
             })
 
-            })
-            .then(response => response.json())
+            })*/
+            /*.then(response => response.json())
             .then(data => {
                 //const { response } = data;
                 //console.log(data.responses);
@@ -457,12 +548,13 @@ export default {
                 console.error('Error:', error);
             });
 
-            console.log(wrappers);
+            console.log("check wrappers", wrappers);
            // this.wrapers=wrappers;
             //console.log(this.wrapers);
             sessionStorage.setItem("wrappers", JSON.stringify(wrappers));
-               
-            return window.location.href = '/test'; 
+            */
+            this.$router.push('/package/create');
+
 
             
          

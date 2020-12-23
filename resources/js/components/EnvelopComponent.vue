@@ -1,5 +1,6 @@
 <template>
-    <form @submit.prevent="onSubmitEnvelopeForm()">
+    <div class="container">
+        <form @submit.prevent="onSubmitEnvelopeForm()">
         <div class="products-counter">
             <span>{{ wrappers_count }} ENVELOPPE{{ wrappers_count > 1 ? 's' : '' }}</span>
             <div>
@@ -21,12 +22,28 @@
                     </div>
                 </div>
 
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Region d'origine</label>
+                        <region-select v-model="wrapper.originregion" :country="wrapper.origincountry" :regionName=true :region="wrapper.originregion" />                    
+                    </div>
+                </div>
+
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="weight">Pays de destination</label>
+                        <label for="weight">Pays de desti</label>
                         <country-select v-model="wrapper.destinationcountry" :country="wrapper.destinationcountry" topCountry="US" />
                     </div>
                 </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Region desti</label>
+                        <region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :regionName=true :region="wrapper.destinationregion" />                    
+                    </div>
+                </div>
+
+                
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -179,7 +196,8 @@
                 Enregistrer
             </button>
         </div>
-    </form>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -205,6 +223,8 @@
                     is_origin_certificat_provide_to_sma:false,
                     origincountry:null,
                     destinationcountry:null,
+                    destinationregion:null,
+                    originregion:null,
                     products: [],
                 }],
             }
@@ -233,6 +253,8 @@
                     is_origin_certificat_provide_to_sma:false,
                     origincountry:null,
                     destinationcountry:null,
+                    originregion:null,
+                    destinationregion:null,
                     weight: null,
                     products: []
                 })
@@ -257,8 +279,10 @@
             },
             onSubmitEnvelopeForm() {
                 sessionStorage.setItem('wrappers', JSON.stringify(this.wrappers));
-             
-                return window.location.href = '/invoiceenvelope';
+                
+                 this.$router.push('/checkquoteforenvelope');
+                //this.$router.push('/invoiceenvelope');
+
             },
         },
       

@@ -56,10 +56,10 @@ export default {
 
         ongotoNextPage(){
             if(this.is_package==true){
-                window.location.href = '/packageform';
+                this.$router.push('/packageform');
             }
             else if(this.is_envelope==true){
-                window.location.href = '/envelopeform';
+                this.$router.push('/envelopeform');
             }
         }
     }

@@ -8,7 +8,15 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import vueCountryRegionSelect from 'vue-country-region-select'
+import VueRouter from 'vue-router'
+import routes from './routes'
+
+import axios from 'axios'
+Vue.use(axios)
+
 Vue.use(vueCountryRegionSelect)
+Vue.use(VueRouter);
+
 
 //this is for convert countries
 var isoCountries = require("i18n-iso-countries");
@@ -26,6 +34,9 @@ window.isoCountries = isoCountries
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+
+//ceci est juste pour regrouper les components
+Vue.component('app', require('./components/App.vue').default);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 //la vue qui contiendra le formulaire de ckeck du packet ou envelop
@@ -84,8 +95,13 @@ Vue.component('infoforshipmentdhl', require('./components/infoforshipmentdhlComp
 //ceci est la route pour renseigner les infos pour le shipment
 Vue.component('pick-up-package', require('./components/pick_up_package_dataComponent.vue').default);
 
+Vue.component('checkdataquoteforenvelope', require('./components/checkdataquoteforenvelopeComponent.vue').default);
 
 
+const router = new VueRouter({
+    mode: 'history',
+    routes
+})
 
 
 
@@ -98,5 +114,6 @@ Vue.component('pick-up-package', require('./components/pick_up_package_dataCompo
 
 new Vue({
     el: '#app',
+    router
    
 });

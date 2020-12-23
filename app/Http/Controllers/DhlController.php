@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class DhlController extends Controller
 {
+  
     public function index(Request $request)
     {  
         $packages = $request->packages;

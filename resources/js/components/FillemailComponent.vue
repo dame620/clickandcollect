@@ -49,9 +49,7 @@ export default{
             sessionStorage.setItem('name', JSON.stringify(this.name));
             sessionStorage.setItem('email', JSON.stringify(this.email));
             sessionStorage.setItem('companie_name', JSON.stringify(this.companie_name));
-
-            return window.location.href = '/invoicequotepackage';
-
+            this.$router.push('/invoicequotepackage');
         }
 
     },

@@ -16,12 +16,16 @@
 
         <div class="containt_bottom" style="display:flex; flex-direction:column;">
             <button type="submit" style="background-color:rgb(218, 175, 127); border:none; width:300px; margin-bottom:20px; height:35px;" >
+                <router-link to="/envelope/create" style="color:white; font-weight: bold;">
+                DEMANDER UN PICK UP
+                </router-link>
                 
-                <a href="/envelope/create" style="color:white; font-weight: bold;">DEMANDER UN PICK UP</a>
             </button>
             <button type="submit" style="background-color:rgb(233, 154, 60); border:none; width:300px; height:35px;">
-                <a href="/fillemailforenvelope" style="color:white; font-weight: bold;">RECEVOIR PAR EMAIL</a>
-                
+    
+                 <router-link to="/fillemailforenvelope" style="color:white; font-weight: bold;">
+                RECEVOIR PAR EMAIL
+                </router-link>
             </button>
         </div>
         

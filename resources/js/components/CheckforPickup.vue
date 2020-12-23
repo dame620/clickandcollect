@@ -57,11 +57,11 @@ export default {
         ongotoNextPage(){
             if(this.is_package==true){
                 //window.location.href = '/package/create';
-                window.location.href = '/pick_up_package_data';
+                this.$router.push('/pick_up_package_data');
                 
             }
             else if(this.is_envelope==true){
-                window.location.href = '/envelope/create';
+            this.$router.push('/envelope/create');
             }
         }
     }

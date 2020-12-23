@@ -1,187 +1,6 @@
 <template>
-    <form @submit.prevent="onSubmitPackageForm" ref="packageForm">
-
-        <div class="products-counter">
-            <span>{{ wrappers_count }} paquet{{ wrappers_count > 1 ? 's' : '' }}</span>
-            <div>
-                <button type="button" @click.prevent="decrementWrapper" class="btn btn-primary">-</button>
-                <button type="button" @click.prevent="incrementWrapper" class="btn btn-primary">+</button>
-            </div>
-        </div>
-
-        <div class="packages-section" v-for="(wrapper, wrapper_index) in wrappers" :key="wrapper_index">
-            <button class="packages-section-closer" type="button" @click.prevent="onClosePackage(wrapper_index)">
-                <i class="fa fa-times"></i>
-            </button>
-
-            <div class="row">
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="weight">Pays d'origine</label>
-                       
-                        <country-select v-model="wrapper.origincountry" :country="wrapper.origincountry" topCountry="US" />
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="weight">Pays de destination</label>
-                        
-                        <country-select v-model="wrapper.destinationcountry" :country="wrapper.destinationcountry" topCountry="US" />
-                    </div>
-                </div>  
-                        <!--region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :region="wrapper.destinationregion" /-->
-                   
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="width">Largeur (cm)</label>
-                        <input type="number" name="width" id="width" class="form-control" v-model="wrapper.width" required>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="length">Longueur (cm)</label>
-                        <input type="number" name="length" id="length" class="form-control" v-model="wrapper.length" required>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="height">Hauteur (cm)</label>
-                        <input type="number" name="height" id="height" class="form-control" v-model="wrapper.height" required>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="weight">Poids (kg)</label>
-                        <input type="number" name="weight" id="weight" class="form-control" v-model="wrapper.weight" required>
-                    </div>
-                </div>
-            </div>
-
-            <div class="products-counter">
-                <span>{{ wrapper.products.length }} produit {{ wrapper.products.length > 1 ? 's' : '' }}</span>
-                <div>
-                    <button type="button" @click.prevent="decrementProduct(wrapper_index)" class="btn btn-primary">-</button>
-                    <button type="button" @click.prevent="incrementProduct(wrapper_index)" class="btn btn-primary">+</button>
-                </div>
-            </div>
-
-            <div class="form-group" v-for="(product, product_index) in wrapper.products" :key="product_index">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="">NATURE DU PRODUIT</label>
-                            <input type="text" name="product_type" v-model="product.product_type" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="">Quantité</label>
-                            <input type="number" name="quantity" v-model="product.quantity" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="">PRIX UNITAIRE</label>
-                            <input type="number" name="unitprice" v-model="product.unit_price" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="">DESCRIPTION</label>
-                            <textarea name="description" v-model="product.description" class="form-control"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <hr>
-            <!--debut certificat phytho-->
-            <div class="phytho-container" style="display:flex;">
-               <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="" style="font-size:20px; font-weight:bold;">Ajouter un certificat phytho
-                            <input type="checkbox" v-model="wrapper.is_phythoexiste" :disabled="wrapper.is_nophytho==true">
-                        </label>
-                    </div>
-                </div>
-
-                <div class="col-md-6" >
-                    <div class="form-group" >
-                        <label for="" style="font-size:20px; font-weight:bold;"> phyto Pas Necessaire
-                            <input type="checkbox" :disabled="wrapper.is_phythoexiste==true"  v-model="wrapper.is_nophytho">
-                        </label>
-                    </div>
-                </div>
-                 
-            </div>
-            <div class="phyto-owner" v-if="wrapper.is_phythoexiste" style="display:flex;">
-
-                    <div class="col-md-6" style="display:flex;">
-                        <div class="form-group" >
-                            <label for="" >Vous avez votre phytho
-                                <input type="checkbox" :disabled="wrapper.is_phytho_provide_tosma==true"  v-model="wrapper.is_phytho_your_own">
-                            </label>
-                        </div>
-                    </div>
-                
-                    <div class="col-md-6">
-                        <div class="form-group" style="display:flex;">
-                            <label for="" style="display:flex;">On le cheche pr vous
-                                <input type="checkbox" v-model="wrapper.is_phytho_provide_tosma" :disabled="wrapper.is_phytho_your_own==true">
-                            </label>
-                        </div>
-                    </div>
-
-            </div>  
-        <!--fin certificat phytho-->
-
-         <!--debut certificat origine-->
-
-            <div class="phytho-container" style="display:flex;">
-               <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="" style="font-size:20px; font-weight:bold;">Ajouter un certificat d'origine
-                            <input type="checkbox" v-model="wrapper.is_origincertificat" :disabled="wrapper.is_noorigincertificat==true">
-                        </label>
-                    </div>
-                </div>
-
-                <div class="col-md-6" >
-                    <div class="form-group" >
-                        <label for="" style="font-size:20px; font-weight:bold;"> certificat d'origine Pas Necessaire
-                            <input type="checkbox" :disabled="wrapper.is_origincertificat==true"  v-model="wrapper.is_noorigincertificat">
-                        </label>
-                    </div>
-                </div>
-                 
-            </div>
-            <div class="phyto-owner" v-if="wrapper.is_origincertificat" style="display:flex;">
-
-                    <div class="col-md-6" style="display:flex;">
-                        <div class="form-group" >
-                            <label for="" >Vous avez votre certificat
-                                <input type="checkbox" :disabled="wrapper.is_origin_certificat_provide_to_sma==true"  v-model="wrapper.is_origin_certificat_your_own">
-                            </label>
-                        </div>
-                    </div>
-                
-                    <div class="col-md-6">
-                        <div class="form-group" style="display:flex;">
-                            <label for="" style="display:flex;">On le cheche pr vous
-                                <input type="checkbox" v-model="wrapper.is_origin_certificat_provide_to_sma" :disabled="wrapper.is_origin_certificat_your_own==true">
-                            </label>
-                        </div>
-                    </div>
-
-            </div>
-
-          <!--fin certificat origin-->
-
-
-        </div>
-        
+    <form @submit.prevent="onSubmitPackageForm" ref="packageForm">  
+        <h3 style="color:green;">vous avez demandé un pick up cliquez sur enregistrer pour confirmer</h3>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Enregistrer
@@ -193,154 +12,7 @@
 <script>
     export default {
 
-        watch:{
-       is_nophytho(value){
-           if(value==true){
-               this.is_phytho=false;
-           }
-       },
-
-      is_phytho(value){
-          if(value==true){
-              this.is_nophytho=false;
-          }
-
-      },
-
-      is_origincertificat(value){
-           if(value==true){
-               this.is_noorigincertificat=false;
-           }
-       },
-
-      is_noorigincertificat(value){
-          if(value==true){
-              this.is_origincertificat=false;
-          }
-
-      }
-
-    },
-
-        props: ['path'],
-        data() {
-            return {
-                is_origincertificat:false,
-                is_noorigincertificat:false,
-                is_nophytho: false,
-                is_phytho: false,
-
-                wrappers: [{
-                    width: null,
-                    height: null,
-                    length: null,
-                    weight: null,
-                    is_nophytho: false,
-                    is_phythoexiste: false,
-                    is_phytho_your_own: false,
-                    is_phytho_provide_tosma: false,
-                    is_origincertificat:false,
-                    is_noorigincertificat:false,
-                    is_origin_certificat_your_own:false,
-                    is_origin_certificat_provide_to_sma:false,
-                    origincountry:null,
-                    destinationcountry:null,
-                    products: [],
-                    shipmentdetails:{}
-                }],
-                loading: false,
-            }
-        },
-        computed: {
-            wrappers_count() {
-                return this.wrappers.length;
-            },
-        },
-        methods: {
-            onClosePackage(wrapper_index) {
-                if(this.wrappers.length>1)
-                this.wrappers.splice(wrapper_index, 1);
-            },
-            resetForm() {
-                this.wrappers = this.wrappers
-            },
-            incrementWrapper() {
-                this.wrappers.push({
-                    width: null,
-                    height: null,
-                    length: null,
-                    weight: null,
-                    is_nophytho: false,
-                    is_phythoexiste: false,
-                    is_phytho_your_own: false,
-                    is_phytho_provide_tosma: false,
-                    is_origincertificat:false,
-                    is_noorigincertificat:false,
-                    is_origin_certificat_your_own:false,
-                    is_origin_certificat_provide_to_sma:false,
-                    origincountry:null,
-                    destinationcountry:null,
-                    products: []
-                })
-            },
-            decrementWrapper() {
-                if (this.wrappers.length > 1) {
-                    this.wrappers.pop();
-                }
-            },
-            incrementProduct(wrapper_index) {
-                this.wrappers[wrapper_index].products.push({
-                    product_type: null,
-                    quantity: null,
-                    description: null,
-                    unit_price: null,
-                });
-            },
-            decrementProduct(wrapper_index) {
-                if (this.wrappers[wrapper_index].products.length > 1) {
-                    this.wrappers[wrapper_index].products.pop();
-                }
-            },
-
-            
-            onSubmitPackageForm() {
-                
-                this.loading = true;
-                
-                  
-                    /*axios.post('/login', {
-                    firstName: 'Finn',
-                    lastName: 'Williams'
-                    })
-                    .then((response) => {
-                    console.log(response);
-                    }, (error) => {
-                    console.log(error);
-                    });*/
-
-                axios.post(this.path, {
-                    data: this.wrappers
-                }).then(({data}) => {
-                   
-                   if(data.products.length<1){
-                     alert("veuillez renseigner au moins un produit")  
-                   };
-                    if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
-                        this.resetForm();
-                         alert('le paquet a été enregistrer avec success');
-                        sessionStorage.removeItem('wrappers');
-                        return window.location.href = '/';
-                    }
-                }).catch(response => {
-                    alert('oups echec de l\'ajout');
-                    console.error(response);
-                }).finally(_ => {
-                   this.loading = false; 
-                });
-                
-            },
-        },
-        mounted() {
+             mounted() {
             
             const jsonWrappers = sessionStorage.getItem('wrappers');
             let wrappers = null
@@ -354,6 +26,57 @@
                console.log(this.wrappers);
 
         },
+       
+
+        props: ['path'],
+        data() {
+            return {
+                wrappers:null,
+                loading: false,
+            }
+        },
+        computed: {
+            wrappers_count() {
+                return this.wrappers.length;
+            },
+        },
+        methods: {
+           
+            resetForm() {
+                this.wrappers = this.wrappers
+            },
+           
+           
+            
+            onSubmitPackageForm() {
+                
+                this.loading = true;
+                console.log('wrappers est', this.wrappers)
+                axios.post('/package', {
+                    data: this.wrappers
+                }).then(({data}) => {
+                   
+                   if(data.products.length<1){
+                     alert("veuillez renseigner au moins un produit")  
+                   };
+                    if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
+                        this.resetForm();
+                         alert('le paquet a été enregistrer avec success');
+                        sessionStorage.removeItem('wrappers');
+                        
+                        this.$router.push('/');
+
+                    }
+                }).catch(response => {
+                    alert('oups echec de l\'ajout');
+                    console.error(response);
+                }).finally(_ => {
+                   this.loading = false; 
+                });
+                
+            },
+        },
+       
     }
 </script>
 

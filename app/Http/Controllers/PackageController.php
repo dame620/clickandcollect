@@ -28,6 +28,7 @@ class PackageController extends Controller
 		$created_products = [];
 		$created_shipments = [];
 		$packages = $request->get('data');
+		
 
 		foreach ($packages as $package) {
 		
@@ -43,6 +44,7 @@ class PackageController extends Controller
 				'pickupmobilePhone' => $package['shipmentdetails']['pickupmobilePhone'],
 				'pickupcompanyName' => $package['shipmentdetails']['pickupcompanyName'],
 				'pickupfullName' => $package['shipmentdetails']['pickupfullName'],
+				'trackingnumber' => $package['trackingnumber'],
 
 				'receiverpostalCode' => $package['shipmentdetails']['receiverpostalCode'],
 				'receivercityName' => $package['shipmentdetails']['receivercityName'],

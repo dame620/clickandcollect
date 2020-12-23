@@ -1,5 +1,6 @@
 <template>
-    <form @submit.prevent="onSubmitPackageForm()">
+    <div class="container">
+        <form @submit.prevent="onSubmitPackageForm()">
         <div class="products-counter">
             <span>{{ wrappers_count }} paquet{{ wrappers_count > 1 ? 's' : '' }}</span>
             <div>
@@ -33,14 +34,14 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="weight">Pays de destination</label>
+                        <label for="weight">Pays  dest</label>
                         <country-select v-model="wrapper.destinationcountry" :country="wrapper.destinationcountry" topCountry="US" />
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="weight">Region de Destination</label>
+                        <label for="weight">Region de Dest</label>
                         <region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :regionName=true :region="wrapper.destinationregion" />                    
                     </div>
                 </div>
@@ -197,7 +198,8 @@
                 Enregistrer
             </button>
         </div>
-    </form>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -287,7 +289,7 @@
                 
                 sessionStorage.setItem('wrappers', JSON.stringify(this.wrappers));
                 
-                return window.location.href = '/infofor_shipmentdhl'; 
+                this.$router.push('/infofor_shipmentdhl');
                 
             },
         },

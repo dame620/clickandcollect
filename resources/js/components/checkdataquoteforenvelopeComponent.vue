@@ -225,11 +225,11 @@
              methods:{
             
                  gotonextpage(){
-                     this.$router.push('/invoiceproforma');
+                     this.$router.push('/invoiceenvelope');
                  },
 
                    gotopreviouspage(){
-                       this.$router.push('/packageform');
+                       this.$router.push('/envelopeform');
                  }
              },
 

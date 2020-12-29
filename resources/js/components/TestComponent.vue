@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>Je suis quelque chose</h1>
+        
     </div>
 </template>
 <script>
@@ -9,7 +9,7 @@
         mounted() {
 
             //recuperation du wrappers
-            const jsonWrappers = sessionStorage.getItem('wrappers');
+           /* const jsonWrappers = sessionStorage.getItem('wrappers');
             let wrappers = null
 
             if (jsonWrappers != null && jsonWrappers != undefined) {
@@ -20,7 +20,7 @@
 
             if(wrappers!=null){
                 console.log(wrappers);
-            }
+            }*/
             //fin recuperation wrappers
            
            /* 

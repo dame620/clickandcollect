@@ -149,3 +149,15 @@ Route::get('/infofor_shipmentdhl', function(){
     return view('infofor_shipmentdhl');
 })->middleware('auth');
 
+//ceci est la route qui méne vers la page de renseignement du pickup detail, receiver detail, shipper 
+Route::get('/infofor_shipmentdhlenvelope', function(){
+    return view('infofor_shipmentdhlenvelope');
+})->middleware('auth');
+
+Route::get('/testpages', function(){
+    return view('testpages');
+});
+//ceci est juste une route pour les tests
+Route::get('/pageatest', function(){
+    return view('pageatest');
+});

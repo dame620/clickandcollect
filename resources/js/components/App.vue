@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main">
         <Home v-if="isHome" :is_logged="is_logged">
             <router-view></router-view>
         </Home>
@@ -32,3 +32,8 @@
         }
     }
 </script>
+
+<style lang="css">
+
+    
+</style>

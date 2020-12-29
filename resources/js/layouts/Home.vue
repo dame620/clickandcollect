@@ -21,6 +21,7 @@
 
 <style lang="css" src="">
 html, body {
+    width: 100%;
     background-color: #fff;
     color: #636b6f;
     font-family: 'Nunito', sans-serif;
@@ -28,6 +29,7 @@ html, body {
     height: 100vh;
     margin: 0;
 }
+
 
 .full-height {
     height: 100vh;

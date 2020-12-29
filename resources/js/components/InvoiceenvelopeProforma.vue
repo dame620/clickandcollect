@@ -7,24 +7,17 @@
         </div>
         <div id="container"></div>
         
-
-        <p id="demo">votre envelope est:petit format</p>
-        
-        <p> le poids est:{{weightval}}</p>
-
-        <p>vos frais d'envoi sont de 30000 F CFA</p>
-
         <div class="containt_bottom" style="display:flex; flex-direction:column;">
-            <button type="submit" style="background-color:rgb(218, 175, 127); border:none; width:300px; margin-bottom:20px; height:35px;" >
-                <router-link to="/envelope/create" style="color:white; font-weight: bold;">
-                DEMANDER UN PICK UP
+            <button type="submit" style="background-color:rgb(218, 175, 127); border:none; width:300px; margin-bottom:20px; margin-top:20px; height:35px;" >
+                <router-link to="/infofor_shipmentdhlenvelope" style="color:white; font-weight: bold;">
+                    DEMANDER UN PICK UP
                 </router-link>
                 
             </button>
             <button type="submit" style="background-color:rgb(233, 154, 60); border:none; width:300px; height:35px;">
     
-                 <router-link to="/fillemailforenvelope" style="color:white; font-weight: bold;">
-                RECEVOIR PAR EMAIL
+                <router-link to="/fillemailforenvelope" style="color:white; font-weight: bold;">
+                    RECEVOIR PAR EMAIL
                 </router-link>
             </button>
         </div>

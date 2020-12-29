@@ -97,6 +97,14 @@ Vue.component('pick-up-package', require('./components/pick_up_package_dataCompo
 
 Vue.component('checkdataquoteforenvelope', require('./components/checkdataquoteforenvelopeComponent.vue').default);
 
+Vue.component('infoforshipmentdhlenvelopeComponent', require('./components/infoforshipmentdhlenvelopeComponent.vue').default);
+
+//ce component est juste une pages de test 
+Vue.component('testpages', require('./pages/Testpages.vue').default);
+//ceci est un component juste pour test
+Vue.component('pageatest', require('./components/PageA.vue').default);
+
+
 
 const router = new VueRouter({
     mode: 'history',

@@ -1,22 +1,4 @@
 <template>
-<!--div class="container">
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="">PACKET <i class="fa fa-cube" aria-hidden="true" style="padding:10px; margin-left:4px"></i>
-
-                <input type="checkbox" v-model="is_package" >
-            </label>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="">ENVELOPPE <i class="fa fa-envelope" style="padding:10px; margin-left:4px"></i>
-
-                <input type="checkbox" v-model="is_envelope">
-            </label>
-        </div>
-        <button type="submit" class="btn btn-success" @click="ongotoNextPage" :disabled="is_package == false && is_envelope == false">Suivant&rarr;</button>
-
-    </div>
-</div-->
 
 <div class="page-4">
  <div class="wrapper">
@@ -90,7 +72,7 @@
                        <a href="#">prix</a>
                      </li>
                    </ul>
-                   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                   <a href="javascript:void(0);" class="icon" @click="myFunction()">
                      <i class="fa fa-bars"></i>
                    </a>
                  </nav>
@@ -1982,6 +1964,15 @@ export default {
     },
 
     methods: {
+
+      myFunction() {
+            var x = document.getElementById("navbar");
+            if (x.className === "navbar") {
+              x.className += " responsive";
+            } else {
+              x.className = "navbar";
+            }
+          },
 
         ongotoNextPage(){
             if(this.is_package==true){

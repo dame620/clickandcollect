@@ -8,9 +8,11 @@
                     <p>champion de la réexpedition</p>
                 </div>                      
                 <h4>FACTURE À L'INTENTION DE:</h4>
-                <p>Nom: {{ name }}</p>   
+                <p>Nom: {{ first_name }}</p> 
+                <p>Nom: {{ last_name }}</p>     
                 <p>Email: {{ email }}</p>
-                <p>Entreprise: {{ companie_name }}</p>  
+                <p>Email: {{ telephone }}</p>
+                <p>Entreprise: {{ company_name }}</p>  
             </div>
             <div class="top_right_container">
                 <p>Shopmeaway</p>
@@ -166,11 +168,25 @@ export default {
         
 
         //get the name
-        var name=null;
-        name=JSON.parse(sessionStorage.getItem('name'));
-        if(name!=null && name!=undefined){
-            this.name=name;
+        var first_name=null;
+        first_name=JSON.parse(sessionStorage.getItem('first_name'));
+        if(first_name!=null && first_name!=undefined){
+            this.first_name=first_name;
         }
+
+          //get the name
+        var last_name=null;
+        last_name=JSON.parse(sessionStorage.getItem('last_name'));
+        if(last_name!=null && last_name!=undefined){
+            this.last_name=last_name;
+        }
+        //get the telephone number
+        var telephone=null;
+        telephone = JSON.parse(sessionStorage.getItem('telephone'));
+        if(telephone!=null&&telephone!=undefined){
+            this.telephone=telephone;
+        }
+
 
         //get the email
         var email=null;
@@ -180,10 +196,10 @@ export default {
         }
 
         //get the companie name
-        var companie_name=null;
-        companie_name=JSON.parse(sessionStorage.getItem('companie_name'));
-        if(companie_name!=null && companie_name!=undefined){
-            this.companie_name=companie_name;
+        var company_name=null;
+        company_name=JSON.parse(sessionStorage.getItem('company_name'));
+        if(company_name!=null && company_name!=undefined){
+            this.company_name=company_name;
         }
 
     },
@@ -192,9 +208,11 @@ export default {
 
         return {
             wrappers: null,
-            name: null,
-            companie_name :null,
+            company_name :null,
+            first_name:null,
+            last_name:null,
             email: null,
+            telephone:null,
             responses:null,
             table_for_price:null,
             sum_for_total_price:null

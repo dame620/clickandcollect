@@ -161,3 +161,8 @@ Route::get('/testpages', function(){
 Route::get('/pageatest', function(){
     return view('pageatest');
 });
+
+//ceci est la route pour envelope lors du passage par pickup
+Route::get('/envelop_package_data', function () {
+    return view('envelop_package_data');
+});

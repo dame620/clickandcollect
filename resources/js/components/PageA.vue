@@ -1,283 +1,255 @@
 <template>
   <div class="page-4">
-    <div class="wrapper">
-      <header>
-        <div class="language">
-          <select name="language" id="" class="language-toggle">
-            <option value="none" selected disabled hidden>language</option>
-            <option value="">English</option>
-            <option value="">Arabic</option>
-            <option value="">Sawahili</option>
-            <option value="">Russian</option>
-            <option value="">Chinese</option>
-          </select>
-        </div>
-        <div class="logo-container">
-          <img class="logo" src="./assets/Africa logo.png" alt="" />
-        </div>
-        <div class="follow-container">
-          <h3>Follow us</h3>
-          <div class="social-icon-container">
-            <a href="#" class="social-icn-fb"
-              ><i class="fab fa-facebook-f"></i
+  <div class="wrapper">
+    <header>
+      <div class="language">
+        <select name="language" id="" class="language-toggle">
+          <option value="none" selected disabled hidden>language</option>
+          <option value="">English</option>
+          <option value="">Arabic</option>
+          <option value="">Sawahili</option>
+          <option value="">Russian</option>
+          <option value="">Chinese</option>
+        </select>
+      </div>
+      <div class="logo-container">
+        <img class="logo" src="./assets/Africa logo.png" alt="" />
+      </div>
+      <div class="follow-container">
+        <h3>Follow us</h3>
+        <div class="social-icon-container">
+          <a href="#" class="social-icn-fb"
+          ><i class="fab fa-facebook-f"></i
             ></a>
             <a href="#" class="social-icn-twitter"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a href="#" class="social-icn-google"
+            ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="social-icn-google"
               ><i class="fab fa-google-plus-g"></i
-            ></a>
-            <a href="#" class="social-icn-pinterest"
-              ><i class="fab fa-pinterest-p"></i
-            ></a>
-            <a href="#" class="social-icn-linkedin"
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
-          </div>
-        </div>
-      </header>
-
-      <div class="row">
-        <div class="col-left background-4">
-          <div class="banner-description-container">
-            <p>Some text!</p>
-            <h2>SOME TEXT SHOULD Go HERE</h2>
-            <button>some text</button>
-          </div>
-        </div>
-        <div class="col-right">
-          <div class="heart-icon">
-            <i class="fas fa-heart"></i>
-          </div>
-          <nav class="navbar" id="navbar">
-            <div class="express-container">
-              <i class="icn-express"></i>
-              <p class="express">Express</p>
-            </div>
-            <ul class="nav">
-              <li>
-                <a href="#">expediteur</a>
-              </li>
-              <li>
-                <a href="#" class="active">envoi</a>
-              </li>
-              <li>
-                <a href="#">destinataire</a>
-              </li>
-              <li>
-                <a href="#">options</a>
-              </li>
-              <li>
-                <a href="#">prix</a>
-              </li>
-            </ul>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-              <i class="fa fa-bars"></i>
-            </a>
-          </nav>
-          <div class="delivery-type">
-            <div class="delivery-type-container">
-              <div class="envelop">
-                <i class="icn-envelop"></i>
-                <label
-                  >Enveloppe
-
-                  <input type="checkbox" />
-                  <div class="checkbox"></div>
-                </label>
-              </div>
-              <div class="packet">
-                <i class="icn-packet"></i>
-                <label
-                  >Paquet
-
-                  <input type="checkbox" />
-                  <div class="checkbox"></div>
-                </label>
-              </div>
-            </div>
-          </div>
-          <form class="delivery-info-form">
-            <div class="delivery-info-form-container" v-for="(wrapper, wrapper_index) in wrappers" :key="wrapper_index">
-              <!--start select-->
-              <div class="select-form-container">
-                
-              </div> 
-              <!--end select-->
-
-              <div class="packet-container" id="packet-container">
-                <!--start button plus moins-->
-                <div class="packet-heading-row">
-                  <div class="heading-container">
-                    <i class="icn-small-packet"></i>
-                    <p>paquet {{ wrapper_index+1 }}</p>
-                  </div>
-                  <div class="heading-container">
-                    <button type="button" @click.prevent="decrementWrapper()">
-                      <i class="fas fa-minus minus" id="remove-packet"></i>
-                    </button>
-                    <p>paquet</p>
-                      <button  type="button" @click.prevent="incrementWrapper()">
-                        <i class="fas fa-plus plus" id="add-packet"></i>
-                      </button>
+                ></a>
+                <a href="#" class="social-icn-pinterest"
+                ><i class="fab fa-pinterest-p"></i
+                  ></a>
+                  <a href="#" class="social-icn-linkedin"
+                  ><i class="fab fa-linkedin-in"></i
+                    ></a>
                   </div>
                 </div>
-                <!--end button plus moins-->
+              </header>
 
-                <div id="packet-form-group-row-container">
-                  <!--select country start-->
-                  <div class="form-group-row">
-                    <div class="form-group">
-                      <label for="">Pays d'origine</label>
-                      <select name="" id="" class="select-dropdown">
-                        <option value="none" selected disabled hidden>
-                          Select Country
-                        </option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="">Pays de destination</label>
-                      <select name="" id="" class="select-dropdown">
-                        <option value="none" selected disabled hidden>
-                          Select Country
-                        </option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                      </select>
-                    </div>
+              <div class="row">
+                <div class="col-left background-4">
+                  <div class="banner-description-container">
+                    <p>Some text!</p>
+                    <h2>SOME TEXT SHOULD Go HERE</h2>
+                    <button>some text</button>
                   </div>
-                  <div class="form-group-row">
-                    <div class="form-group">
-                      <label for="">Region d'origine</label>
-                      <select name="" id="" class="select-dropdown">
-                        <option value="none" selected disabled hidden>
-                          Select Region
-                        </option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="">Region de Destination</label>
-                      <select name="" id="" class="select-dropdown">
-                        <option value="none" selected disabled hidden>
-                          Select Region
-                        </option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                      </select>
-                    </div>
+                </div>
+                <div class="col-right">
+                  <div class="heart-icon">
+                    <i class="fas fa-heart"></i>
                   </div>
-                  <!--select country end-->
-                  <div class="form-group-row" id="packet-form-group-row">
-                    <div class="form-group">
-                      <label for=""
-                        >Longueur cm
-                        <input type="text" name="" id="" />
-                      </label>
+                  <nav class="navbar" id="navbar">
+                    <div class="express-container">
+                      <i class="icn-express"></i>
+                      <p class="express">Express</p>
                     </div>
-                    <div class="form-group">
-                      <label for=""
-                        >Largueur cm
-                        <input type="text" name="" id="" />
-                      </label>
-                    </div>
-                  </div>
-                  
+                    <ul class="nav">
+                      <li>
+                        <a href="#">expediteur</a>
+                      </li>
+                      <li>
+                        <a href="#" class="active">envoi</a>
+                      </li>
+                      <li>
+                        <a href="#">destinataire</a>
+                      </li>
+                      <li>
+                        <a href="#">options</a>
+                      </li>
+                      <li>
+                        <a href="#">prix</a>
+                      </li>
+                    </ul>
+                    <a href="javascript:void(0);" class="icon" @click="myFunction()">
+                      <i class="fa fa-bars"></i>
+                    </a>
+                  </nav>
+                  <div class="delivery-type">
+                    <div class="delivery-type-container">
+                      <div class="envelop">
+                        <i class="icn-envelop"></i>
+                        <label
+                        >Enveloppe
 
-                  <div class="form-group-row">
-                    <div class="form-group">
-                      <label for=""
-                        >Hauteur cm
-                        <input type="text" name="" id="" />
+                        <input type="checkbox" v-model="is_envelope"/>
+                        <div class="checkbox"></div>
                       </label>
                     </div>
-                    <div class="form-group">
-                      <label for=""
-                        >Poids kg
-                        <input type="text" name="" id="" />
-                      </label>
-                    </div>
+                    <div class="packet">
+                      <i class="icn-packet"></i>
+                      <label
+                      >Paquet
+
+                      <input type="checkbox" />
+                      <div class="checkbox"></div>
+                    </label>
                   </div>
                 </div>
               </div>
-              <div class="product-container" id="product-container">
+              <form class="delivery-info-form" @submit.prevent="onSubmitEnvelopeForm()">
+                <div class="delivery-info-form-container" v-for="(wrapper, wrapper_index) in wrappers" :key="wrapper_index">
+                  <div class="packet-container" id="packet-container">
+                    <div class="packet-heading-row">
+                      <div class="heading-container">
+                        <i class="icn-small-packet"></i>
+                        <p>ENVELOPPE {{ wrapper_index+1 }}</p>
+                      </div>
+                      <div class="heading-container">
+                        <button type="button" @click.prevent="decrementWrapper()">
+                          <i class="fas fa-minus minus" id="remove-packet"></i>
+                        </button>
+                        <p>ENVELOPPE</p>
+                        <button type="button" @click.prevent="incrementWrapper()">
+                          <i class="fas fa-plus plus" id="add-packet"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div id="packet-form-group-row-container">
+
+                      <div class=" my-form-row form-group-row " id="packet-form-group-row">
+                        <div class="form-group">
+                          <div class="my-env-row">
+                            <label class="styled-checkbox">
+                              <input type="checkbox" v-model="wrapper.is_smallformat" :disabled="wrapper.is_bigformat==true" >
+                              <div class="checkbox"></div>
+                            </label>
+                            <div>
+                              <img src="./assets/Envelope grand format.png" height="28" >
+                            </div>
+                            <p>Petit Formate</p>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="my-env-row">
+                            <label class="styled-checkbox">
+                              <input type="checkbox" v-model="wrapper.is_bigformat" :disabled="wrapper.is_smallformat==true">
+                              <div class="checkbox"></div>
+                            </label>
+                            <div>
+                              <img src="./assets/Envelope grand format.png" height="35">
+                            </div>
+                            <p>Grand Formate</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="select-form-container">
+                      <div class="select-form-row">
+                        <div class="form-group">
+                          <label for="">Pays d'origine</label>
+                            <country-select v-model="wrapper.origincountry" :country="wrapper.origincountry" topCountry="US" class="select-dropdown"/>     
+                        </div>
+                        <div class="form-group">
+                          <label for="">Pays de destination</label>
+                          <country-select v-model="wrapper.destinationcountry" :country="wrapper.destinationcountry" topCountry="US" class="select-dropdown"/>
+                        </div>
+                      </div>
+                      <div class="select-form-row">
+                        <div class="form-group">
+                          <label for="">Region d'origine</label>
+                          <region-select v-model="wrapper.originregion" :country="wrapper.origincountry" :regionName=true :region="wrapper.originregion" class="select-dropdown"/>                    
+                        </div>
+                        <div class="form-group">
+                          <label for="">Region de Destination</label>
+                          <region-select v-model="wrapper.destinationregion" :country="wrapper.destinationcountry" :regionName=true :region="wrapper.destinationregion" class="select-dropdown"/>                    
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group-row">
+                      <div class="form-group">
+                        <label for=""
+                          >Poids kg
+                          <input type="number" name="weight" id="weight" class="form-control" v-model="wrapper.weight" required>
+                        </label>
+                      </div>
+                    </div>
+                     
+                </div>
+              </div>
+              <div class="product-container" id="product-container" >
                 <div class="packet-heading-row">
                   <div class="heading-container">
                     <i class="icn-small-product"></i>
-                    <p>contenu paquet {{ wrapper_index+1 }}</p>
+                    <p>contenu ENVELOPPE {{ wrapper_index+1 }}</p>
                   </div>
                   <div class="heading-container">
                     <button type="button" @click.prevent="decrementProduct(wrapper_index)">
                       <i class="fas fa-minus minus" id="remove-product"></i>
                     </button>
-                    <p>{{ wrapper.products.length }}produit</p>
+                    <p>produit {{ wrapper.products.length }}</p>
                     <button type="button" @click.prevent="incrementProduct(wrapper_index)">
                       <i class="fas fa-plus plus" id="add-product"></i>
-                    </button>
+                    </button> 
                   </div>
                 </div>
                 <div id="product-form-group-row-container" v-for="(product, product_index) in wrapper.products" :key="product_index">
                   <div class="form-group-row">
                     <div class="form-group">
                       <label for=""
-                        >Nature du Product
-                        <input type="text" name="" id="" />
-                      </label>
-                    </div>
-                    <div class="form-group">
-                      <label for=""
-                        >Description
-                        <input type="text" name="" id="" />
-                      </label>
-                    </div>
+                      >Nature du Product
+                      <input type="text" name="product_type" v-model="product.product_type" class="form-control">
+                    </label>
                   </div>
-
-                  <div class="form-group-row">
-                    <div class="form-group">
-                      <label for=""
-                        >Prix Unitaire
-                        <input type="text" name="" id="" />
-                      </label>
-                    </div>
-                    <div class="form-group">
-                      <label for=""
-                        >Quantite
-                        <input type="text" name="" id="" />
-                      </label>
-                    </div>
-                  </div>
+                  <div class="form-group">
+                    <label for=""
+                    >Description
+                    <textarea name="description" v-model="product.description" class="form-control"></textarea>
+                  </label>
                 </div>
               </div>
-              <div class=" my-col checkbox-container">
+
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for=""
+                  >Prix Unitaire
+                  <input type="number" name="unitprice" v-model="product.unit_price" class="form-control">
+                </label>
+              </div>
+              <div class="form-group">
+                <label for=""
+                >Quantite
+                <input type="number" name="quantity" v-model="product.quantity" class="form-control">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" my-col checkbox-container">
                 <div class="left-col" id="checkbox-left-col">
                   <label class="styled-checkbox">
                     <span>Ajouter un certificat phytho</span>
-                    <input type="checkbox" name="" id="" v-model="wrapper.is_phythoexiste" :disabled="wrapper.is_nophytho==true"/>
+                    <input type="checkbox" v-model="wrapper.is_phythoexiste" :disabled="wrapper.is_nophytho==true">
                     <div class="checkbox"></div>
                   </label>
                   <div class="" id="left-checkbox-label-child-container">
 
                     <label class="styled-checkbox" v-if="wrapper.is_phythoexiste">
-                      <span>Vouz avez votre phytho</span>
-                      <input type="checkbox" name="" id="" />
+                        <span>Vouz avez votre phytho</span>
+                        <input type="checkbox" :disabled="wrapper.is_phytho_provide_tosma==true"  v-model="wrapper.is_phytho_your_own">
                       <div class="checkbox"></div>
                     </label>
 
                     <label class="styled-checkbox" v-if="wrapper.is_phythoexiste">
-                      <span>on le cheche pr vous</span>
-                      <input type="checkbox" name="" id="" />
+                        <span>on le cheche pr vous</span>
+                        <input type="checkbox" v-model="wrapper.is_phytho_provide_tosma" :disabled="wrapper.is_phytho_your_own==true">
                       <div class="checkbox"></div>
                     </label>
                     <label class="styled-checkbox">
-                      <span>phyto Pas Necessaire</span>
-                      <input type="checkbox" name="" id="checkbox-right" />
+                        <span>phyto Pas Necessaire</span>
+                        <input type="checkbox" :disabled="wrapper.is_phythoexiste==true"  v-model="wrapper.is_nophytho" id="checkbox-right">
                       <div class="checkbox"></div>
                     </label>
                   </div>
@@ -286,23 +258,23 @@
                 <div class="right-col" id="checkbox-right-col">
                   <label class="styled-checkbox">
                       <span>Ajouter un certificat d'origin</span>
-                      <input type="checkbox" name="" id="" v-model="wrapper.is_origincertificat" :disabled="wrapper.is_noorigincertificat==true"/>
+                        <input type="checkbox" v-model="wrapper.is_origincertificat" :disabled="wrapper.is_noorigincertificat==true">
                       <div class="checkbox"></div>
                     </label>
                   <div class="" id="right-checkbox-label-child-container" >
                     <label class="styled-checkbox" v-if="wrapper.is_origincertificat">
-                      <span>Vouz avez votre cert origine</span>
-                      <input type="checkbox" name="" id="" />
+                        <span>Vouz avez votre cert origine</span>
+                        <input type="checkbox" :disabled="wrapper.is_origin_certificat_provide_to_sma==true"  v-model="wrapper.is_origin_certificat_your_own">
                       <div class="checkbox"></div>
                     </label>
                     <label class="styled-checkbox" v-if="wrapper.is_origincertificat" >
-                      <span>on le cheche pr vous</span>
-                      <input type="checkbox" name="" id="" />
+                        <span>on le cheche pr vous</span>
+                        <input type="checkbox" v-model="wrapper.is_origin_certificat_provide_to_sma" :disabled="wrapper.is_origin_certificat_your_own==true">
                       <div class="checkbox"></div>
                     </label>
                     <label class="styled-checkbox">
-                      <span>certificat d'origin Pas Necessaire</span>
-                      <input type="checkbox" name="" id="" />
+                        <span>certificat d'origin Pas Necessaire</span>
+                        <input type="checkbox" :disabled="wrapper.is_origincertificat==true"  v-model="wrapper.is_noorigincertificat">
                       <div class="checkbox"></div>
                     </label>
                   </div>
@@ -321,6 +293,10 @@
                   suivant <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
+
+            <div class="my-last-btn">
+                <a><i class="fas fa-chevron-left "></i>RETOUR</a>
+            </div>
           </form>
         </div>
       </div>
@@ -329,12 +305,122 @@
         <span>ALL RIGHTS RESERVED.</span>
       </footer>
     </div>
+    
+    
   </div>
-
-
 </template>
+
+<script>
+    export default {
+
+          mounted() {
+            console.log('Component mounted.')
+        },
+         
+        data() {
+            return {
+                is_envelope:true,
+                wrappers: [{
+                    is_smallformat: false,
+                    is_bigformat: false,
+                    weight: null,
+                    is_nophytho: false,
+                    is_phythoexiste: false,
+                    is_phytho_your_own: false,
+                    is_phytho_provide_tosma: false,
+                    is_origincertificat:false,
+                    is_noorigincertificat:false,
+                    is_origin_certificat_your_own:false,
+                    is_origin_certificat_provide_to_sma:false,
+                    origincountry:null,
+                    destinationcountry:null,
+                    destinationregion:null,
+                    originregion:null,
+                    products: [{
+                      product_type: null,
+                      quantity: null,
+                      description: null,
+                      unit_price: null,
+                    }],
+                }],
+            }
+        },
+        computed: {
+            wrappers_count() {
+                return this.wrappers.length;
+            },
+        },
+        methods: {
+
+            myFunction() {
+              var x = document.getElementById("navbar");
+              if (x.className === "navbar") {
+                x.className += " responsive";
+              } else {
+                x.className = "navbar";
+              }
+                },
+
+            onCloseEnvelope(wrapper_index) {
+                if(this.wrappers.length>1)
+                this.wrappers.splice(wrapper_index, 1);
+            },
+            incrementWrapper() {
+                this.wrappers.push({
+                    is_bigformat: false,
+                    is_smallformat: false,
+                    is_nophytho: false,
+                    is_phythoexiste: false,
+                    is_phytho_your_own: false,
+                    is_phytho_provide_tosma: false,
+                    is_origincertificat:false,
+                    is_noorigincertificat:false,
+                    is_origin_certificat_your_own:false,
+                    is_origin_certificat_provide_to_sma:false,
+                    origincountry:null,
+                    destinationcountry:null,
+                    originregion:null,
+                    destinationregion:null,
+                    weight: null,
+                    products: [{
+                        product_type: null,
+                        quantity: null,
+                        description: null,
+                        unit_price: null
+                    }]
+                })
+            },
+            decrementWrapper() {
+                if (this.wrappers.length > 1) {
+                    this.wrappers.pop();
+                }
+            },
+            incrementProduct(wrapper_index) {
+                this.wrappers[wrapper_index].products.push({
+                    product_type: null,
+                    quantity: null,
+                    description: null,
+                    unit_price: null,
+                });
+            },
+            decrementProduct(wrapper_index) {
+                if (this.wrappers[wrapper_index].products.length > 1) {
+                    this.wrappers[wrapper_index].products.pop();
+                }
+            },
+            onSubmitEnvelopeForm() {
+                sessionStorage.setItem('wrappers', JSON.stringify(this.wrappers));
+                
+                 this.$router.push('/checkquoteforenvelope');
+                //this.$router.push('/invoiceenvelope');
+
+            },
+        },
+      
+    }
+</script>
 <style scoped>
-/*
+  /*
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v7.0.29,
 * Autoprefixer: v9.7.6
@@ -463,9 +549,9 @@ body {
   max-width: 50%;
 }
 
-/*me.background-2 {
+.background-2 {
   background-image: url("./assets/Picture-2.png");
-}*/
+}
 
 .col-left .logo {
   max-width: 260px;
@@ -569,6 +655,14 @@ body {
   display: block;
 }
 .form-group input {
+  height: auto;
+  padding: 15px;
+  border: 2px solid #cdcdcb;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.form-group textarea {
   height: auto;
   padding: 15px;
   border: 2px solid #cdcdcb;
@@ -892,7 +986,7 @@ header .follow-container .social-icon-container a i {
 
 /*############# Screen 4 CSS ###########*/
 .background-4 {
-  /*background-image: url("./assets/Benner.png");*/
+  background-image: url("./assets/Picture.png");
   background-size: 100% 100%;
 }
 .banner-description-container {
@@ -1125,12 +1219,14 @@ ul.nav li a {
   margin-left: -30px;
   margin-right: 10px;
   margin-bottom: 25px;
+
 }
 
 .packet-heading-row .heading-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  align-items: center;
 }
 
 .select-form-row {
@@ -1155,12 +1251,14 @@ ul.nav li a {
 }
 
 .packet-container .icn-small-packet {
-  background-image: url("./assets/Small packkage closed.png");
+  background-image: url("./assets/Small envelope closed.png");
   display: inline-block;
-  height: 30px;
-  width: 30px;
+  /*height: 30px;
+  width: 30px;*/
+  height: 35px;
+    width: 48px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: inherit;
   background-position: center;
 }
 .packet-container .heading-container p,
@@ -1185,12 +1283,12 @@ ul.nav li a {
   color: white;
 }
 .product-container .icn-small-product {
-  background-image: url("./assets/Small package open.png");
+  background-image: url("./assets/Small envelope open.png");
   display: inline-block;
-  height: 30px;
-  width: 45px;
+  height: 49px;
+  width: 49px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: inherit;
   background-position: center;
 }
 
@@ -1374,7 +1472,7 @@ ul.nav li a {
 
   /* ############ Screen 6 CSS ############# */
   .page-6 .background-6 {
-    /*background-image: url("./assets/Banner.png");*/
+    background-image: url("./assets/Banner.png");
     padding: 30% 0 100px;
   }
 
@@ -1401,7 +1499,7 @@ ul.nav li a {
   }
 
   .page-6 .calender-icon {
-   /* background-image: url("./assets/Calendar logo.png");*/
+    background-image: url("./assets/Calendar logo.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -1421,7 +1519,7 @@ ul.nav li a {
   }
 
   .page-6 .pickup-container .icn-tag{
-   /* background-image: url("./assets/Coutera icon.png");*/
+    background-image: url("./assets/Coutera icon.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1429,7 +1527,7 @@ ul.nav li a {
     width: 30px;
   }
   .page-6 .pickup-container .icn-home-address-location{
-    /*background-image: url("./assets/Address icon.png");*/
+    background-image: url("./assets/Address icon.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1486,7 +1584,7 @@ ul.nav li a {
 
 
   .page-7 .background-7 {
-   /* background-image: url("./assets/Picture-7.png");*/
+    background-image: url("./assets/Picture-7.png");
     padding: 10% 0 30%;
 
   }
@@ -2086,109 +2184,43 @@ ul.nav li a {
     }
 
   }
-    
+.my-form-row .form-group{
+  margin-bottom: 0;
+  padding: 15px 20px;
+}
+.my-last-btn{
+padding-left: 90px;
+    width: 75%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.my-last-btn a{
+font-weight: 600;
+
+} 
+.my-last-btn a i{
+  padding-right:  7px;
+}
+.my-form-row{
+  background-color: white;
+      margin-bottom: 15px;
+      border-radius:10px;
+}
+.my-env-row{
+  display: flex;
+  align-items: center;
+}
+.my-env-row img{
+ 
+  margin-right: 12px;
+}
+.my-env-row label{
+  margin-right:12px;
+  margin-bottom: 0;
+}
+.my-env-row p{
+  font-weight: 600;
+  }
 </style>
 
-<script>
-    export default {
-      mounted() {
-            console.log('Component mounted.')
-        },
 
-      data(){
-        return {
-
-          wrappers:[{
-                   width: null,
-                    height: null,
-                    length: null,
-                    weight: null,
-                    is_nophytho: false,
-                    is_phythoexiste: false,
-                    is_phytho_your_own: false,
-                    is_phytho_provide_tosma: false,
-                    is_origincertificat:false,
-                    is_noorigincertificat:false,
-                    is_origin_certificat_your_own:false,
-                    is_origin_certificat_provide_to_sma:false,
-                    origincountry:null,
-                    destinationcountry:null,
-                    originregion:null,
-                    destinationregion:null,
-                    products: [{
-                      product_type: null,
-                      quantity: null,
-                      description: null,
-                      unit_price: null
-                    }
-                       
-                    ]
-
-          }],
-
-        }
-      },
-      computed:{
-        wrappers_count(){
-          return this.wrappers.length; 
-        }
-      },
-      methods:{
-
-        incrementWrapper(){
-          this.wrappers.push({
-                    width: null,
-                    height: null,
-                    length: null,
-                    weight: null,
-                    is_nophytho: false,
-                    is_phythoexiste: false,
-                    is_phytho_your_own: false,
-                    is_phytho_provide_tosma: false,
-                    is_origincertificat:false,
-                    is_noorigincertificat:false,
-                    is_origin_certificat_your_own:false,
-                    is_origin_certificat_provide_to_sma:false,
-                    origincountry:null,
-                    destinationcountry:null,
-                    originregion:null,
-                    destinationregion:null,
-                    products: [{
-                    product_type: null,
-                    quantity: null,
-                    description: null,
-                    unit_price: null,
-                    
-                    }]
-                     
-    
-
-          })
-        },
-
-        decrementWrapper(){
-          if(this.wrappers.length>1){
-            this.wrappers.pop();
-          }
-        },
-
-      incrementProduct(wrapper_index) {
-                this.wrappers[wrapper_index].products.push({
-                    product_type: null,
-                    quantity: null,
-                    description: null,
-                    unit_price: null,
-                });
-            },
-            
-      decrementProduct(wrapper_index) {
-        
-        if (this.wrappers[wrapper_index].products.length > 1) {
-          this.wrappers[wrapper_index].products.pop();
-                }
-            },
-
-      }
-        
-    }
-</script>

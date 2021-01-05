@@ -49,7 +49,7 @@
             <div class="button-container">
             <button class="btn-quote">
               <router-link to="/check">
-                OBTENIR UNE COTATION
+                OBTENIR UNE QUOTATION
               </router-link>
             </button>
             <button class="btn-pickup">

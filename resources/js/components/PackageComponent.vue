@@ -272,7 +272,7 @@
                 <a href="#">prix</a>
               </li>
             </ul>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <a href="javascript:void(0);" class="icon" @click="myFunction()">
               <i class="fa fa-bars"></i>
             </a>
           </nav>
@@ -283,7 +283,7 @@
                 <label
                   >Enveloppe
 
-                  <input type="checkbox" />
+                  <input type="checkbox" v-model="is_envelope" @click.prevent="gotoenvelopeform()"/>
                   <div class="checkbox"></div>
                 </label>
               </div>
@@ -292,13 +292,13 @@
                 <label
                   >Paquet
 
-                  <input type="checkbox" />
+                  <input type="checkbox" v-model="is_package"/>
                   <div class="checkbox"></div>
                 </label>
               </div>
             </div>
           </div>
-          <form class="delivery-info-form">
+          <form @submit.prevent="onSubmitPackageForm()" class="delivery-info-form">
             <div class="delivery-info-form-container" v-for="(wrapper, wrapper_index) in wrappers" :key="wrapper_index">
               <!--start select-->
               <div class="select-form-container">
@@ -432,25 +432,25 @@
                 <div class="left-col" id="checkbox-left-col">
                   <label class="styled-checkbox">
                     <span>Ajouter un certificat phytho</span>
-                    <input type="checkbox" name="" id="" v-model="wrapper.is_phythoexiste" :disabled="wrapper.is_nophytho==true"/>
+                    <input type="checkbox" v-model="wrapper.is_phythoexiste" :disabled="wrapper.is_nophytho==true">
                     <div class="checkbox"></div>
                   </label>
                   <div class="" id="left-checkbox-label-child-container">
 
                     <label class="styled-checkbox" v-if="wrapper.is_phythoexiste">
-                      <span>Vouz avez votre phytho</span>
-                      <input type="checkbox" name="" id="" />
+                        <span>Vouz avez votre phytho</span>
+                        <input type="checkbox" :disabled="wrapper.is_phytho_provide_tosma==true"  v-model="wrapper.is_phytho_your_own">
                       <div class="checkbox"></div>
                     </label>
 
                     <label class="styled-checkbox" v-if="wrapper.is_phythoexiste">
-                      <span>on le cheche pr vous</span>
-                      <input type="checkbox" name="" id="" />
+                        <span>on le cheche pr vous</span>
+                        <input type="checkbox" v-model="wrapper.is_phytho_provide_tosma" :disabled="wrapper.is_phytho_your_own==true">
                       <div class="checkbox"></div>
                     </label>
                     <label class="styled-checkbox">
-                      <span>phyto Pas Necessaire</span>
-                      <input type="checkbox" name="" id="checkbox-right" />
+                        <span>phyto Pas Necessaire</span>
+                        <input type="checkbox" :disabled="wrapper.is_phythoexiste==true"  v-model="wrapper.is_nophytho" id="checkbox-right">
                       <div class="checkbox"></div>
                     </label>
                   </div>
@@ -459,23 +459,23 @@
                 <div class="right-col" id="checkbox-right-col">
                   <label class="styled-checkbox">
                       <span>Ajouter un certificat d'origin</span>
-                      <input type="checkbox" name="" id="" v-model="wrapper.is_origincertificat" :disabled="wrapper.is_noorigincertificat==true"/>
+                        <input type="checkbox" v-model="wrapper.is_origincertificat" :disabled="wrapper.is_noorigincertificat==true">
                       <div class="checkbox"></div>
                     </label>
                   <div class="" id="right-checkbox-label-child-container" >
                     <label class="styled-checkbox" v-if="wrapper.is_origincertificat">
-                      <span>Vouz avez votre cert origine</span>
-                      <input type="checkbox" name="" id="" />
+                        <span>Vouz avez votre cert origine</span>
+                        <input type="checkbox" :disabled="wrapper.is_origin_certificat_provide_to_sma==true"  v-model="wrapper.is_origin_certificat_your_own">
                       <div class="checkbox"></div>
                     </label>
                     <label class="styled-checkbox" v-if="wrapper.is_origincertificat" >
-                      <span>on le cheche pr vous</span>
-                      <input type="checkbox" name="" id="" />
+                        <span>on le cheche pr vous</span>
+                        <input type="checkbox" v-model="wrapper.is_origin_certificat_provide_to_sma" :disabled="wrapper.is_origin_certificat_your_own==true">
                       <div class="checkbox"></div>
                     </label>
                     <label class="styled-checkbox">
-                      <span>certificat d'origin Pas Necessaire</span>
-                      <input type="checkbox" name="" id="" />
+                        <span>certificat d'origin Pas Necessaire</span>
+                        <input type="checkbox" :disabled="wrapper.is_origincertificat==true"  v-model="wrapper.is_noorigincertificat">
                       <div class="checkbox"></div>
                     </label>
                   </div>
@@ -490,7 +490,7 @@
               </div>
             </div>
             <div class="submit-container">
-                <button class="submit">
+                <button type="submit" class="submit">
                   suivant <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -518,6 +518,8 @@
         data() {
             return {
                 
+                is_package:true,
+                is_envelope:false,
 
                 wrappers: [{
                     width: null,
@@ -551,6 +553,21 @@
             },
         },
         methods: {
+           myFunction() {
+            var x = document.getElementById("navbar");
+            if (x.className === "navbar") {
+              x.className += " responsive";
+            } else {
+              x.className = "navbar";
+            }
+              },
+
+            gotoenvelopeform(){
+              this.is_package=false
+
+                this.$router.push('/envelopeform');
+            },
+
             onClosePackage(wrapper_index) {
                 if(this.wrappers.length>1)
                 this.wrappers.splice(wrapper_index, 1);
@@ -848,6 +865,14 @@ body {
   display: block;
 }
 .form-group input {
+  height: auto;
+  padding: 15px;
+  border: 2px solid #cdcdcb;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.form-group textarea {
   height: auto;
   padding: 15px;
   border: 2px solid #cdcdcb;

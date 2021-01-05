@@ -49,6 +49,7 @@ html, body {
     position: absolute;
     right: 10px;
     top: 18px;
+    
 }
 
 .content {
@@ -67,6 +68,8 @@ html, body {
     letter-spacing: .1rem;
     text-decoration: none;
     text-transform: uppercase;
+
+
 }
 
 .m-b-md {

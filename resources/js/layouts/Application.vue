@@ -73,7 +73,7 @@
         }
     }
 </script>
-<style lang="css" src="">
+<style scoped>
 html, body {
     width: 100%;
     background-color: #fff;

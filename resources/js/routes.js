@@ -17,6 +17,8 @@ import InvoiceenvlopeProforma from './components/InvoiceenvelopeProforma.vue'
 import checkdataquoteforenvelopeComponent from './components/checkdataquoteforenvelopeComponent.vue'
 import Fillemailforenvelope from './components/Fillemailforenvelope.vue'
 import infoforshipmentdhlenvelopeComponent from './components/infoforshipmentdhlenvelopeComponent.vue'
+import envelop_package_data from './components/envelop_package_data.vue'
+
 import PageA from './components/PageA.vue'
 import Testpages from './pages/Testpages.vue'
 import Home from './pages/Home'
@@ -153,6 +155,11 @@ const routes = [
       name:'PageA',
       component:PageA
     },
+    {
+      path:'/envelop_package_data',
+      name:'envelop_package_data',
+      component:envelop_package_data
+    }
     
 ]
 

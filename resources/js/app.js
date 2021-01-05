@@ -104,6 +104,10 @@ Vue.component('testpages', require('./pages/Testpages.vue').default);
 //ceci est un component juste pour test
 Vue.component('pageatest', require('./components/PageA.vue').default);
 
+//for component envelope data lors du pick up 
+Vue.component('envelop_package_data', require('./components/envelop_package_data.vue').default);
+
+
 
 
 const router = new VueRouter({

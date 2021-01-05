@@ -1,64 +1,333 @@
-<template>
-    <body class="page-3">
-        <div class="wrapper">
-        <header>
-            <div class="language">
-            <select name="language" id="" class="language-toggle">
-                <option value="none" selected disabled hidden>language</option>
-                <option value="">English</option>
-                <option value="">Arabic</option>
-                <option value="">Sawahili</option>
-                <option value="">Russian</option>
-                <option value="">Chinese</option>
-            </select>
-            </div>
-            <div class="logo-container">
-            <img class="logo" src="./assets/imgscomppages/Africa logo.png" alt="" />
-            </div>
-            <div class="follow-container">
-            <h3>Follow us</h3>
-            <div class="social-icon-container">
-                <a href="#" class="social-icn-fb"
-                ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a href="#" class="social-icn-twitter"
-                ><i class="fab fa-twitter"></i
-                ></a>
-                <a href="#" class="social-icn-google"
-                ><i class="fab fa-google-plus-g"></i
+<!--template>
+  <div class="page-5">
+  <div class="wrapper">
+    <header>
+      <div class="language">
+        <select name="language" id="" class="language-toggle">
+          <option value="none" selected disabled hidden>language</option>
+          <option value="">English</option>
+          <option value="">Arabic</option>
+          <option value="">Sawahili</option>
+          <option value="">Russian</option>
+          <option value="">Chinese</option>
+        </select>
+      </div>
+      <div class="logo-container">
+        <img class="logo" src="./assets/Africa logo.png" alt="" />
+      </div>
+      <div class="follow-container">
+        <h3>Follow us</h3>
+        <div class="social-icon-container">
+          <a href="#" class="social-icn-fb"
+          ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-icn-twitter"
+            ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="social-icn-google"
+              ><i class="fab fa-google-plus-g"></i
                 ></a>
                 <a href="#" class="social-icn-pinterest"
                 ><i class="fab fa-pinterest-p"></i
-                ></a>
-                <a href="#" class="social-icn-linkedin"
-                ><i class="fab fa-linkedin-in"></i
-                ></a>
+                  ></a>
+                  <a href="#" class="social-icn-linkedin"
+                  ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+              </header>
+
+              <div class="row">
+                <div class="col-left background-2">
+                  <div class="banner-description-container">
+                    <p>Some text!</p>
+                    <h2>SOME TEXT  SHOULD GO HERE </h2>
+                    <button>some text</button>
+                  </div>
+                </div>
+                <div class="col-right">
+                  <div class="heart-icon">
+                    <i class="fas fa-heart"></i>
+                  </div>
+                  <nav class="navbar" id="navbar">
+                    <div class="express-container">
+                      <i class="icn-express"></i>
+                      <p class="express">Express</p>
+                    </div>
+                    <ul class="nav">
+                      <li>
+                        <a href="#">expediteur</a>
+                      </li>
+                      <li>
+                        <a href="#" class="active">envoi</a>
+                      </li>
+                      <li>
+                        <a href="#">destinataire</a>
+                      </li>
+                      <li>
+                        <a href="#">options</a>
+                      </li>
+                      <li>
+                        <a href="#">prix</a>
+                      </li>
+                    </ul>
+                    <a href="javascript:void(0);" class="icon" @click="myFunction()">
+                      <i class="fa fa-bars"></i>
+                    </a>
+                  </nav>
+          <form action="">
+            <div class="step_container" v-if="step==1">
+              <div class="pickup-container">
+                <div class="pickup-bar">
+                  <div class="progress-container">
+                    <ul class="progressbar">
+                        <li class="active">step1</li>
+                        <li>step2</li>
+                        <li>step3</li>
+                    </ul>
+                  </div>
+                </div>
+          
+                <div class="my-input" id="product-form-group-row-container">
+                  <p class="pickup_detail">Detail du lieu de ramassage</p>
+                  <div class="my-row form-group-row">
+                    <div class="form-group">
+                      <label for="">Expediteur
+                        <input type="text" name="" id="">
+                      </label>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Description Prdt 1
+                        <input type="text" name="" id="">
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class=" my-row form-group-row">
+                    <div class="form-group">
+                      <label for="">Poids 
+                        <input type="text" name="" id="">
+                      </label>
+                    </div>
+                    <div class="form-group">
+                          <label for="">Description Prdt 2
+                            <input type="text" name="" id="">
+                          </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="pickup-container">
+                  <p class="pickup-bar">
+                    <i class="icn-home-address-location"></i>
+                    DESTINATAIRE
+                  </p>
+                  <div class="my-input" id="product-form-group-row-container">
+                    <div class="my-row form-group-row">
+                      <div class="form-group">
+                        <label for="">Nom  
+                          <input type="text" name="" id="">
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <label for="">Pernom
+                          <input type="text" name="" id="">
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class=" my-row form-group-row">
+                      <div class="form-group">
+                        <label for="">Telephone 
+                          <input type="text" name="" id="">
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <label for="">Address
+                          <input type="text" name="" id="">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+              </div>
             </div>
+            <div class="step_container" v-if="step==2">
+              <div class="pickup-container">
+                <div class="pickup-bar">
+                  <div class="progress-container">
+                    <ul class="progressbar">
+                        <li class="active">step1</li>
+                        <li class="active">step2</li>
+                        <li>step3</li>
+                    </ul>
+                  </div>
+                </div>
+          
+                <div class="my-input" id="product-form-group-row-container">
+                  <p class="pickup_detail">Detail du lieu de ramassage et de</p>
+                  <div class="my-row form-group-row">
+                    <div class="form-group">
+                      <label for="">Expediteur
+                        <input type="text" name="" id="">
+                      </label>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Description Prdt 1
+                        <input type="text" name="" id="">
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class=" my-row form-group-row">
+                    <div class="form-group">
+                      <label for="">Poids 
+                        <input type="text" name="" id="">
+                      </label>
+                    </div>
+                    <div class="form-group">
+                          <label for="">Description Prdt 2
+                            <input type="text" name="" id="">
+                          </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="pickup-container">
+                  <p class="pickup-bar">
+                    <i class="icn-home-address-location"></i>
+                    DESTINATAIRE
+                  </p>
+                  <div class="my-input" id="product-form-group-row-container">
+                    <div class="my-row form-group-row">
+                      <div class="form-group">
+                        <label for="">Nom  
+                          <input type="text" name="" id="">
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <label for="">Pernom
+                          <input type="text" name="" id="">
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class=" my-row form-group-row">
+                      <div class="form-group">
+                        <label for="">Telephone 
+                          <input type="text" name="" id="">
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <label for="">Address
+                          <input type="text" name="" id="">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+              </div>
             </div>
-        </header>
-        <div class="main-bg">
-            <div class="banner">
-            <div class="banner-description">
-            <p>Some text!</p>
-            <h1>SOME TEXT SHOULD GO HERE</h1>
-            <h2>SOME TEXT SHOULD</h2>
-            <button>SOME BUTTON</button>
+            <div class="step_container" v-if="step==3">
+                <div class="pickup-container">
+                  <div class="pickup-bar">
+                    <div class="progress-container">
+                      <ul class="progressbar">
+                          <li class="active">step1</li>
+                          <li>step2</li>
+                          <li>step3</li>
+                      </ul>
+                    </div>
+                  </div>
+            
+                  <div class="my-input" id="product-form-group-row-container">
+                    <p class="pickup_detail">Detail du lieu de ramassage</p>
+                    <div class="my-row form-group-row">
+                      <div class="form-group">
+                        <label for="">Expediteur
+                          <input type="text" name="" id="">
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <label for="">Description Prdt 1
+                          <input type="text" name="" id="">
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class=" my-row form-group-row">
+                      <div class="form-group">
+                        <label for="">Poids 
+                          <input type="text" name="" id="">
+                        </label>
+                      </div>
+                      <div class="form-group">
+                            <label for="">Description Prdt 2
+                              <input type="text" name="" id="">
+                            </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pickup-container">
+                    <p class="pickup-bar">
+                      <i class="icn-home-address-location"></i>
+                      DESTINATAIRE
+                    </p>
+                    <div class="my-input" id="product-form-group-row-container">
+                      <div class="my-row form-group-row">
+                        <div class="form-group">
+                          <label for="">Nom  
+                            <input type="text" name="" id="">
+                          </label>
+                        </div>
+                        <div class="form-group">
+                          <label for="">Pernom
+                            <input type="text" name="" id="">
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class=" my-row form-group-row">
+                        <div class="form-group">
+                          <label for="">Telephone 
+                            <input type="text" name="" id="">
+                          </label>
+                        </div>
+                        <div class="form-group">
+                          <label for="">Address
+                            <input type="text" name="" id="">
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="africa-background">
-            <div class="button-container">
-            <button class="btn-quote">OBTENIR UNE COTATION</button>
-            <button class="btn-pickup">DEMANDER UN PICK UP</button>
+              <div class="submit-container">
+                <button class="submit"  v-if="step>1">
+                  precedent <i class="fas fa-chevron-left"></i>
+                </button>
+
+                  <button class="submit" v-if="step<totalsteps" @click="nextstep()">
+                    suivant <i class="fas fa-chevron-right"></i>
+                  </button>
+
+                  <button class="submit" v-if="step==totalsteps">
+                    Enregistrer <i class="fas fa-chevron-right"></i>
+                  </button>
+              </div>
+            
+          </form>    
+              <div class="my-last-btn">
+                <a><i class="fas fa-chevron-left "></i>RETOUR</a>
+              </div>
             </div>
-        </div>
-        </div>
-        
-        <footer>
+          </div>
+          <footer>
             <span>COLLECTANDCLICK.AFRICA</span>
             <span>ALL RIGHTS RESERVED.</span>
-        </footer>
+          </footer>
         </div>
-    </body>
+
+      </div>
 
 </template>
 <style scoped>

@@ -119,7 +119,7 @@
           <div class="pickup-container">
             <p class="pickup-bar">
               <i class="icn-home-address-location"></i>
-              L'ADDRESSE DE DROP OFF LA PLUS PROCHE EST:
+              CLICK and COLLECT AFRICA
             </p>
             <p class="pickup-address">xxxxxxxxxxxxxxxxxx</p>
           </div>

@@ -10,12 +10,15 @@ window.Vue = require('vue');
 import vueCountryRegionSelect from 'vue-country-region-select'
 import VueRouter from 'vue-router'
 import routes from './routes'
+import VCalendar from 'v-calendar';
 
 import axios from 'axios'
 Vue.use(axios)
 
 Vue.use(vueCountryRegionSelect)
 Vue.use(VueRouter);
+
+Vue.use(VCalendar);
 
 
 //this is for convert countries

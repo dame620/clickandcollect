@@ -122,7 +122,7 @@
                     </label>
                   </div> -->
                   <div class="my-input" id="product-form-group-row-container">
-                    
+                    <p>INFO DU LIEU DE RAMASSAGE</p>
                     <div class="my-row form-group-row">
                       <div class="form-group">
                         <label for="">CODE POSTAL
@@ -289,6 +289,7 @@
                 </div>
               </div>
               <div v-if="step==3">
+                <p>detail step3</p>
                 <div class="pickup-container">
                   <div class="pickup-bar">
                     <!-- multistep progress bar start-->
@@ -1586,7 +1587,7 @@ export default {
             //console.log(this.wrapers);
             sessionStorage.setItem("wrappers", JSON.stringify(wrappers));
             */
-            this.$router.push('/envelope/create');
+          //  this.$router.push('/envelope/create');
 
 
             

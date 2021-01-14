@@ -122,7 +122,24 @@
                     </label>
                   </div> -->
                   <div class="my-input" id="product-form-group-row-container">
-                    
+                    <p>INFO DU LIEU DE RAMASSAGE</p>
+                     <div class="my-row form-group-row">
+                        <div class="form-group">
+                          <label for="">DATE ET HEURE DE RAMASSAGE DU PAQUET
+                              <v-date-picker v-model="shipmentdetails.pickupdate" mode="dateTime" is24hr>
+                                <template v-slot="{ inputValue, inputEvents }">
+                                  <input
+                                    class="form-control px-2 py-1 border rounded focus:outline-none focus:border-blue-300"
+                                    :value="inputValue"
+                                    v-on="inputEvents"
+                                    type="text" required
+                                  />
+                                </template>
+                              </v-date-picker> 
+                          </label>
+                        </div>
+                      </div>
+
                     <div class="my-row form-group-row">
                       <div class="form-group">
                         <label for="">CODE POSTAL
@@ -142,18 +159,20 @@
                             <input type="text" class="form-control" v-model="shipmentdetails.pickupaddressLine1"  placeholder="votre Adress"> 
                         </label>
                       </div>
+
                       <div class="form-group">
-                            <label for="">Telephone
-                            <input type="text" class="form-control" v-model="shipmentdetails.pickupphone" placeholder="telephone"> 
-                            </label>
+                        <label for="">companyName
+                            <input type="text" class="form-control" v-model="shipmentdetails.pickupcompanyName" placeholder="Company Name"> 
+                        </label>
                       </div>
+                      
                     </div>
                   </div>
                 </div>
                 <div class="pickup-container">
                   <p class="pickup-bar">
                     <i class="icn-home-address-location"></i>
-                    DESTINATAIRE
+                    DETAIL DE LA PERSONNE
                   </p>
                   <div class="my-input" id="product-form-group-row-container">
                     <div class="my-row form-group-row">
@@ -162,10 +181,11 @@
                             <input type="text" class="form-control" v-model="shipmentdetails.pickupmobilePhone" placeholder="telephone"> 
                         </label>
                       </div>
+                      
                       <div class="form-group">
-                        <label for="">companyName
-                            <input type="text" class="form-control" v-model="shipmentdetails.pickupcompanyName" placeholder="Company Name"> 
-                        </label>
+                            <label for="">Telephone
+                            <input type="text" class="form-control" v-model="shipmentdetails.pickupphone" placeholder="telephone"> 
+                            </label>
                       </div>
                     </div>
 
@@ -217,7 +237,7 @@
                   </div> -->
                   
                   <div class="my-input" id="product-form-group-row-container">
-                    
+                    <p>INFO DE LA DESTINATION</p>
                     <div class="my-row form-group-row">
                       <div class="form-group">
                         <label for="">CODE POSTAL
@@ -237,18 +257,20 @@
                             <input type="text" class="form-control" v-model="shipmentdetails.receiveraddressLine1"  placeholder="votre Adress"> 
                         </label>
                       </div>
+
                       <div class="form-group">
-                            <label for="">Telephone
-                            <input type="text" class="form-control" v-model="shipmentdetails.receiverphone" placeholder="ttelephone"> 
-                            </label>
+                        <label for="">companyName
+                            <input type="text" class="form-control" v-model="shipmentdetails.receivercompanyName" placeholder="company name"> 
+                        </label>
                       </div>
+                      
                     </div>
                   </div>
                 </div>
                 <div class="pickup-container">
                   <p class="pickup-bar">
                     <i class="icn-home-address-location"></i>
-                    DESTINATAIRE
+                    DETAIL DE LA PERSONNE
                   </p>
                   <div class="my-input" id="product-form-group-row-container">
                     <div class="my-row form-group-row">
@@ -257,10 +279,11 @@
                             <input type="text" class="form-control" v-model="shipmentdetails.receivermobilePhone" placeholder="telephone"> 
                         </label>
                       </div>
+                      
                       <div class="form-group">
-                        <label for="">companyName
-                            <input type="text" class="form-control" v-model="shipmentdetails.receivercompanyName" placeholder="company name"> 
-                        </label>
+                            <label for="">Telephone
+                            <input type="text" class="form-control" v-model="shipmentdetails.receiverphone" placeholder="telephone"> 
+                            </label>
                       </div>
                     </div>
 
@@ -314,7 +337,7 @@
                     </label>
                   </div> -->
                   <div class="my-input" id="product-form-group-row-container">
-
+                    <p>INFO DU CLIENT</p>
                     
                     <div class="my-row form-group-row">
                       <div class="form-group">
@@ -336,17 +359,18 @@
                         </label>
                       </div>
                       <div class="form-group">
-                            <label for="">Telephone
-                            <input type="text" class="form-control" v-model="shipmentdetails.shipperphone" placeholder="telephone"> 
-                            </label>
+                        <label for="">companyName
+                            <input type="text" class="form-control" v-model="shipmentdetails.shippercompanyName" placeholder="company name"> 
+                        </label>
                       </div>
+                      
                     </div>
                   </div>
                 </div>
                 <div class="pickup-container">
                   <p class="pickup-bar">
                     <i class="icn-home-address-location"></i>
-                    DESTINATAIRE
+                    DETAIL DE LA PERSONNE
                   </p>
                   <div class="my-input" id="product-form-group-row-container">
                     <div class="my-row form-group-row">
@@ -355,10 +379,11 @@
                             <input type="text" class="form-control" v-model="shipmentdetails.shippermobilePhone" placeholder="telephone"> 
                         </label>
                       </div>
+                      
                       <div class="form-group">
-                        <label for="">companyName
-                            <input type="text" class="form-control" v-model="shipmentdetails.shippercompanyName" placeholder="company name"> 
-                        </label>
+                            <label for="">Telephone
+                            <input type="text" class="form-control" v-model="shipmentdetails.shipperphone" placeholder="telephone"> 
+                            </label>
                       </div>
                     </div>
 
@@ -424,6 +449,7 @@
         pickupmobilePhone: null,
         pickupcompanyName: null,
         pickupfullName: null,
+        pickupdate: new Date(),
 
         receiverpostalCode: null,
         receivercityName: null,
@@ -521,6 +547,7 @@
                         pickuppostalCode: wrapper.shipmentdetails.pickuppostalCode,
                         pickupcityName: wrapper.shipmentdetails.pickupcityName,
                         pickupcountryCode: wrapper.shipmentdetails.pickupcountryCode,
+                        pickupdate:wrapper.shipmentdetails.pickupdate,
                        // provinceCode: wrapper.shipmentdetails.provinceCode,
                         pickupaddressLine1: wrapper.shipmentdetails.pickupaddressLine1,
                         pickupcountyName: wrapper.shipmentdetails.pickupcountyName,
@@ -637,8 +664,8 @@
             //console.log(this.wrapers);
             sessionStorage.setItem("wrappers", JSON.stringify(wrappers));
             */
-            this.$router.push('/package/create');
-
+           // this.$router.push('/package/create');
+            alert("Bravo votre demande de pick est bien enregistrer");
 
             
                 },
@@ -1481,6 +1508,10 @@
   margin:auto;
   padding-top: 30px;
 
+}
+.my-input p{
+  margin-bottom:15px;
+  margin-left: 15px;
 }
  @media screen and (max-width: 950px) and (min-width: 770px) {
 .my-row{

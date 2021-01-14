@@ -62,14 +62,14 @@ class DhlController extends Controller
         $responses = [];
         foreach($packages as $package){
             
-            $response=$this->getshipment($package['weight'], $package['length'], $package['width'], $package['height'], $package['pickuppostalCode'] , $package['pickupcityName'], $package['pickupcountryCode'],  $package['pickupaddressLine1'], $package['pickupcountyName'], $package['pickupemail'], $package['pickupphone'], $package['pickupmobilePhone'], $package['pickupcompanyName'], $package['pickupfullName'], $package['shipperpostalCode'] , $package['shippercityName'], $package['shippercountryCode'],  $package['shipperaddressLine1'], $package['shippercountyName'], $package['shipperemail'], $package['shipperphone'], $package['shippermobilePhone'], $package['shippercompanyName'], $package['shipperfullName'], $package['receiverpostalCode'] , $package['receivercityName'], $package['receivercountryCode'],  $package['receiveraddressLine1'], $package['receivercountyName'], $package['receiveremail'], $package['receiverphone'], $package['receivermobilePhone'], $package['receivercompanyName'], $package['receiverfullName']);
+            $response=$this->getshipment($package['weight'], $package['length'], $package['width'], $package['height'], $package['pickuppostalCode'] , $package['pickupcityName'], $package['pickupcountryCode'],  $package['pickupaddressLine1'], $package['pickupcountyName'], $package['pickupemail'], $package['pickupphone'], $package['pickupmobilePhone'], $package['pickupcompanyName'], $package['pickupfullName'], $package['pickupdate'], $package['shipperpostalCode'] , $package['shippercityName'], $package['shippercountryCode'],  $package['shipperaddressLine1'], $package['shippercountyName'], $package['shipperemail'], $package['shipperphone'], $package['shippermobilePhone'], $package['shippercompanyName'], $package['shipperfullName'], $package['receiverpostalCode'] , $package['receivercityName'], $package['receivercountryCode'],  $package['receiveraddressLine1'], $package['receivercountyName'], $package['receiveremail'], $package['receiverphone'], $package['receivermobilePhone'], $package['receivercompanyName'], $package['receiverfullName']);
             array_push($responses, $response);
         }
         return ['responses' => $responses];
     }
 
 
-    public function getshipment($weight, $length, $width, $height, $pickuppostalCode, $pickupcityName, $pickupcountryCode, $pickupaddressLine1, $pickupcountyName, $pickupemail, $pickupphone, $pickupmobilePhone, $pickupcompanyName, $pickupfullName, $receiverpostalCode, $receivercityName, $receivercountryCode, $receiveraddressLine1, $receivercountyName, $receiveremail, $receiverphone, $receivermobilePhone, $receivercompanyName, $receiverfullName, $shipperpostalCode, $shippercityName, $shippercountryCode, $shipperaddressLine1, $shippercountyName, $shipperemail, $shipperphone, $shippermobilePhone, $shippercompanyName, $shipperfullName){
+    public function getshipment($weight, $length, $width, $height, $pickuppostalCode, $pickupcityName, $pickupcountryCode, $pickupaddressLine1, $pickupcountyName, $pickupemail, $pickupphone, $pickupmobilePhone, $pickupcompanyName, $pickupfullName, $pickupdate, $receiverpostalCode, $receivercityName, $receivercountryCode, $receiveraddressLine1, $receivercountyName, $receiveremail, $receiverphone, $receivermobilePhone, $receivercompanyName, $receiverfullName, $shipperpostalCode, $shippercityName, $shippercountryCode, $shipperaddressLine1, $shippercountyName, $shipperemail, $shipperphone, $shippermobilePhone, $shippercompanyName, $shipperfullName){
        
 
        // receiverpostalCode: null,
@@ -87,7 +87,7 @@ class DhlController extends Controller
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'POST',
         CURLOPT_POSTFIELDS => '{
-            "plannedShippingDateAndTime": "2020-11-26T14:00:31GMT+01:00",
+            "plannedShippingDateAndTime": '. $pickupdate.',
             "pickup": {
               "isRequested": false,
               "closeTime": "18:00",
@@ -229,7 +229,7 @@ class DhlController extends Controller
     }
 
 
-    public function store(Request $request) 
+    /*public function store(Request $request) 
     {
         $response = $this->getRates($request->width, $request->height, $request->weight, $request->length); 
         $curl = curl_init();
@@ -267,5 +267,5 @@ class DhlController extends Controller
             'response' => $response,   
          ];
 
-    }  
+    }  */
 }

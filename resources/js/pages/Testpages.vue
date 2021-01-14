@@ -1,337 +1,97 @@
-<!--template>
-  <div class="page-5">
-  <div class="wrapper">
-    <header>
-      <div class="language">
-        <select name="language" id="" class="language-toggle">
-          <option value="none" selected disabled hidden>language</option>
-          <option value="">English</option>
-          <option value="">Arabic</option>
-          <option value="">Sawahili</option>
-          <option value="">Russian</option>
-          <option value="">Chinese</option>
-        </select>
-      </div>
-      <div class="logo-container">
-        <img class="logo" src="./assets/Africa logo.png" alt="" />
-      </div>
-      <div class="follow-container">
-        <h3>Follow us</h3>
-        <div class="social-icon-container">
-          <a href="#" class="social-icn-fb"
-          ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="#" class="social-icn-twitter"
-            ><i class="fab fa-twitter"></i
-              ></a>
-              <a href="#" class="social-icn-google"
-              ><i class="fab fa-google-plus-g"></i
+<template>
+  <div>
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-left background-2">
+          <img class="logo" src="assets/Africa picture.png" alt="" />
+          <h2>BIENVENUE!</h2>
+        </div>
+        <div class="col-right">
+          <div class="language">
+            <select name="language" id="" class="language-toggle">
+              <option value="none" selected disabled hidden>language</option>
+              <option value="">English</option>
+              <option value="">Arabic</option>
+              <option value="">Sawahili</option>
+              <option value="">Russian</option>
+              <option value="">Chinese</option>
+            </select>
+          </div>
+          <div class="connection-container connection-container-fluid">
+            <div>
+              <form method="POST" action="/register">
+                <input type="hidden" name="_token" :value="csrf_token" >
+                <h3>INSCRIPTION</h3>
+                <div class="form-group">
+                  <label for="name">NOM COMPLET</label>
+                  <input id="name" type="text" class="form-control" name="name" required autocomplete="name" autofocus>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">Adresse email</label>
+                  <input id="email" type="email" class="form-control" name="email" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Mot de passe</label>
+                  <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password">
+                </div>
+
+                <div class="form-group">
+                  <label for="password-confirm">Confirmer le mot de passe</label>
+                  <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                </div>
+
+                <button type="submit" class="btn-connection">INSCRIPTION</button>
+               
+              </form>
+           
+              <div class="line-heading">
+                <span>OU</span>
+              </div>
+              <div class="social-connection-container">
+                <button class="btn-connection-google">INSCRIPTION GOOGLE</button>
+                <button class="btn-connection-fb">INSCRIPTION FACEBOOK</button>
+                <p class="forgot-password">Deja u compte?</p>
+                <a class="registration" href="/login">CONNECTEZ VOUS</a>
+              </div>
+            </div>
+            <div class="social-container">
+              <div class="line-heading">
+                <span>FOLLOW US</span>
+              </div>
+
+              <div class="social-icon-container">
+                <a href="#" class="social-icn-fb"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" class="social-icn-twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" class="social-icn-google"
+                  ><i class="fab fa-google-plus-g"></i
                 ></a>
                 <a href="#" class="social-icn-pinterest"
-                ><i class="fab fa-pinterest-p"></i
-                  ></a>
-                  <a href="#" class="social-icn-linkedin"
+                  ><i class="fab fa-pinterest-p"></i
+                ></a>
+                <a href="#" class="social-icn-linkedin"
                   ><i class="fab fa-linkedin-in"></i
-                    ></a>
-                  </div>
-                </div>
-              </header>
-
-              <div class="row">
-                <div class="col-left background-2">
-                  <div class="banner-description-container">
-                    <p>Some text!</p>
-                    <h2>SOME TEXT  SHOULD GO HERE </h2>
-                    <button>some text</button>
-                  </div>
-                </div>
-                <div class="col-right">
-                  <div class="heart-icon">
-                    <i class="fas fa-heart"></i>
-                  </div>
-                  <nav class="navbar" id="navbar">
-                    <div class="express-container">
-                      <i class="icn-express"></i>
-                      <p class="express">Express</p>
-                    </div>
-                    <ul class="nav">
-                      <li>
-                        <a href="#">expediteur</a>
-                      </li>
-                      <li>
-                        <a href="#" class="active">envoi</a>
-                      </li>
-                      <li>
-                        <a href="#">destinataire</a>
-                      </li>
-                      <li>
-                        <a href="#">options</a>
-                      </li>
-                      <li>
-                        <a href="#">prix</a>
-                      </li>
-                    </ul>
-                    <a href="javascript:void(0);" class="icon" @click="myFunction()">
-                      <i class="fa fa-bars"></i>
-                    </a>
-                  </nav>
-          <form action="">
-            <div class="step_container" v-if="step==1">
-              <div class="pickup-container">
-                <div class="pickup-bar">
-                  <div class="progress-container">
-                    <ul class="progressbar">
-                        <li class="active">step1</li>
-                        <li>step2</li>
-                        <li>step3</li>
-                    </ul>
-                  </div>
-                </div>
-          
-                <div class="my-input" id="product-form-group-row-container">
-                  <p class="pickup_detail">Detail du lieu de ramassage</p>
-                  <div class="my-row form-group-row">
-                    <div class="form-group">
-                      <label for="">Expediteur
-                        <input type="text" name="" id="">
-                      </label>
-                    </div>
-                    <div class="form-group">
-                      <label for="">Description Prdt 1
-                        <input type="text" name="" id="">
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class=" my-row form-group-row">
-                    <div class="form-group">
-                      <label for="">Poids 
-                        <input type="text" name="" id="">
-                      </label>
-                    </div>
-                    <div class="form-group">
-                          <label for="">Description Prdt 2
-                            <input type="text" name="" id="">
-                          </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="pickup-container">
-                  <p class="pickup-bar">
-                    <i class="icn-home-address-location"></i>
-                    DESTINATAIRE
-                  </p>
-                  <div class="my-input" id="product-form-group-row-container">
-                    <div class="my-row form-group-row">
-                      <div class="form-group">
-                        <label for="">Nom  
-                          <input type="text" name="" id="">
-                        </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="">Pernom
-                          <input type="text" name="" id="">
-                        </label>
-                      </div>
-                    </div>
-
-                    <div class=" my-row form-group-row">
-                      <div class="form-group">
-                        <label for="">Telephone 
-                          <input type="text" name="" id="">
-                        </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="">Address
-                          <input type="text" name="" id="">
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="step_container" v-if="step==2">
-              <div class="pickup-container">
-                <div class="pickup-bar">
-                  <div class="progress-container">
-                    <ul class="progressbar">
-                        <li class="active">step1</li>
-                        <li class="active">step2</li>
-                        <li>step3</li>
-                    </ul>
-                  </div>
-                </div>
-          
-                <div class="my-input" id="product-form-group-row-container">
-                  <p class="pickup_detail">Detail du lieu de ramassage et de</p>
-                  <div class="my-row form-group-row">
-                    <div class="form-group">
-                      <label for="">Expediteur
-                        <input type="text" name="" id="">
-                      </label>
-                    </div>
-                    <div class="form-group">
-                      <label for="">Description Prdt 1
-                        <input type="text" name="" id="">
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class=" my-row form-group-row">
-                    <div class="form-group">
-                      <label for="">Poids 
-                        <input type="text" name="" id="">
-                      </label>
-                    </div>
-                    <div class="form-group">
-                          <label for="">Description Prdt 2
-                            <input type="text" name="" id="">
-                          </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="pickup-container">
-                  <p class="pickup-bar">
-                    <i class="icn-home-address-location"></i>
-                    DESTINATAIRE
-                  </p>
-                  <div class="my-input" id="product-form-group-row-container">
-                    <div class="my-row form-group-row">
-                      <div class="form-group">
-                        <label for="">Nom  
-                          <input type="text" name="" id="">
-                        </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="">Pernom
-                          <input type="text" name="" id="">
-                        </label>
-                      </div>
-                    </div>
-
-                    <div class=" my-row form-group-row">
-                      <div class="form-group">
-                        <label for="">Telephone 
-                          <input type="text" name="" id="">
-                        </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="">Address
-                          <input type="text" name="" id="">
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="step_container" v-if="step==3">
-                <div class="pickup-container">
-                  <div class="pickup-bar">
-                    <div class="progress-container">
-                      <ul class="progressbar">
-                          <li class="active">step1</li>
-                          <li>step2</li>
-                          <li>step3</li>
-                      </ul>
-                    </div>
-                  </div>
-            
-                  <div class="my-input" id="product-form-group-row-container">
-                    <p class="pickup_detail">Detail du lieu de ramassage</p>
-                    <div class="my-row form-group-row">
-                      <div class="form-group">
-                        <label for="">Expediteur
-                          <input type="text" name="" id="">
-                        </label>
-                      </div>
-                      <div class="form-group">
-                        <label for="">Description Prdt 1
-                          <input type="text" name="" id="">
-                        </label>
-                      </div>
-                    </div>
-
-                    <div class=" my-row form-group-row">
-                      <div class="form-group">
-                        <label for="">Poids 
-                          <input type="text" name="" id="">
-                        </label>
-                      </div>
-                      <div class="form-group">
-                            <label for="">Description Prdt 2
-                              <input type="text" name="" id="">
-                            </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="pickup-container">
-                    <p class="pickup-bar">
-                      <i class="icn-home-address-location"></i>
-                      DESTINATAIRE
-                    </p>
-                    <div class="my-input" id="product-form-group-row-container">
-                      <div class="my-row form-group-row">
-                        <div class="form-group">
-                          <label for="">Nom  
-                            <input type="text" name="" id="">
-                          </label>
-                        </div>
-                        <div class="form-group">
-                          <label for="">Pernom
-                            <input type="text" name="" id="">
-                          </label>
-                        </div>
-                      </div>
-
-                      <div class=" my-row form-group-row">
-                        <div class="form-group">
-                          <label for="">Telephone 
-                            <input type="text" name="" id="">
-                          </label>
-                        </div>
-                        <div class="form-group">
-                          <label for="">Address
-                            <input type="text" name="" id="">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-              <div class="submit-container">
-                <button class="submit"  v-if="step>1">
-                  precedent <i class="fas fa-chevron-left"></i>
-                </button>
-
-                  <button class="submit" v-if="step<totalsteps" @click="nextstep()">
-                    suivant <i class="fas fa-chevron-right"></i>
-                  </button>
-
-                  <button class="submit" v-if="step==totalsteps">
-                    Enregistrer <i class="fas fa-chevron-right"></i>
-                  </button>
-              </div>
-            
-          </form>    
-              <div class="my-last-btn">
-                <a><i class="fas fa-chevron-left "></i>RETOUR</a>
+                ></a>
               </div>
             </div>
           </div>
-          <footer>
-            <span>COLLECTANDCLICK.AFRICA</span>
-            <span>ALL RIGHTS RESERVED.</span>
-          </footer>
         </div>
-
       </div>
+      <footer>
+        <span>COLLECTANDCLICK.AFRICA</span>
+        <span>ALL RIGHTS RESERVED.</span>
+      </footer>
+    </div>
+  </div>
 
 </template>
 <style scoped>
-   /*
+/*
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v7.0.29,
 * Autoprefixer: v9.7.6
@@ -371,8 +131,8 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
 }
 .styled-checkbox input[type="checkbox"] {
@@ -386,7 +146,7 @@ body {
   height: 20px;
   width: 20px;
   -webkit-box-shadow: 0 0 5px 1px #ddd;
-  box-shadow: 0 0 5px 1px #ddd;
+          box-shadow: 0 0 5px 1px #ddd;
   display: inline-block;
   position: relative;
   margin: 0;
@@ -402,8 +162,8 @@ body {
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .wrapper {
@@ -429,15 +189,15 @@ body {
 }
 
 .col-left {
- /* background-image: url("./assets/imgscomppages/Picture.png");*/
+  background-image: url("./assets/imgscomppages/Picture.png");
   background-position: right center;
   background-repeat: no-repeat;
-  background-size: cover;
-  
+  background-size: 100% 100%;
+
   display: -webkit-box;
-  
+
   display: -ms-flexbox;
-  
+
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -456,7 +216,9 @@ body {
   max-width: 50%;
 }
 
-
+.background-2 {
+  background-image: url("./assets/imgscomppages/Picture-2.png");
+}
 
 .col-left .logo {
   max-width: 260px;
@@ -479,9 +241,15 @@ body {
   bottom: 0;
   height: 5px;
   width: 90px;
-  background-color: #fff;
+  background-color: white;
 }
-
+.btn-connection {
+    
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .col-right {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 50%;
@@ -492,24 +260,252 @@ body {
 }
 
 .language {
-  margin: 0 30px 30px auto;
-  max-width: 180px;
-  text-align: right;
-  position: relative;
+ margin: 0 30px 30px auto;
+    max-width: 180px;
+    text-align: right;
+    position: relative;
+   /* background: #eb954b;*/
+    text-align: center;
+    border-radius: 10px;
+    color: black;
+   /* animation: pulse-effect 1s ease-in-out infinite;*/
 }
 .language-toggle {
   border: none;
   text-transform: uppercase;
-  
+
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
   background: url("./assets/imgscomppages/drop-down-arrow.png") right center no-repeat;
   background-size: 15px;
-  padding: 10px 20px;
+  padding: 10px 5px;
+  color: black;
+}
+@keyframes pulse-effect {
+  0% {
+    box-shadow: 0 0 0 0 #eb954b7d;
+    -webkit-box-shadow: 0 0 0 0 #eb954b7d
+  }
+  100% {
+    box-shadow: 0 0 0 8px #eb954b7d;
+    -webkit-box-shadow: 0 0 0 8px #eb954b7d
+  }
+}
+select option{
+  color: black;
+}
+.connection-container {
+  width: 55%;
+  margin: 40px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  max-height: 100%;
 }
 
+.connection-container-fluid {
+  width: 100%;
+  max-width: 460px;
+  /* width: 460px; */
+}
 
+.connection-container form h3 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+.form-group-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* margin: 0 -10px; */
+}
+.form-group {
+  margin-bottom: 20px;
+  padding: 0 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.address-field {
+  width: 100%;
+}
+.form-group label {
+      font-weight: 600;
+    color: #3a3635;
+    margin-bottom: 5px;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    margin-top: -9px;
+    margin-left: 12px;
+    background: white;
+    padding: 0px 5px;
+    font-size: 12px;
+
+}
+.form-group {
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+
+
+}
+.form-group input {
+ height: auto;
+    padding: 15px 15px;
+    border: 2px solid #cdcdcb;
+    border-radius: 2px;
+    width: 100%;
+    position: relative;/*
+    border-radius: 10px;*/
+    outline: none;
+}
+::placeholder {
+  color: #cdcdcb;
+  font-size: 12px;
+}
+.btn-connection {
+     padding: 15px;
+    margin-left: -50px;
+    background-color: #eb954b;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100%;
+    margin: auto;
+    border: 2px solid  #eb954b;
+    outline: none;
+   /* border-radius: 50px;*/
+    margin-bottom: 10px;
+}
+/*.btn-connection:hover{
+  background: transparent;
+  color:  #eb954b;
+  transition: ease-in-out;
+
+}*/
+.forgot-password,
+.forgot-password a {
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  color: #3a3635;
+}
+
+.line-heading {
+  position: relative;
+  text-align: center;
+  margin: 30px 0;
+}
+.line-heading span {
+  display: inline-block;
+  background-color: #fff;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4b4748;
+  position: relative;
+  z-index: 1;
+}
+.line-heading::after {
+  content: "";
+  display: block;
+  border-top: 1px solid #3a3635;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+}
+.social-connection-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.social-connection-container a:hover{
+  text-decoration: underline;
+}
+
+.btn-connection-google {
+     padding: 15px 0px;
+    width: 100%;
+    background-color: #7d6f6c;
+    border: none;
+    color: white;
+    margin-bottom: 20px;
+    font-size: 18px;
+  /*  border: 1px solid #E13D38;*/
+    font-weight: 300;
+    margin: 12px auto;
+    cursor: pointer;
+    /*border:1px solid #E13D38;*/
+    /*border-radius: 10px;*/
+}
+button.btn-connection-google:hover {
+    background: #a01d19cc;
+    color: white;
+}
+button.btn-connection-fb{
+ background-color: #dcaa85;
+ color: white;
+}
+.btn-connection-fb {
+    padding: 15px 0px;
+    width: 100%;
+    background-color: #dcaa85;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 20px;
+     /*border:1px solid #385196;*/
+     cursor: pointer;
+     /* border-radius: 10px;*/
+}
+ /*form {
+    
+    box-shadow: 2px 5px 16px 2px rgba(16, 16, 16, .18);
+    padding: 20px 10px;
+    border-radius: 10px;
+}*/
+.registration {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  color: #4a4444;
+  margin: 30px;
+}
+
+.social-container .line-heading {
+  width: calc(100% + 180px);
+  margin-left: -90px;
+}
 .social-icon-container {
   text-align: center;
 }
@@ -524,19 +520,24 @@ body {
   display: inline-block;
 }
 .social-icn-fb {
-  background: #f2cda5;
+  background: #f5cb9b;
+   border: 1px solid #f5cb9b;
 }
 .social-icn-twitter {
-  background: #e29854;
+  background:#ee9448;
+  border: 1px solid #ee9448;
 }
 .social-icn-google {
-  background: #443838;
+  background: #504444;
+  border: 1px solid #504444;
 }
 .social-icn-pinterest {
-  background: #d6ad8c;
+   background:#dead85;
+  border: 1px solid #dead85;
 }
 .social-icn-linkedin {
-  background: #8a7272;
+  background: #8e7974;
+  border: 1px solid #8e7974;
 }
 .social-icon-container a i {
   color: white;
@@ -555,222 +556,29 @@ footer span {
   font-weight: 600;
 }
 
-/*############# Screen 3 CSS #################*/
-
-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 0 50px;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  background-color: #fff;
-}
-
-header .language {
-  max-width: 180px;
-  text-align: right;
-  position: relative;
-  
-  margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding-bottom: 10px;
-}
-header .language .language-toggle {
-  padding: unset;
-}
-header .logo {
-  max-width: 130px;
-}
-@media screen and (max-width: 600px) {
-  header .logo {
-  max-width: 110px;
-}
-  }
-
-
-
-header .follow-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding-bottom: 10px;
-}
-
-header .follow-container h3 {
-  text-align: center;
-  padding: 10px;
-}
-
-header .follow-container .social-icon-container a {
-  height: 25px;
-  width: 25px;
-  line-height: 25px;
-}
-
-header .follow-container .social-icon-container a i {
-  font-size: 15px;
-}
-
-.page-3 {
-  background-color: #fcf3ea;
-}
-
-.page-3 .banner {
-  background-image: url("./assets/imgscomppages/Background photo.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  padding: 202px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  -webkit-box-flex: 2;
-  -ms-flex-positive: 2;
-  flex-grow: 2;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.banner .banner-description {
-  color: white;
-  text-align: center;
-  padding-right: 100px;
-  max-width: 1000px;
-  margin-left: auto;
-}
-.banner .banner-description p {
-  padding-bottom: 20px;
-  font-style: italic;
-}
-
-.banner .banner-description button {
-  background: #e29854;
-  border: none;
-  color: white;
-  padding: 10px 15px;
-  margin-top: 30px;
-}
-@media screen and (min-width: 600px) {
-  .main-bg{
-   background-image: url("./assets/imgscomppages/Africa background.png");
-   /* background-position: center; */
-   background-repeat: no-repeat;
-   /* background-size: cover; */
-   /* background-position: top 95% left -13%;
-   background-size: 70%;*/
-   background-position: top 137% left -13%;
-   background-size: 66% 80%;
-
- }
-}
-@media screen and (max-width: 599px) {
-  .africa-background {
-     background-image: url("./assets/imgscomppages/Africa background.png");
-   /* background-position: center; */
-   background-repeat: no-repeat;
-   /* background-size: cover; */
-    background-position: top 95% left -13%;
-   background-size: 70%;
-  
-  }
-}
-
-.africa-background {
-
-  padding: 70px 0px 150px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-flex: 2;
-  -ms-flex-positive: 2;
-  flex-grow: 2;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.africa-background .button-container {
-  width: 100%;
-  max-width: 30%;
-}
-
-.btn-quote {
-  padding: 15px;
-  width: calc(80%);
-  background-color: #eb954b;
-  margin-top: 15px;
-  margin-bottom: 55px;
-  border: none;
-  font-weight: 300;
-  text-transform: uppercase;
-  font-size: 15px;
-  cursor: pointer;
-}
-.btn-pickup {
-  padding: 15px 0px;
-  width: calc(80%);
-  background-color: #e2a880;
-  border: none;
-  color: black;
-  font-size: 15px;
-  font-weight: 300;
-}
-/*############# Screen 3 CSS ###########*/
-
-
 @media screen and (max-width: 1200px) {
-
-  .africa-background .button-container {
-    max-width: 40%;
+  .btn-connection-responsive {
+    width: calc(100% + 40px);
+    margin-left: -20px;
   }
-
-  .page-3 .banner .banner-description {
-    padding-right: 50px;
+  .social-container .line-heading {
+    width: calc(100% + 60px);
+    margin-left: -40px;
   }
-
 }
 @media screen and (max-width: 991px) {
-
-  .africa-background .button-container {
-    max-width: 50%;
-  }
-  .btn-quote {
-    width: calc(100%);
-  }
-  .btn-pickup {
-    width: calc(100%);
+  .btn-connection {
+    width: 100%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
   }
 
-
+  .social-container .line-heading {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 @media screen and (max-width: 768px) {
   .row {
@@ -787,134 +595,68 @@ header .follow-container .social-icon-container a i {
     max-width: 100%;
   }
 
-  .page-3 .banner {
-    padding: 93px 0;
-    display: block;
-  }
-
-  .page-3 .banner-description {
-    margin-left: auto;
-    max-width: 400px;
-  }
-  .page-3 .banner-description h1 {
-    font-size: 16px;
-  }
-  .page-3 .banner-description h2 {
-    font-size: 14px;
-  }
-
-  .africa-background .button-container {
-    max-width: 60%;
-  }
-
   footer span {
     font-size: 11px;
   }
-
 }
-
-@media screen and (max-width: 600px) {
-  header {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 0 15px;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
-
-  .follow-container {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    -webkit-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    order: 2;
-    max-width: 50%;
-  }
-
-  header .follow-container .social-icon-container a {
-    height: 18px;
-    width: 18px;
-    line-height: 18px;
-  }
-  header .follow-container .social-icon-container a i {
-    font-size: 10px;
-  }
-
-  header .language {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 35%;
-    flex: 0 0 35%;
-    -webkit-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    order: 2;
-    max-width: 35%;
-    margin-right: 35px;
-  }
-  header .logo-container {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    -webkit-box-ordinal-group: 2;
-    -ms-flex-order: 1;
-    order: 1;
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .page-3 .banner {
-    padding: 60px 0;
+@media screen and (max-width: 568px)
+{
+  .form-group {
+    margin-bottom: 20px;
+    padding: 0 10px;
+       
+    width: 100%;
+}
+.form-group-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: block;
-  }
+    /* margin: 0 -10px; */
+}
+.language {
+    margin: 7px auto;
+    max-width: 180px;
+    text-align: right;
+    position: relative;
+   /* background: #eb954b;*/
+    text-align: center;
+    border-radius: 10px;
+    color: black;
+   /* animation: pulse-effect 1s ease-in-out infinite*/;
+}
+.col-left h2 {
+    font-size: 33px;
+    
+}
+.connection-container{
+  width: 100%;
+}
+}
 
-  .page-3 .banner-description h1 {
-    font-size: 16px;
+@media screen and (min-width: 567px) and (max-width: 770px){
+  .form-group {
+    width: 84%;
   }
-  .page-3 .banner-description h2 {
-    font-size: 14px;
-  }
+  .col-left{
 
-  .page-3 .banner .banner-description {
-    padding-right: 0;
+    padding: 60px
   }
-  .banner {
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
-  .banner .banner-description {
-    padding-right: 0;
-  }
-
-  .banner .banner-description button {
-    background: #e29854;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    margin-top: 30px;
-  }
-  .page-3 .africa-background {
-    background-size: 100%;
-  }
-  .africa-background .button-container {
-    max-width: 80%;
+.connection-container {
+    width: 60%;
   }
 }
- 
 </style>
 
 <script>
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+
+           computed: {
+            csrf_token() {
+                return window.csrfContent;
+            }
         }
     }
 </script>

@@ -23,7 +23,7 @@
             if(wrappers!=null){
                 this.wrappers = wrappers;
             }
-               console.log(this.wrappers);
+               console.log('wrapers test', this.wrappers);
 
         },
        
@@ -35,11 +35,11 @@
                 loading: false,
             }
         },
-        computed: {
+       /* computed: {
             wrappers_count() {
                 return this.wrappers.length;
             },
-        },
+        },*/
         methods: {
            
             resetForm() {
@@ -62,7 +62,7 @@
                     if (data.success && data.wrappers.length > 0 && data.products.length > 0) {
                         this.resetForm();
                          alert('le paquet a été enregistrer avec success');
-                        sessionStorage.removeItem('wrappers');
+                       // sessionStorage.removeItem('wrappers');
                         
                         this.$router.push('/');
 

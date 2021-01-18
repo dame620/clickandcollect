@@ -588,7 +588,7 @@
 
             console.log(formatted_shipmentdetails);
 
-            async function shipmentreq(){
+            /*async function shipmentreq(){
                 const url = "/post-shipment"
                 const response = await fetch(url, {
                     method: 'POST', // or 'PUT'
@@ -623,8 +623,8 @@
 
                
             }
-             shipmentreq();
-            /*const url = "/post-shipment"
+             shipmentreq();*/
+            const url = "/post-shipment"
             
             fetch(url, {
             method: 'POST', // or 'PUT'
@@ -637,8 +637,8 @@
                 packages: formatted_shipmentdetails
             })
 
-            })*/
-            /*.then(response => response.json())
+            })
+            .then(response => response.json())
             .then(data => {
                 //const { response } = data;
                 //console.log(data.responses);
@@ -652,7 +652,10 @@
                     wrappers.forEach(function(wrapper){
                         wrapper.trackingnumber=responseData.shipmentTrackingNumber;
                     }) 
+                  
                 })
+                sessionStorage.setItem("wrappers", JSON.stringify(wrappers));
+                this.$router.push('/package/create');
               
             })
             .catch((error) => {
@@ -662,10 +665,8 @@
             console.log("check wrappers", wrappers);
            // this.wrapers=wrappers;
             //console.log(this.wrapers);
-            sessionStorage.setItem("wrappers", JSON.stringify(wrappers));
-            */
-           // this.$router.push('/package/create');
-            alert("Bravo votre demande de pick est bien enregistrer");
+            
+            //alert("Bravo votre demande de pick est bien enregistrer");
 
             
                 },

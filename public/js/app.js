@@ -12117,6 +12117,105 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     var jsonWrappers = sessionStorage.getItem('wrappers');
@@ -12135,6 +12234,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['path'],
   data: function data() {
     return {
+      datachecker: true,
       wrappers: null,
       loading: false
     };
@@ -12148,6 +12248,15 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     resetForm: function resetForm() {
       this.wrappers = this.wrappers;
+    },
+    myFunction: function myFunction() {
+      var x = document.getElementById("navbar");
+
+      if (x.className === "navbar") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar";
+      }
     },
     onSubmitPackageForm: function onSubmitPackageForm() {
       var _this = this;
@@ -20396,12 +20505,13 @@ exports.push([module.i, "\n.products-section[data-v-03f90e0d] {\n    border:1px 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.products-section[data-v-01e6ade6] {\n    border:1px solid #ccc;\n    padding:10px;\n    margin-bottom:10px;\n    position:relative;\n}\n.packages-section[data-v-01e6ade6] {\n    border:1px solid #ccc;\n    padding:10px;\n    margin-bottom:10px;\n    position:relative;\n}\n.products-counter[data-v-01e6ade6] {\n    display:flex;\n    align-items:center;\n    justify-content:space-between;\n    margin-bottom:10px;\n    padding:10px;\n    background-color:#f5f5f5;\n}\n.counter-label[data-v-01e6ade6] {\n    position:absolute;\n    top:0;\n    right:0;\n    display:inline-block;\n    width:25px;\n    height:25px;\n    line-height:25px;\n    background-color:#f5f5f5;\n    border-left:1px solid #ccc;\n    border-bottom:1px solid #ccc;\n    color:#000;\n    font-weight:bold;\n    text-align:center;\n}\n.packages-section-closer[data-v-01e6ade6] {\n    position:absolute;\n    top:0;\n    right:0;\n    width:20px;\n    height:20px;\n    background-color:red;\n    display:flex;\n    align-items:center;\n    justify-content:center;\n    color:#fff;\n    border:none;\n    outline:none;\n    cursor:pointer;\n}\n.packages-section-closer i[data-v-01e6ade6] {\n    pointer-events:none;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n* Prefixed by https://autoprefixer.github.io\n* PostCSS: v7.0.29,\n* Autoprefixer: v9.7.6\n* Browsers: last 4 version\n*/\n\n\n/*\n* Prefixed by https://autoprefixer.github.io\n* PostCSS: v7.0.29,\n* Autoprefixer: v9.7.6\n* Browsers: last 4 version\n*/\n*[data-v-01e6ade6] {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n.active[data-v-01e6ade6] {\n    font-weight: bold;\n}\n.show[data-v-01e6ade6] {\n    display: block !important;\n}\nbody[data-v-01e6ade6] {\n    font-family: \"Work Sans\", sans-serif;\n    font-size: 16px;\n    color: #3a3635;\n}\n.styled-checkbox[data-v-01e6ade6] {\n    font-weight: 500;\n    position: relative;\n    display: flex;\n    align-items: center;\n    cursor: pointer;\n}\n.styled-checkbox input[type=\"checkbox\"][data-v-01e6ade6] {\n    font-size: 15px;\n    margin-top: 5px;\n    display: none;\n}\n.styled-checkbox .checkbox[data-v-01e6ade6] {\n    min-height: 20px;\n    min-width: 20px;\n    height: 20px;\n    width: 20px;\n    box-shadow: 0 0 5px 1px #ddd;\n    display: inline-block;\n    position: relative;\n    margin: 0;\n}\n.styled-checkbox input[type=\"checkbox\"]:checked + .checkbox[data-v-01e6ade6] {\n    background-color: #000;\n}\n.styled-checkbox input[type=\"checkbox\"]:checked + .checkbox[data-v-01e6ade6]::after {\n    content: \"\\2714\";\n    color: #fff;\n    font-size: 18px;\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n}\n.wrapper[data-v-01e6ade6] {\n    width: 100%;\n    min-height: 100vh;\n    display: flex;\n    flex-direction: column;\n}\nheader[data-v-01e6ade6] {\n    display: flex;\n    padding: 0 50px;\n    justify-content: space-between;\n    background-color: #fff;\n}\nheader .language[data-v-01e6ade6] {\n    max-width: 180px;\n    text-align: right;\n    position: relative;\n  \n    margin: 0;\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-end;\n    padding-bottom: 10px;\n}\nheader .language .language-toggle[data-v-01e6ade6] {\n    padding: unset;\n}\nheader .logo[data-v-01e6ade6] {\n    max-width: 130px;\n}\n@media screen and (max-width: 600px) {\nheader .logo[data-v-01e6ade6] {\n    max-width: 110px;\n}\n}\nheader .follow-container[data-v-01e6ade6] {\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-end;\n    padding-bottom: 10px;\n}\nheader .follow-container h3[data-v-01e6ade6] {\n    text-align: center;\n    padding: 10px;\n}\nheader .follow-container .social-icon-container a[data-v-01e6ade6] {\n    height: 25px;\n    width: 25px;\n    line-height: 25px;\n}\nheader .follow-container .social-icon-container a i[data-v-01e6ade6] {\n    font-size: 15px;\n}\n.row[data-v-01e6ade6] {\n    display: flex;\n    width: 100%;\n    flex-grow: 2;\n}\n.col-left[data-v-01e6ade6] {\n    background-image: url(" + escape(__webpack_require__(/*! ./assets/Picture.png */ "./resources/js/components/assets/Picture.png")) + ");\n    background-position: right center;\n    background-repeat: no-repeat;\n    background-size: cover;\n  \n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    padding: 30px;\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n.col-left .logo[data-v-01e6ade6] {\n    max-width: 260px;\n}\n.col-left h2[data-v-01e6ade6] {\n    color: #fff;\n    font-size: 48px;\n    position: relative;\n    margin: 15px 0;\n    padding-bottom: 20px;\n}\n.col-left h2[data-v-01e6ade6]::after {\n    content: \"\";\n    display: block;\n    position: absolute;\n    left: 50%;\n    transform: translateX(-50%);\n    bottom: 0;\n    height: 5px;\n    width: 90px;\n    background-color: #fff;\n}\n.col-right[data-v-01e6ade6] {\n    flex: 0 0 50%;\n    max-width: 50%;\n    overflow: auto;\n    padding: 20px;\n}\n.background-2[data-v-01e6ade6] {\n    background-image: url(" + escape(__webpack_require__(/*! ./assets/Picture-2.png */ "./resources/js/components/assets/Picture-2.png")) + ");\n    background-size: 100% 100%;\n}\n.language[data-v-01e6ade6] {\n    margin: 0 30px 30px auto;\n    max-width: 180px;\n    text-align: right;\n    position: relative;\n}\n.language-toggle[data-v-01e6ade6] {\n    border: none;\n    text-transform: uppercase;\n  \n    font-weight: 600;\n    font-size: 16px;\n    cursor: pointer;\n    background: url(" + escape(__webpack_require__(/*! ./assets/drop-down-arrow.png */ "./resources/js/components/assets/drop-down-arrow.png")) + ") right center no-repeat;\n    background-size: 15px;\n    padding: 10px 20px;\n}\n.connection-container[data-v-01e6ade6] {\n    width: 260px;\n    margin: 40px auto;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    max-height: 100%;\n}\n.connection-container-fluid[data-v-01e6ade6] {\n    width: 100%;\n    max-width: 460px;\n    /* width: 460px; */\n}\n.connection-container form h3[data-v-01e6ade6] {\n    text-align: center;\n    font-size: 36px;\n    margin-bottom: 30px;\n}\n.form-group-row[data-v-01e6ade6] {\n    display: flex;\n    /* margin: 0 -10px; */\n}\n.form-group[data-v-01e6ade6] {\n    margin-bottom: 20px;\n    padding: 0 10px;\n    flex: 1;\n}\n.address-field[data-v-01e6ade6] {\n    width: 100%;\n}\n.form-group label[data-v-01e6ade6] {\n    font-weight: 600;\n    color: #3a3635;\n    margin-bottom: 5px;\n    display: block;\n}\n.form-group input[data-v-01e6ade6] {\n    height: auto;\n    padding: 15px;\n    border: 2px solid #cdcdcb;\n    border-radius: 2px;\n    width: 100%;\n}\n.btn-connection[data-v-01e6ade6] {\n    padding: 15px;\n    width: calc(100% + 100px);\n    margin-left: -50px;\n    background-color: #eb954b;\n    margin-top: 15px;\n    margin-bottom: 20px;\n    border: none;\n    color: white;\n    font-weight: 600;\n    text-transform: uppercase;\n    font-size: 15px;\n    cursor: pointer;\n}\n.forgot-password[data-v-01e6ade6],\n  .forgot-password a[data-v-01e6ade6] {\n    text-align: center;\n    font-weight: 600;\n    text-decoration: none;\n    color: #3a3635;\n}\n.line-heading[data-v-01e6ade6] {\n    position: relative;\n    text-align: center;\n    margin: 30px 0;\n}\n.line-heading span[data-v-01e6ade6] {\n    display: inline-block;\n    background-color: #fff;\n    padding: 10px 25px;\n    font-size: 18px;\n    font-weight: 600;\n    color: #4b4748;\n    position: relative;\n    z-index: 1;\n}\n.line-heading[data-v-01e6ade6]::after {\n    content: \"\";\n    display: block;\n    border-top: 1px solid #3a3635;\n    position: absolute;\n    left: 0;\n    top: 50%;\n    transform: translateY(-50%);\n    width: 100%;\n}\n.social-connection-container[data-v-01e6ade6] {\n    display: flex;\n    flex-direction: column;\n    width: 80%;\n    margin: 0 auto;\n    text-align: center;\n}\n.btn-connection-google[data-v-01e6ade6] {\n    padding: 15px 0px;\n    width: calc(100% + 80px);\n    margin-left: -40px;\n    background-color: #806e6c;\n    border: none;\n    color: white;\n    margin-bottom: 20px;\n    font-size: 18px;\n    font-weight: 600;\n}\n.btn-connection-fb[data-v-01e6ade6] {\n    padding: 15px 0px;\n    width: calc(100% + 80px);\n    margin-left: -40px;\n    background-color: #daaa85;\n    border: none;\n    color: white;\n    font-size: 18px;\n    font-weight: 600;\n    margin-bottom: 20px;\n}\n.registration[data-v-01e6ade6] {\n    display: inline-block;\n    text-decoration: none;\n    font-weight: 700;\n    font-size: 16px;\n    color: #4a4444;\n    margin: 30px;\n}\n.social-container .line-heading[data-v-01e6ade6] {\n    width: calc(100% + 180px);\n    margin-left: -90px;\n}\n.social-icon-container[data-v-01e6ade6] {\n    text-align: center;\n}\n.social-icon-container a[data-v-01e6ade6] {\n    border-radius: 50%;\n    height: 36px;\n    width: 36px;\n    line-height: 40px;\n    margin: 1px;\n    text-decoration: none;\n    display: inline-block;\n}\n.social-icn-fb[data-v-01e6ade6] {\n    background: #f2cda5;\n}\n.social-icn-twitter[data-v-01e6ade6] {\n    background: #e29854;\n}\n.social-icn-google[data-v-01e6ade6] {\n    background: #443838;\n}\n.social-icn-pinterest[data-v-01e6ade6] {\n    background: #d6ad8c;\n}\n.social-icn-linkedin[data-v-01e6ade6] {\n    background: #8a7272;\n}\n.social-icon-container a i[data-v-01e6ade6] {\n    color: white;\n    font-size: 18px;\n}\nfooter[data-v-01e6ade6] {\n    background-color: #3b3132;\n    color: #ccc;\n    padding: 20px 10px 20px 40px;\n}\nfooter span[data-v-01e6ade6] {\n    margin-right: 20px;\n    font-size: 14px;\n    font-weight: 600;\n}\n  \n  \n  \n  /* ############ SCreen 5 CSS ############# */\n.page-5 .col-left[data-v-01e6ade6]{\n  position: relative;\n  z-index: 2;\n}\n.banner-description-container[data-v-01e6ade6] {\n    padding: 0px 80px;\n    text-align: center;\n}\n.banner-description-container h2[data-v-01e6ade6]::after {\n    display: none;\n}\n.banner-description-container p[data-v-01e6ade6] {\n    color: white;\n    font-style: italic;\n    font-size: 20px;\n}\n.banner-description-container button[data-v-01e6ade6] {\n    background: #eb954b;\n    border: none;\n    padding: 5px 20px;\n    color: white;\n    font-size: 16px;\n}\n.page-5 .col-right[data-v-01e6ade6]{\n  position: relative;\n  z-index: 1;\n  left: -110px;\n  max-width: calc(50% + 110px);\n  flex: 0 0 calc(50% + 110px);\n  padding: 0;\n}\n.heart-icon[data-v-01e6ade6] {\n    text-align: center;\n    background: #f2cda5;\n    padding: 15px;\n    color: white;\n}\n.navbar[data-v-01e6ade6] {\n    display: flex;\n    justify-content: space-between;\n    background: #443838;\n    color: white;\n    padding-left: 70px;\n}\n.navbar .icon[data-v-01e6ade6] {\n    display: none;\n}\n.express-container[data-v-01e6ade6] {\n    display: flex;\n}\n.express-container .icn-express[data-v-01e6ade6] {\n    background-image: url(" + escape(__webpack_require__(/*! ./assets/Airplane simbol.png */ "./resources/js/components/assets/Airplane simbol.png")) + ");\n    background-size: cover;\n    height: 30px;\n    width: 30px;\n    margin-top: 4px;\n}\n.express[data-v-01e6ade6] {\n    padding: 10px;\n    font-size: 15px;\n    font-weight: bold;\n    text-transform: uppercase;\n}\nul.nav[data-v-01e6ade6] {\n    display: flex;\n    padding: 0;\n    margin: 0;\n}\nul.nav li[data-v-01e6ade6] {\n    list-style-type: none;\n    padding: 8px 10px;\n}\nul.nav li a[data-v-01e6ade6] {\n    text-decoration: none;\n    color: white;\n    text-transform: uppercase;\n}\n.page-5 .navbar[data-v-01e6ade6] {\n    padding-left: 110px;\n}\n.page-5 .col-left[data-v-01e6ade6] {\n    background-position: top center;\n   padding: 40% 0 100px;\n}\n.page-5 .option-container[data-v-01e6ade6] {\n    padding: 70px 0;\n    max-width: 350px;\n    margin: 0 auto;\n}\n.page-5 .styled-checkbox[data-v-01e6ade6] {\n    flex-direction: row-reverse;\n    justify-content: flex-end;\n    margin-bottom: 60px;\n    text-transform: uppercase;\n    font-size: 14px;\n}\n.page-5 .styled-checkbox .checkbox[data-v-01e6ade6] {\n    margin-right: 20px;\n    border:1px solid #ddd;\n}\n.option-container .btn-retour[data-v-01e6ade6] {\n    padding: 12px;\n    width: calc(100%);\n    background-color: #443838;\n    margin-top: 15px;\n    margin-bottom: 20px;\n    border: none;\n    color: white;\n    font-weight: 600;\n    text-transform: uppercase;\n    font-size: 15px;\n    cursor: pointer;\n}\n.option-container .btn-retour i[data-v-01e6ade6] {\n    float: left;\n    font-size: 28px;\n}\n  \n  /* ############ SCreen 5 CSS ############# */\n@media screen and (max-width: 1200px) {\nul.nav li[data-v-01e6ade6] {\n      padding: 9px 5px;\n}\n}\n@media screen and (max-width: 991px) {\n   \n    /* mobile menu css */\n.navbar[data-v-01e6ade6] {\n      padding-left: 15px;\n      position: relative;\n}\n.navbar .icon[data-v-01e6ade6] {\n      display: block;\n      float: right;\n}\n.navbar ul[data-v-01e6ade6] {\n      display: none;\n}\n.responsive[data-v-01e6ade6] {\n      position: relative;\n      flex-direction: column;\n}\n.navbar .icon[data-v-01e6ade6] {\n      position: absolute;\n      right: 10px;\n      top: 10px;\n      color: white;\n}\n.responsive ul[data-v-01e6ade6] {\n      display: block;\n      flex-direction: column;\n      padding-left: 35px;\n}\n  \n    /* mobile menu css */\n.page-5 .option-container[data-v-01e6ade6] {\n      padding: 70px 20px;\n}\n.page-5 .banner-description-container[data-v-01e6ade6] {\n        padding: 0 5%;\n}\n}\n@media screen and (max-width: 768px) {\n.row[data-v-01e6ade6] {\n      flex-direction: column;\n}\n.col-left[data-v-01e6ade6],\n    .col-right[data-v-01e6ade6] {\n      flex: 0 0 100%;\n      max-width: 100%;\n}\n.page-5 .col-left  h2[data-v-01e6ade6] {\n        font-size: 25px;\n}\n.page-5 .col-right[data-v-01e6ade6]{\n      left: 0;\n      min-width: 100%;\n      margin-left: 0;\n}\n.page-5 .navbar[data-v-01e6ade6] {\n        padding-left: 0;\n}\nfooter span[data-v-01e6ade6] {\n      font-size: 11px;\n}\n}\n@media screen and (max-width: 600px) {\nheader[data-v-01e6ade6] {\n      flex-direction: row;\n      justify-content: center;\n      align-items: center;\n      padding: 20px;\n      flex-wrap: wrap;\n}\n.follow-container[data-v-01e6ade6] {\n      flex: 0 0 50%;\n      order: 2;\n      max-width: 50%;\n}\nheader .follow-container .social-icon-container a[data-v-01e6ade6] {\n      height: 18px;\n      width: 18px;\n      line-height: 18px;\n}\nheader .follow-container .social-icon-container a i[data-v-01e6ade6] {\n      font-size: 10px;\n}\nheader .language[data-v-01e6ade6] {\n      flex: 0 0 35%;\n      order: 2;\n      max-width: 35%;\n      margin-right: 35px;\n}\nheader .logo-container[data-v-01e6ade6] {\n      flex: 0 0 100%;\n      order: 1;\n      max-width: 100%;\n      text-align: center;\n}\n.banner[data-v-01e6ade6] {\n      justify-content: center;\n}\n.banner .banner-description[data-v-01e6ade6] {\n      padding-right: 0;\n}\n.banner .banner-description button[data-v-01e6ade6] {\n      background: #e29854;\n      border: none;\n      color: white;\n      padding: 10px 15px;\n      margin-top: 30px;\n}\n.page-5  .banner-description-container[data-v-01e6ade6]{\n      padding: 0px;\n}\n.page-5 .banner-description-container h2[data-v-01e6ade6] {\n      font-size: 20px;\n}\n.page-5 .navbar[data-v-01e6ade6] {\n      padding-left: 0;\n}\n}\n  \n", ""]);
 
 // exports
 
@@ -68914,13 +69024,139 @@ var render = function() {
       }
     },
     [
-      _c("h3", { staticStyle: { color: "green" } }, [
-        _vm._v(
-          "vous avez demandé un pick up cliquez sur enregistrer pour confirmer"
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(0)
+      _c("div", { staticClass: "page-5" }, [
+        _c("div", { staticClass: "wrapper" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-right" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("nav", { staticClass: "navbar", attrs: { id: "navbar" } }, [
+                _vm._m(3),
+                _vm._v(" "),
+                _vm._m(4),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "icon",
+                    attrs: { href: "javascript:void(0);" },
+                    on: {
+                      click: function($event) {
+                        return _vm.myFunction()
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-bars" })]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "option-container" }, [
+                _c("label", { staticClass: "styled-checkbox" }, [
+                  _c("span", [_vm._v("Action demandé pick up")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.datachecker,
+                        expression: "datachecker"
+                      }
+                    ],
+                    attrs: { type: "checkbox", name: "", id: "" },
+                    domProps: {
+                      checked: Array.isArray(_vm.datachecker)
+                        ? _vm._i(_vm.datachecker, null) > -1
+                        : _vm.datachecker
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.datachecker,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.datachecker = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.datachecker = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.datachecker = $$c
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "checkbox" })
+                ]),
+                _vm._v(" "),
+                _c("label", { staticClass: "styled-checkbox" }, [
+                  _c("span", [_vm._v("Paquet")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.datachecker,
+                        expression: "datachecker"
+                      }
+                    ],
+                    attrs: { type: "checkbox", name: "", id: "" },
+                    domProps: {
+                      checked: Array.isArray(_vm.datachecker)
+                        ? _vm._i(_vm.datachecker, null) > -1
+                        : _vm.datachecker
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.datachecker,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.datachecker = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.datachecker = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.datachecker = $$c
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "checkbox" })
+                ]),
+                _vm._v(" "),
+                _vm._m(5),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn-retour", attrs: { type: "submit" } },
+                  [_vm._v("\n             ENREGISTRER\n          ")]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(6)
+        ])
+      ])
     ]
   )
 }
@@ -68929,12 +69165,146 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("\n            Enregistrer\n        ")]
-      )
+    return _c("header", [
+      _c("div", { staticClass: "language" }, [
+        _c(
+          "select",
+          {
+            staticClass: "language-toggle",
+            attrs: { name: "language", id: "" }
+          },
+          [
+            _c(
+              "option",
+              {
+                attrs: { value: "none", selected: "", disabled: "", hidden: "" }
+              },
+              [_vm._v("language")]
+            ),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "" } }, [_vm._v("English")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "" } }, [_vm._v("Arabic")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "" } }, [_vm._v("Sawahili")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "" } }, [_vm._v("Russian")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "" } }, [_vm._v("Chinese")])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "logo-container" }, [
+        _c("img", {
+          staticClass: "logo",
+          attrs: { src: __webpack_require__(/*! ./assets/Africa logo.png */ "./resources/js/components/assets/Africa logo.png"), alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "follow-container" }, [
+        _c("h3", [_vm._v("Follow us")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "social-icon-container" }, [
+          _c("a", { staticClass: "social-icn-fb", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fab fa-facebook-f" })
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "social-icn-twitter", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fab fa-twitter" })
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "social-icn-google", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fab fa-google-plus-g" })
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "social-icn-pinterest", attrs: { href: "#" } },
+            [_c("i", { staticClass: "fab fa-pinterest-p" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "social-icn-linkedin", attrs: { href: "#" } },
+            [_c("i", { staticClass: "fab fa-linkedin-in" })]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-left background-2" }, [
+      _c("div", { staticClass: "banner-description-container" }, [
+        _c("p", [_vm._v("Some text!")]),
+        _vm._v(" "),
+        _c("h2", [_vm._v("SOME TEXT  SHOULD GO HERE ")]),
+        _vm._v(" "),
+        _c("button", [_vm._v("some text")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "heart-icon" }, [
+      _c("i", { staticClass: "fas fa-heart" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "express-container" }, [
+      _c("i", { staticClass: "icn-express" }),
+      _vm._v(" "),
+      _c("p", { staticClass: "express" }, [_vm._v("Express")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "nav" }, [
+      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("expediteur")])]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { staticClass: "active", attrs: { href: "#" } }, [
+          _vm._v("envoi")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("destinataire")])]),
+      _vm._v(" "),
+      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("options")])]),
+      _vm._v(" "),
+      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("prix")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "styled-checkbox" }, [
+      _c("i", { staticClass: "fas fa-hand-point-down" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("Cliquez ici en bas pour enregistrer")]),
+      _vm._v(" "),
+      _c("i", { staticClass: "fas fa-hand-point-down" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", [
+      _c("span", [_vm._v("COLLECTANDCLICK.AFRICA")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("ALL RIGHTS RESERVED.")])
     ])
   }
 ]

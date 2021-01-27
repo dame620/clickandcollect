@@ -24,6 +24,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "base64topdf": "^1.1.8",
+        "fs-extra": "^9.1.0",
         "i18n-iso-countries": "^6.2.2",
         "progressbar.js": "^1.1.0",
         "v-calendar": "^2.2.0",

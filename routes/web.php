@@ -166,3 +166,9 @@ Route::get('/pageatest', function(){
 Route::get('/envelop_package_data', function () {
     return view('envelop_package_data');
 });
+
+//ceci est la route du componenet qui menent vers le label dhl
+
+Route::get('/dhllabel', function(){
+    return view('dhlabel');
+});

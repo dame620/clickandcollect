@@ -18,6 +18,7 @@ class PackageResource extends JsonResource
             'id'     => $this->id,
             'height' => $this->height,
             'weight' => $this->weight,
+            'shipment' => $this->shipment,
         ];
     }
 }

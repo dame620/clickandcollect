@@ -69,13 +69,14 @@ class DhlController extends Controller
     }
 
 
-    public function getshipment($weight, $length, $width, $height, $pickuppostalCode, $pickupcityName, $pickupcountryCode, $pickupaddressLine1, $pickupcountyName, $pickupemail, $pickupphone, $pickupmobilePhone, $pickupcompanyName, $pickupfullName, $pickupdate, $receiverpostalCode, $receivercityName, $receivercountryCode, $receiveraddressLine1, $receivercountyName, $receiveremail, $receiverphone, $receivermobilePhone, $receivercompanyName, $receiverfullName, $shipperpostalCode, $shippercityName, $shippercountryCode, $shipperaddressLine1, $shippercountyName, $shipperemail, $shipperphone, $shippermobilePhone, $shippercompanyName, $shipperfullName){
+    public function getshipment($weight, $length, $width, $height, $pickuppostalCode, $pickupcityName, $pickupcountryCode, $pickupaddressLine1, $pickupcountyName, $pickupemail, $pickupphone, $pickupmobilePhone, $pickupcompanyName, $pickupfullName, $pickupdate, $receiverpostalCode, $receivercityName, $receivercountryCode, $receiveraddressLine1, $receivercountyName, $receiveremail, $receiverphone, $receivermobilePhone, $receivercompanyName, $receiverfullName, $shipperpostalCode, $shippercityName, $shippercountryCode, $shipperaddressLine1, $shippercountyName, $shipperemail, $shipperphone, $shippermobilePhone, $shippercompanyName, $shipperfullName)
+    {
        
 
        // receiverpostalCode: null,
        // shipperpostalCode: null,
        
-        $curl = curl_init();
+        /*$curl = curl_init();
 
         curl_setopt_array($curl, array(
         CURLOPT_URL => 'https://api-mock.dhl.com/mydhlapi/shipments',
@@ -225,6 +226,146 @@ class DhlController extends Controller
         curl_close($curl);
 
         return $response;
+*/
+        //start second request
+        
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => 'https://express.api.dhl.com/mydhlapi/test/shipments',
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => '',
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 0,
+          CURLOPT_FOLLOWLOCATION => true,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => 'POST',
+          CURLOPT_POSTFIELDS =>'{
+            "plannedShippingDateAndTime": "2021-01-27T14:00:31GMT+00:00",
+            "pickup": {
+              "isRequested": false,
+              "closeTime": "18:00",
+              "pickupDetails": {
+                "postalAddress": {
+                  "postalCode": "'.$pickuppostalCode.'",
+                  "cityName": "'.$pickupcityName.'",
+                  "countryCode": "'.$pickupcountryCode.'",
+                  "addressLine1": "'.$pickupaddressLine1.'",
+                  "addressLine2": "addres2",
+                  "addressLine3": "addres3",
+                  "countyName": "'.$pickupcountyName.'"
+                },
+                "contactInformation": {
+                  "email": "'.$pickupemail.'",
+                  "phone": "'.$pickupphone.'",
+                  "mobilePhone": "'.$pickupmobilePhone.'",
+                  "companyName": "'.$pickupcompanyName.'",
+                  "fullName": "'.$pickupfullName.'"
+                }
+              }
+            },
+            "productCode": "P",
+            "accounts": [
+              {
+                "typeCode": "shipper",
+                "number": "403022667"
+              }
+            ],
+            "customerDetails": {
+              "shipperDetails": {
+                "postalAddress": {
+                  "postalCode": "",
+                  "cityName": "'.$pickupcityName.'",
+                  "countryCode": "'.$pickupcountryCode.'",
+                  "addressLine1": "'.$shipperaddressLine1.'",
+                  "addressLine2": "addres2",
+                  "addressLine3": "addres3",
+                  "countyName": "'.$shippercountyName.'"
+                },
+                "contactInformation": {
+                  "email": "'.$shipperemail.'",
+                  "phone": "'.$shipperphone.'",
+                  "mobilePhone": "'.$shippermobilePhone.'",
+                  "companyName": "'.$shippercompanyName.'",
+                  "fullName": "'.$shipperfullName.'"
+                }
+              },
+              "receiverDetails": {
+                "postalAddress": {
+                  "postalCode": "",
+                  "cityName": "Prague",
+                  "countryCode": "CZ",
+                  "addressLine1": "'.$receiveraddressLine1.'",
+                  "addressLine2": "addres2",
+                  "addressLine3": "addres3",
+                  "countyName": "'.$receivercountyName.'"
+                },
+                "contactInformation": {
+                  "email": "'.$receiveremail.'",
+                  "phone": "'.$receiverphone.'",
+                  "mobilePhone": "'.$receivermobilePhone.'",
+                  "companyName": "'.$receivercompanyName.'",
+                  "fullName": "'.$receiverfullName.'"
+                }
+              }
+              },
+            "content": {
+              "packages": [
+                {
+                  "weight": '.$weight.',
+                  "dimensions": {
+                    "length": ' .$length. ',
+                    "width": '.$width.',
+                    "height": '.$height.'
+                  },
+                  "customerReferences": [
+                    {
+                      "value": "Customer reference"
+                    }
+                  ],
+                  "description": "Piece content description",
+                  "labelText": [
+                    { 
+                      "position": "left",
+                      "caption": "text caption",
+                      "value": "text value"
+                    }
+                  ],
+                  "labelDescription": "bespkoe label description"
+                }
+              ],
+              "isCustomsDeclarable": true,
+              "declaredValue": 10,
+              "declaredValueCurrency": "USD",
+              "description": "line item description",
+              "incoterm": "DAP",
+              "unitOfMeasurement": "metric"
+              },
+            "shipmentNotification": [
+              {
+                "typeCode": "email",
+                "receiverId": "test@gmail.com",
+                "languageCode": "eng",
+                "languageCountryCode": "en",
+                "bespokeMessage": "message to be included in the notification"
+              }
+            ]
+          }',
+          CURLOPT_HTTPHEADER => array(
+            'Authorization: Basic c2hvcG1lYXdheXNTTjpRXjd0QiEyYkpANm0=',
+            'Content-Type: application/json',
+            'Cookie: BIGipServer~WSB~pl_wsb-express-chd.dhl.com_443=308824229.64288.0000'
+          ),
+        ));
+     
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        return $response;
+
+        //end second request
 
     }
 

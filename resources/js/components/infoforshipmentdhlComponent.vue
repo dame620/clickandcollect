@@ -548,7 +548,7 @@
                         pickupcityName: wrapper.shipmentdetails.pickupcityName,
                         pickupcountryCode: wrapper.shipmentdetails.pickupcountryCode,
                         pickupdate:wrapper.shipmentdetails.pickupdate,
-                       // provinceCode: wrapper.shipmentdetails.provinceCode,
+                       // pickupdate:dayjs(wrapper.shipmentdetails.pickupdate).format('YYYY-MM-DDTHH:mm:ssZ[Z]'),
                         pickupaddressLine1: wrapper.shipmentdetails.pickupaddressLine1,
                         pickupcountyName: wrapper.shipmentdetails.pickupcountyName,
                         pickupemail: wrapper.shipmentdetails.pickupemail,
@@ -586,7 +586,7 @@
                });
 
 
-            console.log(formatted_shipmentdetails);
+            console.log("formated shipment data", formatted_shipmentdetails);
 
             /*async function shipmentreq(){
                 const url = "/post-shipment"
@@ -641,16 +641,19 @@
             .then(response => response.json())
             .then(data => {
                 //const { response } = data;
-                //console.log(data.responses);
+                console.log("le data est", data)
+                console.log("response du data", data.responses);
                 var responses=data.responses
                 responses.forEach(function(response){
                     const responseData = JSON.parse(response);
                     console.log(responseData);
+                    console.log("base64 code" ,responseData.documents[0].content)
                     console.log(responseData.shipmentTrackingNumber);
                     wrappers.trackingnumber=responseData.shipmentTrackingNumber;
                     //parcourir les wrapper pour leur donner le tracking number
                     wrappers.forEach(function(wrapper){
                         wrapper.trackingnumber=responseData.shipmentTrackingNumber;
+                        wrapper.labelbase64=responseData.documents[0].content;
                     }) 
                   
                 })

@@ -110,6 +110,11 @@ Vue.component('pageatest', require('./components/PageA.vue').default);
 //for component envelope data lors du pick up 
 Vue.component('envelop_package_data', require('./components/envelop_package_data.vue').default);
 
+//this is the component for the Dhl label 
+Vue.component('dhllabelcomponent', require('./components/dhllabelcomponent.vue').default);
+
+
+
 
 
 

@@ -18,6 +18,7 @@ import checkdataquoteforenvelopeComponent from './components/checkdataquoteforen
 import Fillemailforenvelope from './components/Fillemailforenvelope.vue'
 import infoforshipmentdhlenvelopeComponent from './components/infoforshipmentdhlenvelopeComponent.vue'
 import envelop_package_data from './components/envelop_package_data.vue'
+import dhllabelcomponent from './components/dhllabelcomponent.vue'
 
 import PageA from './components/PageA.vue'
 import Testpages from './pages/Testpages.vue'
@@ -81,7 +82,11 @@ const routes = [
     {
       path:'/pick_up_package_data',
       name:'pick_up_package_dataComponent',
-      component:pick_up_package_dataComponent
+      component:pick_up_package_dataComponent,
+      /*beforeEnter: (to, from, next) => {
+        if (to.name !== 'login' && !this.is_logged) next({ name: 'login' })
+        else next()
+      }*/
     },
     {
       path:'/package/create',
@@ -116,7 +121,11 @@ const routes = [
     {
       path:'/infofor_shipmentdhl',
       name:'infoforshipmentdhlComponent',
-      component:infoforshipmentdhlComponent
+      component:infoforshipmentdhlComponent,
+     /* beforeEnter: (to, from, next) => {
+        if (to.name !== 'login' && !this.is_logged) next({ name: 'login' })
+        else next()
+      }*/
     },
     {
       path:'/fillemail',
@@ -159,6 +168,11 @@ const routes = [
       path:'/envelop_package_data',
       name:'envelop_package_data',
       component:envelop_package_data
+    },
+    {
+      path:'/dhllabel',
+      name:'dhllabelcomponent',
+      component:dhllabelcomponent
     }
     
 ]

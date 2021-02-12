@@ -40,8 +40,11 @@
 
         methods: {
             onLoadWrappers() {
-                axios.get('/api/user-wrappers').then(response => {
-                    const wrappers = response.data.data;
+                axios.get('/user-wrappers').then(response => {
+                    const wrappers = response.data.data
+
+
+                    console.log(wrappers)
 
                     this.wrappers = wrappers;
 
@@ -68,6 +71,11 @@
 
         mounted() {
             this.onLoadWrappers();
+
+
+            axios.get('/user').then(({data})=> {
+                console.log(data);
+            })
 
         }
     }

@@ -19,6 +19,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <meta name="base-api-url" content="{{ url('/api') }}"> 
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
@@ -28,6 +30,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" />
+    @stack('scripts.header')
     <!-- Styles -->
     <!--comment for getting right css -->
     <!--link href="{{ asset('css/app.css') }}" rel="stylesheet"-->
@@ -41,14 +45,9 @@
   }
 </style>
 <body>
-    <div id="app">
-        @auth 
-        <app :is_logged="true"></app>
-        @endauth
-
-        @guest 
-        <app :is_logged="false"></app>
-        @endguest 
+    <div class="wrapper" id="app">
+      <app></app>
+      @yield('content')
     </div>
 </body>
 </html>

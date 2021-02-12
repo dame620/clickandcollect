@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,15 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Auth::routes();
 
-Route::prefix('api')->namespace('Api')->group(function() {
-    Route::get('/user-wrappers', 'WrappersController@index');
-});
+Route::get('{catchall}', 'WelcomeController@index')->where('catchall', '.*');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 //la route qui méne vers la page de check de packet ou envelop
@@ -172,3 +170,8 @@ Route::get('/envelop_package_data', function () {
 Route::get('/dhllabel', function(){
     return view('dhlabel');
 });
+
+
+
+
+Route::get('/shipmentinvoiceproforma/{id}', 'ShipmentController@show')->where('id', '[0-9]+');

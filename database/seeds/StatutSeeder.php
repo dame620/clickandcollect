@@ -12,7 +12,7 @@ class StatutSeeder extends Seeder
      */
     public function run()
     {
-        $statuses = ['EN ATTENTE ENLEVEMENT', 'ENLEVEMENT DHL'];
+        $statuses = ['EN ATTENTE REGLEMENT', 'RECU DAKAR', 'RECU PARIS', 'RECU USA', 'RECU CHINE', 'EN COURS DE LIVRAISON', 'LIVRE'];
 
         foreach($statuses as $status){
             Statu::create(['libelles' => $status]);

@@ -241,7 +241,7 @@ class DhlController extends Controller
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => 'POST',
           CURLOPT_POSTFIELDS =>'{
-            "plannedShippingDateAndTime": "2021-02-9T14:00:31GMT+00:00",
+            "plannedShippingDateAndTime": "2021-02-15T14:00:31GMT+00:00",
             "pickup": {
               "isRequested": false,
               "closeTime": "18:00",

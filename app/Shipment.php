@@ -26,7 +26,7 @@ class Shipment extends Model
  
         parent::boot();
 
-        $status = Statu::where('libelles', 'EN ATTENTE ENLEVEMENT')->first();
+        $status = Statu::where('libelles', 'EN ATTENTE REGLEMENT')->first();
     
         //ce created is an event
         static::creating(function ($shipment) use ($status) {

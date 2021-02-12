@@ -12,11 +12,14 @@ import VueRouter from 'vue-router'
 import routes from './routes'
 import VCalendar from 'v-calendar';
 
+Vue.use(VueRouter);
+
+import App from './App.vue'
+
 import axios from 'axios'
 Vue.use(axios)
 
 Vue.use(vueCountryRegionSelect)
-Vue.use(VueRouter);
 
 Vue.use(VCalendar);
 
@@ -39,7 +42,6 @@ window.isoCountries = isoCountries
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 //ceci est juste pour regrouper les components
-Vue.component('app', require('./components/App.vue').default);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 //la vue qui contiendra le formulaire de ckeck du packet ou envelop
@@ -113,15 +115,16 @@ Vue.component('envelop_package_data', require('./components/envelop_package_data
 //this is the component for the Dhl label 
 Vue.component('dhllabelcomponent', require('./components/dhllabelcomponent.vue').default);
 
+//this is the component after fill the data by the client
 
-
+Vue.component('invoiceafterfilldata', require('./components/invoiceafterfilldata.vue').default);
 
 
 
 const router = new VueRouter({
-    mode: 'history',
+    mode: 'history',   
     routes
-})
+});
 
 
 
@@ -134,6 +137,6 @@ const router = new VueRouter({
 
 new Vue({
     el: '#app',
-    router
-   
+    router,
+    components: { App }
 });

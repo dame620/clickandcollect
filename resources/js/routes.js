@@ -19,6 +19,7 @@ import Fillemailforenvelope from './components/Fillemailforenvelope.vue'
 import infoforshipmentdhlenvelopeComponent from './components/infoforshipmentdhlenvelopeComponent.vue'
 import envelop_package_data from './components/envelop_package_data.vue'
 import dhllabelcomponent from './components/dhllabelcomponent.vue'
+import invoiceafterfilldata from './components/invoiceafterfilldata.vue'
 
 import PageA from './components/PageA.vue'
 import Testpages from './pages/Testpages.vue'
@@ -45,7 +46,7 @@ const routes = [
     },
 
     {
-      path: '/register',
+      path: '/creer-un-compte',
       component: Register,
       name: 'register'
     },
@@ -173,6 +174,12 @@ const routes = [
       path:'/dhllabel',
       name:'dhllabelcomponent',
       component:dhllabelcomponent
+    },
+
+    {
+      path:'/shipmentinvoiceproforma/:id',
+      name:'invoiceafterfilldata',
+      component: invoiceafterfilldata
     }
     
 ]
